@@ -9,12 +9,6 @@
 
   Private Sub frmExemplo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        'NAO PODE MAXIMIZAR, SENAO COBRE BARRA DE TAREFAS DO WINDOWS, POR ISSO NAO USA WINDOWSTATE
-        Top = 0
-        Left = 0
-        Width = Screen.GetWorkingArea(Me).Width
-        Height = Screen.GetWorkingArea(Me).Height
-
     'DESENHA BORDA DO FORMULARIO
     BackgroundImage = New Bitmap(Width - 1, Height - 1)
         Graphics.FromImage(BackgroundImage).DrawRectangle(New Pen(Color.FromArgb(55, 65, 80)), New Rectangle(New Point(0, 0), Size))
