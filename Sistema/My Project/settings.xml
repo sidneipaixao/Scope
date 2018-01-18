@@ -21,8 +21,8 @@
   <EMail>
     <Relay>smtp.gmail.com</Relay>
     <Port>0</Port>
-    <RealAddress>scope.kpms@gmail.com</RealAddress>
-    <ShowAddress>Alertas Scope</ShowAddress>
+    <Address>scope.kpms@gmail.com</Address>
+    <Name>Alertas Scope</Name>
     <Credential>admkpms18</Credential>
     <CredentialType>0</CredentialType>
   </EMail>
