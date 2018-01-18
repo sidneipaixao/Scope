@@ -1,9 +1,10 @@
 ﻿Public NotInheritable Class frmInicio
 
-  Private Sub frmInicio_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub frmInicio_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-    fnConectar()
+        Application.DoEvents()
+        fnConectar()
 
-  End Sub
+    End Sub
 
 End Class

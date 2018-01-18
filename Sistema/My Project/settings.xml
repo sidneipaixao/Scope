@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Scope>
+  <MainDatabase>
+    <Type>MSSQL</Type>
+    <Name>SCOPE</Name>
+    <Server>.\SQLEXPRESS</Server>
+    <User>sa</User>
+    <Credential>sid123</Credential>
+    <CredentialType>0</CredentialType>
+    <Port>0</Port>
+  </MainDatabase>
+  <LegacyDatabase>
+    <Type>MYSQL</Type>
+    <Name>Lpc_production</Name>
+    <Server>admlojas.dyndns.org</Server>
+    <User>vb</User>
+    <Credential>vb</Credential>
+    <CredentialType>0</CredentialType>
+    <Port>3307</Port>
+  </LegacyDatabase>
+  <EMail>
+    <Relay>smtp.gmail.com</Relay>
+    <Port>0</Port>
+    <RealAddress>scope.kpms@gmail.com</RealAddress>
+    <ShowAddress>Alertas Scope</ShowAddress>
+    <Credential>admkpms18</Credential>
+    <CredentialType>0</CredentialType>
+  </EMail>
+</Scope>

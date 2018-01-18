@@ -6,7 +6,7 @@ Module mdlEmail
 
         Dim oMail As New Mail.MailMessage
         Dim oEnvio As New Mail.SmtpClient
-        Dim cHTML As String
+        Dim cHTML, cAux(3) As String
 
         Try
 
@@ -14,7 +14,13 @@ Module mdlEmail
                 oMail.To.Add(cEmail)
             Next
 
-            oMail.From = New Mail.MailAddress("scope.kpms@gmail.com", "Alertas - Scope")
+            'OBTEM DADOS DE CONFIGURACAO DO ENVIO DE MENSAGENS
+            cAux(0) = fnObtemConfig("MailAdress")
+            cAux(1) = fnObtemConfig("MailName")
+            cAux(2) = fnObtemConfig("MailRelay")
+            cAux(3) = fnObtemConfig("MailCredential")
+
+            oMail.From = New Mail.MailAddress(cAux(0), cAux(1))
             oMail.Subject = cAssunto
             oMail.IsBodyHtml = True
 
@@ -44,8 +50,8 @@ Module mdlEmail
 
             oMail.AlternateViews.Add(oCorpoMsg)
 
-            oEnvio.Host = "smtp.gmail.com"
-            oEnvio.Credentials = New NetworkCredential("scope.kpms@gmail.com", "admkpms18")
+            oEnvio.Host = cAux(2)
+            oEnvio.Credentials = New NetworkCredential(cAux(0), cAux(3))
             oEnvio.EnableSsl = True
 
             oEnvio.Send(oMail)
@@ -66,7 +72,7 @@ Module mdlEmail
 
         Dim oEnderecos() As String
 
-        oEnderecos.Resize(oEnderecos, 2)
+        Array.Resize(oEnderecos, 2)
         oEnderecos(0) = "sidneipaixao@gmail.com"
         oEnderecos(1) = "feefagiolo@gmail.com"
 

@@ -3,27 +3,47 @@
     Public oConexao As New SqlClient.SqlConnection
     Public oComando As New SqlClient.SqlCommand
 
-  Public Function fnConectar() As Boolean
+    Public Function fnConectar() As Boolean
 
-        oConexao.ConnectionString = "DATA SOURCE=.\KPMS; INITIAL CATALOG=SCOPE; UID=sa; PASSWORD=abc123@"
-        oConexao.Open()
+        Try
 
-        oComando.Connection = oConexao
+            oConexao.ConnectionString = fnObtemConfig("MainConnection")
+            oConexao.Open()
 
-    Return True
+            oComando.Connection = oConexao
 
-  End Function
+            Return True
 
-  Public Function fnRetornaDados(ByVal cSQL As String) As SqlClient.SqlDataReader
+        Catch oErro As Exception
 
-    Dim oComando As New SqlClient.SqlCommand(cSQL, oConexao)
-    Dim oDados As SqlClient.SqlDataReader
+            MessageBox.Show(oErro.Source & vbNewLine & oErro.Message)
+            Return False
 
-    'fnConectar()
-    oDados = oComando.ExecuteReader()
+        End Try
 
-    Return oDados
+    End Function
 
-  End Function
+    Public Function fnRetornaDados(ByVal cSQL As String) As SqlClient.SqlDataReader
+
+        Dim oComando As New SqlClient.SqlCommand(cSQL, oConexao)
+        Dim oDados As SqlClient.SqlDataReader
+
+        Try
+
+            If oConexao.State <> ConnectionState.Open Then
+                fnConectar()
+            End If
+            oDados = oComando.ExecuteReader()
+
+            Return oDados
+
+        Catch oErro As Exception
+
+            MessageBox.Show(oErro.Source & vbNewLine & oErro.Message)
+            Return Nothing
+
+        End Try
+
+    End Function
 
 End Module
