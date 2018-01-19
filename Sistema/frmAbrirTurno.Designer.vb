@@ -49,11 +49,11 @@ Partial Class frmAbrirTurno
         Me.cmdEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdEntrar.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdEntrar.ForeColor = System.Drawing.Color.White
-        Me.cmdEntrar.Location = New System.Drawing.Point(74, 414)
+        Me.cmdEntrar.Location = New System.Drawing.Point(74, 382)
         Me.cmdEntrar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.cmdEntrar.Name = "cmdEntrar"
         Me.cmdEntrar.Size = New System.Drawing.Size(310, 39)
-        Me.cmdEntrar.TabIndex = 5
+        Me.cmdEntrar.TabIndex = 4
         Me.cmdEntrar.Text = "Iniciar turno"
         Me.cmdEntrar.UseVisualStyleBackColor = False
         '
@@ -98,11 +98,11 @@ Partial Class frmAbrirTurno
         Me.txtValorIni.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtValorIni.DecimalPlaces = 2
         Me.txtValorIni.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorIni.Location = New System.Drawing.Point(74, 370)
+        Me.txtValorIni.Location = New System.Drawing.Point(74, 338)
         Me.txtValorIni.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
         Me.txtValorIni.Name = "txtValorIni"
         Me.txtValorIni.Size = New System.Drawing.Size(152, 27)
-        Me.txtValorIni.TabIndex = 3
+        Me.txtValorIni.TabIndex = 2
         Me.txtValorIni.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.txtValorIni.Value = New Decimal(New Integer() {400, 0, 0, 0})
         '
@@ -110,27 +110,27 @@ Partial Class frmAbrirTurno
         '
         Me.txtUsuario.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtUsuario.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUsuario.Location = New System.Drawing.Point(74, 257)
+        Me.txtUsuario.Location = New System.Drawing.Point(74, 225)
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Size = New System.Drawing.Size(310, 27)
-        Me.txtUsuario.TabIndex = 1
+        Me.txtUsuario.TabIndex = 0
         '
         'txtSenha
         '
         Me.txtSenha.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtSenha.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSenha.Location = New System.Drawing.Point(74, 309)
+        Me.txtSenha.Location = New System.Drawing.Point(74, 277)
         Me.txtSenha.Name = "txtSenha"
         Me.txtSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtSenha.Size = New System.Drawing.Size(310, 27)
-        Me.txtSenha.TabIndex = 2
+        Me.txtSenha.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(70, 235)
+        Me.Label1.Location = New System.Drawing.Point(70, 203)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(62, 19)
         Me.Label1.TabIndex = 6
@@ -141,7 +141,7 @@ Partial Class frmAbrirTurno
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(70, 287)
+        Me.Label2.Location = New System.Drawing.Point(70, 255)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(120, 19)
         Me.Label2.TabIndex = 7
@@ -152,7 +152,7 @@ Partial Class frmAbrirTurno
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(70, 348)
+        Me.Label3.Location = New System.Drawing.Point(70, 316)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(146, 19)
         Me.Label3.TabIndex = 8
@@ -163,11 +163,11 @@ Partial Class frmAbrirTurno
         Me.txtValorFim.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtValorFim.DecimalPlaces = 2
         Me.txtValorFim.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtValorFim.Location = New System.Drawing.Point(232, 370)
+        Me.txtValorFim.Location = New System.Drawing.Point(232, 338)
         Me.txtValorFim.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
         Me.txtValorFim.Name = "txtValorFim"
         Me.txtValorFim.Size = New System.Drawing.Size(152, 27)
-        Me.txtValorFim.TabIndex = 4
+        Me.txtValorFim.TabIndex = 3
         Me.txtValorFim.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.txtValorFim.Value = New Decimal(New Integer() {400, 0, 0, 0})
         '
@@ -176,7 +176,7 @@ Partial Class frmAbrirTurno
         Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(228, 348)
+        Me.Label4.Location = New System.Drawing.Point(228, 316)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(146, 19)
         Me.Label4.TabIndex = 11
@@ -186,7 +186,7 @@ Partial Class frmAbrirTurno
         '
         Me.imgNome.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.imgNome.Image = CType(resources.GetObject("imgNome.Image"), System.Drawing.Image)
-        Me.imgNome.Location = New System.Drawing.Point(101, 153)
+        Me.imgNome.Location = New System.Drawing.Point(101, 121)
         Me.imgNome.Name = "imgNome"
         Me.imgNome.Size = New System.Drawing.Size(256, 75)
         Me.imgNome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -199,7 +199,7 @@ Partial Class frmAbrirTurno
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Gainsboro
-        Me.ClientSize = New System.Drawing.Size(457, 663)
+        Me.ClientSize = New System.Drawing.Size(457, 598)
         Me.ControlBox = False
         Me.Controls.Add(Me.imgNome)
         Me.Controls.Add(Me.Label4)

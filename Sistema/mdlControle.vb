@@ -31,7 +31,7 @@
       End If
     End If
 
-    Return rCaixa.Situacao
+        Return True 'rCaixa.Situacao
 
   End Function
 
