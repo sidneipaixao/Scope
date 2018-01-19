@@ -55,7 +55,7 @@
 
         Try
 
-            If oConexao.State <> ConnectionState.Open Then
+            If oConMySQL.State <> ConnectionState.Open Then
                 oConMySQL.Open()
             End If
 
