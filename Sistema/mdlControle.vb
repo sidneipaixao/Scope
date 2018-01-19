@@ -33,6 +33,51 @@
 
         Return True 'rCaixa.Situacao
 
-  End Function
+    End Function
+
+    Public Function fnObtemConfig(ByVal cItem As String) As String
+
+        Dim oArquivo As New System.Xml.XmlDocument
+        Dim oDados As System.Xml.XmlNodeList
+        Dim cAux As String = ""
+
+        oArquivo.Load("../../My Project/settings.xml")
+
+        Select Case cItem
+            Case "MainConnection"
+                oDados = oArquivo.DocumentElement.SelectNodes("/Scope/MainDatabase")
+                cAux = "DATA SOURCE=" & oDados(0).SelectSingleNode("Server").InnerText & ";"
+                cAux += "INITIAL CATALOG=" & oDados(0).SelectSingleNode("Name").InnerText & ";"
+                cAux += "USER ID=" & oDados(0).SelectSingleNode("User").InnerText & ";"
+                cAux += "PASSWORD=" & fnDecriptaSenha(oDados(0).SelectSingleNode("CredentialType").InnerText, oDados(0).SelectSingleNode("Credential").InnerText)
+            Case "MailAdress", "MailName", "MailRelay", "MailCredential"
+                oDados = oArquivo.DocumentElement.SelectNodes("/Scope/EMail")
+                If cItem = "MailCredential" Then
+                    cAux = fnDecriptaSenha(oDados(0).SelectSingleNode("CredentialType").InnerText, oDados(0).SelectSingleNode("Credential").InnerText)
+                Else
+                    cAux = oDados(0).SelectSingleNode(cItem.Replace("Mail", "")).InnerText
+                End If
+            Case Else
+                oDados = oArquivo.DocumentElement.SelectNodes("/Scope/General")
+                cAux = oDados(0).SelectSingleNode(cItem).InnerText
+        End Select
+
+        Return cAux
+
+    End Function
+
+    Private Function fnDecriptaSenha(ByVal nModo As Integer, ByVal cSenha As String) As String
+
+        Dim cAux As String = ""
+
+        Select Case nModo
+            Case 1
+            Case Else
+                cAux = cSenha
+        End Select
+
+        Return cAux
+
+    End Function
 
 End Module
