@@ -1,11 +1,11 @@
 ﻿Public Class frmEncerrarPedido
 
-  Dim nVlrTotal As Double = 0
+    Dim nVlrTotal As Double = 0
     Dim nVlrPago As String = 0
-  Dim lIncluir As Boolean = True
+    Dim lIncluir As Boolean = True
 
 
-  Private Sub frmPedido_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         'NAO PODE MAXIMIZAR, SENAO COBRE BARRA DE TAREFAS DO WINDOWS, POR ISSO NAO USA WINDOWSTATE
         Top = 0
@@ -16,7 +16,7 @@
         'DESENHA BORDA DO FORMULARIO
         BackgroundImage = New Bitmap(Width - 1, Height - 1)
         Graphics.FromImage(BackgroundImage).DrawRectangle(New Pen(Color.FromArgb(55, 65, 80)), New Rectangle(New Point(0, 0), Size))
-    
+
         nVlrPago = ""
 
         Dim oDados As SqlClient.SqlDataReader = fnRetornaDados("SELECT * FROM MOEDAS WHERE MDSRELACAO = 0 AND MDSEXIBICAO <> 0")
@@ -94,9 +94,9 @@
 
         txtVlrTroco.Text = "0,00"
 
-  End Sub
+    End Sub
 
-  Private Sub fnEfetuarPgto(sender As System.Object, e As System.EventArgs)
+    Private Sub fnEfetuarPgto(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
         Dim oDados As SqlClient.SqlDataReader = fnRetornaDados("SELECT * FROM MOEDAS WHERE MDSEXIBICAO <> 0 AND MDSRELACAO = " & sender.tag)
 
@@ -144,91 +144,91 @@
 
     End Sub
 
-    Private Sub btn9_Click(sender As System.Object, e As System.EventArgs) Handles btn9.Click
+    Private Sub btn9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn9.Click
 
         nVlrPago = nVlrPago & sender.text
         txtVlrPago.Text = nVlrPago
 
     End Sub
 
-    Private Sub btn8_Click(sender As System.Object, e As System.EventArgs) Handles btn8.Click
+    Private Sub btn8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn8.Click
 
         nVlrPago = nVlrPago & sender.text
         txtVlrPago.Text = nVlrPago
 
     End Sub
 
-    Private Sub btn3_Click(sender As System.Object, e As System.EventArgs) Handles btn3.Click
+    Private Sub btn3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn3.Click
 
         nVlrPago = nVlrPago & sender.text
         txtVlrPago.Text = nVlrPago
 
     End Sub
 
-    Private Sub btnDec_Click(sender As System.Object, e As System.EventArgs) Handles btnDec.Click
+    Private Sub btnDec_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDec.Click
 
         nVlrPago = nVlrPago & sender.text
         txtVlrPago.Text = nVlrPago
 
     End Sub
 
-    Private Sub btn2_Click(sender As System.Object, e As System.EventArgs) Handles btn2.Click
+    Private Sub btn2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn2.Click
 
         nVlrPago = nVlrPago & sender.text
         txtVlrPago.Text = nVlrPago
 
     End Sub
 
-    Private Sub btn1_Click(sender As System.Object, e As System.EventArgs) Handles btn1.Click
+    Private Sub btn1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn1.Click
 
         nVlrPago = nVlrPago & sender.text
         txtVlrPago.Text = nVlrPago
 
     End Sub
 
-    Private Sub btn6_Click(sender As System.Object, e As System.EventArgs) Handles btn6.Click
+    Private Sub btn6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn6.Click
 
         nVlrPago = nVlrPago & sender.text
         txtVlrPago.Text = nVlrPago
 
     End Sub
 
-    Private Sub btn5_Click(sender As System.Object, e As System.EventArgs) Handles btn5.Click
+    Private Sub btn5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn5.Click
 
         nVlrPago = nVlrPago & sender.text
         txtVlrPago.Text = nVlrPago
 
     End Sub
 
-    Private Sub btn4_Click(sender As System.Object, e As System.EventArgs) Handles btn4.Click
+    Private Sub btn4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn4.Click
 
         nVlrPago = nVlrPago & sender.text
         txtVlrPago.Text = nVlrPago
 
     End Sub
 
-    Private Sub btn7_Click(sender As System.Object, e As System.EventArgs) Handles btn7.Click
+    Private Sub btn7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn7.Click
 
         nVlrPago = nVlrPago & sender.text
         txtVlrPago.Text = nVlrPago
 
     End Sub
 
-    Private Sub btnApaga_Click(sender As System.Object, e As System.EventArgs) Handles btnApaga.Click
+    Private Sub btnApaga_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnApaga.Click
 
         txtVlrPago.Text = "0,00"
         nVlrPago = ""
 
     End Sub
 
-    Private Sub btn0_Click(sender As System.Object, e As System.EventArgs) Handles btn0.Click
+    Private Sub btn0_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn0.Click
 
         nVlrPago = nVlrPago & sender.text
         txtVlrPago.Text = nVlrPago
 
     End Sub
 
-    Private Sub txtVlrPago_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtVlrPago.TextChanged
+    Private Sub txtVlrPago_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtVlrPago.TextChanged
 
         If txtTotal.Text <> "" Then
 
@@ -246,50 +246,50 @@
 
     End Sub
 
-    Private Sub btnA10_Click(sender As System.Object, e As System.EventArgs) Handles btnA10.Click
+    Private Sub btnA10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnA10.Click
 
         txtVlrPago.Text = "10,00"
 
     End Sub
 
-    Private Sub btnA20_Click(sender As System.Object, e As System.EventArgs) Handles btnA20.Click
+    Private Sub btnA20_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnA20.Click
 
         txtVlrPago.Text = "20,00"
 
     End Sub
 
-    Private Sub btnA30_Click(sender As System.Object, e As System.EventArgs) Handles btnA30.Click
+    Private Sub btnA30_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnA30.Click
 
         txtVlrPago.Text = "30,00"
 
     End Sub
 
-    Private Sub btnA40_Click(sender As System.Object, e As System.EventArgs) Handles btnA40.Click
+    Private Sub btnA40_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnA40.Click
 
         txtVlrPago.Text = "40,00"
 
     End Sub
 
-    Private Sub btnA50_Click(sender As System.Object, e As System.EventArgs) Handles btnA50.Click
+    Private Sub btnA50_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnA50.Click
 
         txtVlrPago.Text = "50,00"
 
     End Sub
 
-    Private Sub btnA60_Click(sender As System.Object, e As System.EventArgs) Handles btnA60.Click
+    Private Sub btnA60_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnA60.Click
 
         txtVlrPago.Text = "100,00"
 
     End Sub
 
-    Private Sub txtTotal_Enter(sender As Object, e As System.EventArgs) Handles txtTotal.Enter
+    Private Sub txtTotal_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtTotal.Enter
 
         MessageBox.Show("Não é possível editar este campo.", "Ops, opção não editavel!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         grdItemPedido.Focus()
 
     End Sub
 
-    Private Sub txtTotal_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtTotal.TextChanged
+    Private Sub txtTotal_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtTotal.TextChanged
 
         If txtTotal.Text <> "" Then
 
@@ -307,7 +307,7 @@
 
     End Sub
 
-    Private Sub btnIncluir_Click(sender As System.Object, e As System.EventArgs) Handles btnIncluir.Click
+    Private Sub btnIncluir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnIncluir.Click
 
 
         If lIncluir Then
@@ -318,36 +318,36 @@
 
     End Sub
 
-    Private Sub btnEncerrar_Click(sender As System.Object, e As System.EventArgs) Handles btnEncerrar.Click
+    Private Sub btnEncerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEncerrar.Click
 
         frmComanda.ShowDialog()
 
     End Sub
 
-  Private Sub grdItemPedido_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles grdItemPedido.MouseClick
+    Private Sub grdItemPedido_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles grdItemPedido.MouseClick
 
-    If lIncluir Then
-      frmIncluirItem.ShowDialog()
-    End If
+        If lIncluir Then
+            frmIncluirItem.ShowDialog()
+        End If
 
-    lIncluir = True
+        lIncluir = True
 
-  End Sub
+    End Sub
 
-    Private Sub cmdFechar_Click(sender As System.Object, e As System.EventArgs) Handles cmdFechar.Click
+    Private Sub cmdFechar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdFechar.Click
 
         Close()
 
     End Sub
 
-    Private Sub txtVlrTroco_Enter(sender As Object, e As System.EventArgs) Handles txtVlrTroco.Enter
+    Private Sub txtVlrTroco_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtVlrTroco.Enter
 
         MessageBox.Show("Não é possível editar este campo.", "Ops, opção não editavel!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         grdItemPedido.Focus()
 
     End Sub
 
-    Private Sub lstItens_Click(sender As Object, e As System.EventArgs) Handles lstItens.Click
+    Private Sub lstItens_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles lstItens.Click
 
         'Aqui nós configuramos o fomr abaixo para confirmar a exclusão do produto
         frmExcluirItem.lblTitulo.Text = "Confirmar exclusão"
@@ -380,7 +380,7 @@
 
     End Sub
 
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
 
         txtVlrPago.Text = txtTotal.Text
 
