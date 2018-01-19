@@ -15,7 +15,7 @@ Module mdlEmail
             Next
 
             'OBTEM DADOS DE CONFIGURACAO DO ENVIO DE MENSAGENS
-            cAux(0) = fnObtemConfig("MailAdress")
+            cAux(0) = fnObtemConfig("MailAddress")
             cAux(1) = fnObtemConfig("MailName")
             cAux(2) = fnObtemConfig("MailRelay")
             cAux(3) = fnObtemConfig("MailCredential")
