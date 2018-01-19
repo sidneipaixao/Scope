@@ -50,7 +50,7 @@
                 cAux += "INITIAL CATALOG=" & oDados(0).SelectSingleNode("Name").InnerText & ";"
                 cAux += "USER ID=" & oDados(0).SelectSingleNode("User").InnerText & ";"
                 cAux += "PASSWORD=" & fnDecriptaSenha(oDados(0).SelectSingleNode("CredentialType").InnerText, oDados(0).SelectSingleNode("Credential").InnerText)
-            Case "MailAdress", "MailName", "MailRelay", "MailCredential"
+            Case "MailAddress", "MailName", "MailRelay", "MailCredential"
                 oDados = oArquivo.DocumentElement.SelectNodes("/Scope/EMail")
                 If cItem = "MailCredential" Then
                     cAux = fnDecriptaSenha(oDados(0).SelectSingleNode("CredentialType").InnerText, oDados(0).SelectSingleNode("Credential").InnerText)
