@@ -50,6 +50,13 @@
                 cAux += "INITIAL CATALOG=" & oDados(0).SelectSingleNode("Name").InnerText & ";"
                 cAux += "USER ID=" & oDados(0).SelectSingleNode("User").InnerText & ";"
                 cAux += "PASSWORD=" & fnDecriptaSenha(oDados(0).SelectSingleNode("CredentialType").InnerText, oDados(0).SelectSingleNode("Credential").InnerText)
+            Case "LegacyConnection"
+                oDados = oArquivo.DocumentElement.SelectNodes("/Scope/LegacyDatabase")
+                cAux = "Persist Security Info=False;DATA SOURCE=" & oDados(0).SelectSingleNode("Server").InnerText & ";"
+                cAux += "PORT=" & oDados(0).SelectSingleNode("Port").InnerText & ";"
+                cAux += "DATABASE=" & oDados(0).SelectSingleNode("Name").InnerText & ";"
+                cAux += "USERNAME=" & oDados(0).SelectSingleNode("User").InnerText & ";"
+                cAux += "PASSWORD=" & fnDecriptaSenha(oDados(0).SelectSingleNode("CredentialType").InnerText, oDados(0).SelectSingleNode("Credential").InnerText)
             Case "MailAddress", "MailName", "MailRelay", "MailCredential"
                 oDados = oArquivo.DocumentElement.SelectNodes("/Scope/EMail")
                 If cItem = "MailCredential" Then
