@@ -114,6 +114,7 @@ Partial Class frmAbrirTurno
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Size = New System.Drawing.Size(310, 27)
         Me.txtUsuario.TabIndex = 0
+        Me.txtUsuario.Text = "nice"
         '
         'txtSenha
         '
@@ -124,6 +125,7 @@ Partial Class frmAbrirTurno
         Me.txtSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtSenha.Size = New System.Drawing.Size(310, 27)
         Me.txtSenha.TabIndex = 1
+        Me.txtSenha.Text = "169453"
         '
         'Label1
         '

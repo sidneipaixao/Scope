@@ -35,8 +35,8 @@ Partial Class frmComanda
         Me.lblValorTotal = New System.Windows.Forms.Label()
         Me.lblEmail = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblResumo = New System.Windows.Forms.Label()
         Me.lblMoeda = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.pnlTitulo.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -58,7 +58,7 @@ Partial Class frmComanda
         Me.btnCancelar.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.Location = New System.Drawing.Point(470, 241)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(105, 31)
+        Me.btnCancelar.Size = New System.Drawing.Size(105, 50)
         Me.btnCancelar.TabIndex = 2
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -66,11 +66,11 @@ Partial Class frmComanda
         'btnOk
         '
         Me.btnOk.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnOk.Location = New System.Drawing.Point(359, 241)
+        Me.btnOk.Location = New System.Drawing.Point(317, 241)
         Me.btnOk.Name = "btnOk"
-        Me.btnOk.Size = New System.Drawing.Size(105, 31)
+        Me.btnOk.Size = New System.Drawing.Size(150, 50)
         Me.btnOk.TabIndex = 1
-        Me.btnOk.Text = "Confirmar"
+        Me.btnOk.Text = "Novo pagamento"
         Me.btnOk.UseVisualStyleBackColor = True
         '
         'txtSenha
@@ -78,7 +78,7 @@ Partial Class frmComanda
         Me.txtSenha.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSenha.Location = New System.Drawing.Point(13, 202)
         Me.txtSenha.Name = "txtSenha"
-        Me.txtSenha.Size = New System.Drawing.Size(261, 33)
+        Me.txtSenha.Size = New System.Drawing.Size(290, 33)
         Me.txtSenha.TabIndex = 0
         Me.txtSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -168,13 +168,24 @@ Partial Class frmComanda
         Me.Panel1.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel1.Controls.Add(Me.lblEmail)
         Me.Panel1.Controls.Add(Me.lblValorTotal)
-        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.lblResumo)
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Location = New System.Drawing.Point(12, 76)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(562, 94)
         Me.Panel1.TabIndex = 30
+        '
+        'lblResumo
+        '
+        Me.lblResumo.AutoSize = True
+        Me.lblResumo.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResumo.ForeColor = System.Drawing.Color.White
+        Me.lblResumo.Location = New System.Drawing.Point(6, 14)
+        Me.lblResumo.Name = "lblResumo"
+        Me.lblResumo.Size = New System.Drawing.Size(131, 19)
+        Me.lblResumo.TabIndex = 26
+        Me.lblResumo.Text = "Resumo da Venda"
         '
         'lblMoeda
         '
@@ -186,17 +197,6 @@ Partial Class frmComanda
         Me.lblMoeda.Size = New System.Drawing.Size(98, 26)
         Me.lblMoeda.TabIndex = 31
         Me.lblMoeda.Text = "YOUCOM"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(6, 14)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(131, 19)
-        Me.Label1.TabIndex = 26
-        Me.Label1.Text = "Resumo da Venda"
         '
         'Label5
         '
@@ -215,7 +215,7 @@ Partial Class frmComanda
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancelar
-        Me.ClientSize = New System.Drawing.Size(586, 279)
+        Me.ClientSize = New System.Drawing.Size(586, 301)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.pnlTitulo)
@@ -248,7 +248,7 @@ Partial Class frmComanda
     Friend WithEvents lblValorTotal As System.Windows.Forms.Label
     Friend WithEvents lblEmail As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lblResumo As System.Windows.Forms.Label
     Friend WithEvents lblMoeda As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
 End Class

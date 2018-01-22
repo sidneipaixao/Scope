@@ -17,7 +17,7 @@
         '                                                         "SELECT 3 CODPEDIDO, 'Phil Spencer' NOME, '...' CONTRATO, 'phil.spencer@microsoft.com' EMAIL UNION " & _
         '                                                         "SELECT 3 CODPEDIDO, 'Verner Von Siemens' NOME, 'Fragrance' CONTRATO, '...' EMAIL UNION " & _
         '                                                         "SELECT 4 CODPEDIDO, 'Charles Miller' NOME, 'Riachuelo' CONTRATO, 'cliente@riachuelo.com.br' EMAIL")
-        Dim oPedidos As MySql.Data.MySqlClient.MySqlDataReader = fnRetornaDadosMySQL("SELECT ID CODPEDIDO, IDENTIFICACAO NOME, '' CONTRATO, IF(FIDELIDADE='N', 'Cliente nao fidelizado', FIDELIDADE) EMAIL FROM vendas WHERE NUMEROPEDIDO IS NULL LIMIT 0, 100")
+        Dim oPedidos As SqlClient.SqlDataReader = fnRetornaDados("SELECT VNDCODIGO CODPEDIDO, VNDCLIENTENOME NOME, '' CONTRATO, VNDCLIENTEEMAIL EMAIL FROM vendas WHERE VNDCOMANDA IS NULL")
 
         lstPedidos.Items.Clear()
 
@@ -35,23 +35,23 @@
         'oPedidos = fnRetornaDados("SELECT 1 CODPEDIDO, 'Antonio Banderas' NOME, 'New México' CONTRATO, 'antonio.banderas@dmail.com' EMAIL UNION " & _
         '                                                         "SELECT 2 CODPEDIDO, 'Alcebiades P. Vasconcelos' NOME, 'Renner' CONTRATO, 'alce@vascon.com.br' EMAIL UNION " & _
         '                                                         "SELECT 3 CODPEDIDO, 'Alessandra Vieira Ramos' NOME, '...' CONTRATO, 'alessandraVR@dmail.com' EMAIL")
-        oPedidos = fnRetornaDadosMySQL("SELECT ID CODPEDIDO, IDENTIFICACAO NOME, '' CONTRATO, IF(FIDELIDADE='N', 'Cliente nao fidelizado', FIDELIDADE) EMAIL FROM vendas WHERE ID BETWEEN 492041 AND 492050")
+        'oPedidos = fnRetornaDados("SELECT ID CODPEDIDO, IDENTIFICACAO NOME, '' CONTRATO, IF(FIDELIDADE='N', 'Cliente nao fidelizado', FIDELIDADE) EMAIL FROM vendas WHERE ID BETWEEN 492041 AND 492050")
 
-        lstRecentes.Items.Clear()
+        'lstRecentes.Items.Clear()
 
-        'CARREGA PEDIDOS DA BASE DE DADOS
-        While oPedidos.Read
-            With lstRecentes.Items.Add("PDD" & oPedidos("CODPEDIDO"), oPedidos("NOME") & "", 0)
-                .UseItemStyleForSubItems = False
-                .SubItems.Add(oPedidos("CONTRATO") & " ", Color.IndianRed, lstPedidos.BackColor, New Font(lstPedidos.Font.Name, 12, FontStyle.Bold))
-                .SubItems.Add(oPedidos("EMAIL") & " ", Color.Gray, lstPedidos.BackColor, New Font(lstPedidos.Font.Name, 12, FontStyle.Bold))
-            End With
-        End While
+        ''CARREGA PEDIDOS DA BASE DE DADOS
+        'While oPedidos.Read
+        '    With lstRecentes.Items.Add("PDD" & oPedidos("CODPEDIDO"), oPedidos("NOME") & "", 0)
+        '        .UseItemStyleForSubItems = False
+        '        .SubItems.Add(oPedidos("CONTRATO") & " ", Color.IndianRed, lstPedidos.BackColor, New Font(lstPedidos.Font.Name, 12, FontStyle.Bold))
+        '        .SubItems.Add(oPedidos("EMAIL") & " ", Color.Gray, lstPedidos.BackColor, New Font(lstPedidos.Font.Name, 12, FontStyle.Bold))
+        '    End With
+        'End While
 
-        oPedidos.Close()
+        'oPedidos.Close()
 
         'FECHA A CONEXAO COM O MYSQL, PORQUE ESTA VIA INTERNET
-        oConMySQL.Close()
+        'oConMySQL.Close()
 
 
     End Sub
@@ -62,9 +62,10 @@
 
   Private Sub lstPedidos_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles lstPedidos.MouseClick
 
-    If lstPedidos.SelectedItems.Count > 0 Then
-      frmEncerrarPedido.Show()
-    End If
+        If lstPedidos.SelectedItems.Count > 0 Then
+            frmEncerrarPedido.fnCarregaDados(lstPedidos.SelectedItems(0).Name.ToString.Remove(0, 3))
+            frmEncerrarPedido.Show()
+        End If
 
   End Sub
 
