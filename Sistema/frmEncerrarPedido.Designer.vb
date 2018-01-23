@@ -132,7 +132,7 @@ Partial Class frmEncerrarPedido
         Me.lstItens.BackColor = System.Drawing.Color.White
         Me.lstItens.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lstItens.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.clnCodigo, Me.clnDescricao, Me.clnQtde, Me.clnValor})
-        Me.lstItens.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lstItens.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstItens.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.lstItens.FullRowSelect = True
         Me.lstItens.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
@@ -159,7 +159,6 @@ Partial Class frmEncerrarPedido
         '
         'clnQtde
         '
-        Me.clnQtde.DisplayIndex = 2
         Me.clnQtde.Text = "Qtde"
         Me.clnQtde.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.clnQtde.Width = 61
@@ -526,7 +525,7 @@ Partial Class frmEncerrarPedido
         Me.lblTroco.AutoSize = True
         Me.lblTroco.BackColor = System.Drawing.Color.WhiteSmoke
         Me.lblTroco.Font = New System.Drawing.Font("Candara", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTroco.ForeColor = System.Drawing.Color.LightCoral
+        Me.lblTroco.ForeColor = System.Drawing.Color.Salmon
         Me.lblTroco.Location = New System.Drawing.Point(247, 7)
         Me.lblTroco.Name = "lblTroco"
         Me.lblTroco.Size = New System.Drawing.Size(159, 29)

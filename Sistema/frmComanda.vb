@@ -8,8 +8,20 @@
 
     Private Sub btnOk_Click(sender As System.Object, e As System.EventArgs) Handles btnOk.Click
 
-        frmEncerrarPedido.Close()
-        Close()
+        If Me.Tag = "total" Then
+
+            'REALIZA INSERT
+
+            Close()
+            frmEncerrarPedido.Close()
+
+        Else
+
+            'REALIZA INSERT
+
+            Close()
+
+        End If
 
     End Sub
 

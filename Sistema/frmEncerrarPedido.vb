@@ -3,6 +3,7 @@
     Dim nVlrTotal As Double = 0
     Dim nVlrPago As String = 0
     Dim lIncluir As Boolean = True
+    Dim lPagamentoParcial As Boolean = False
 
     Public Function fnCarregaDados(ByVal nPedido As Integer) As Boolean
 
@@ -25,7 +26,7 @@
                     .Groups.Add("PRT" & oDados("VDIPRATO"), "Prato " & oDados("VDIPRATO"))
                 End If
 
-                oItem = .Items.Add("SEQ" & oDados("VDISEQUENCIA") & oDados("VDIPRATO"), oDados("VDISEQUENCIA"), 0)
+                oItem = .Items.Add("SEQ" & oDados("VDISEQUENCIA") & oDados("VDIPRATO"), oDados("VDIPRODUTO"), 0)
                 oItem.Group = .Groups("PRT" & oDados("VDIPRATO"))
                 oItem.SubItems.Add(oDados("PRDNOME"))
                 oItem.SubItems.Add(oDados("VDIQTDE"))
@@ -53,7 +54,7 @@
         For Each oGrupo As ListViewGroup In lstItens.Groups
             For Each oItem As ListViewItem In oGrupo.Items
                 oItem.BackColor = lstItens.BackColor
-                nTotal += CDbl(oItem.SubItems(2).Text)
+                nTotal += CDbl(oItem.SubItems(3).Text)
             Next
         Next
 
@@ -72,52 +73,61 @@
             End If
 
             For Each oItem As ListViewItem In lstItens.Groups(nPosicao).Items
-                oItem.BackColor = Color.LightCoral
-                nTotal += CDbl(oItem.SubItems(2).Text)
+                oItem.BackColor = Color.SkyBlue
+                nTotal += CDbl(oItem.SubItems(3).Text)
             Next
 
         End If
 
-        txtVlrPrato.Text = nTotal
+        txtVlrPrato.Text = FormatNumber(nTotal)
 
     End Sub
 
 
     Private Sub fnCalculaValores()
 
-        If txtVlrPago.Text = "" Then
+            If txtVlrPago.Text = "" Then
 
-            txtVlrPago.Text = "0,00"
+                txtVlrPago.Text = "0,00"
 
-        End If
+            End If
 
-        If txtVlrTroco.Text = "" Then
+            If txtVlrTroco.Text = "" Then
 
-            txtVlrTroco.Text = "0,00"
+                txtVlrTroco.Text = "0,00"
 
-        End If
+            End If
 
-        Dim nVlrTotal As Double = CDbl(txtTotal.Text)
-        Dim nVlrPago As Double = CDbl(txtVlrPago.Text)
-        Dim nVlrSaldo As Double = CDbl(txtVlrTroco.Text)
+            Dim nVlrTotal As Double = CDbl(txtTotal.Text)
+            Dim nVlrPago As Double = CDbl(txtVlrPago.Text)
+            Dim nVlrSaldo As Double = CDbl(txtVlrTroco.Text)
 
-        nVlrSaldo = nVlrPago - nVlrTotal
+            If lPagamentoParcial = False Then
 
-        If nVlrSaldo < 0 Then
+                nVlrSaldo = nVlrPago - nVlrTotal
 
-            txtVlrTroco.ForeColor = Color.LightCoral
-            lblTroco.ForeColor = Color.LightCoral
-            lblTroco.Text = "Saldo devedor"
+                If nVlrSaldo < 0 Then
+
+                    txtVlrTroco.ForeColor = Color.LightCoral
+                    lblTroco.ForeColor = Color.LightCoral
+                lblTroco.Text = "Saldo devedor"
+
+                Else
+
+                    txtVlrTroco.ForeColor = Color.LightSeaGreen
+                    lblTroco.ForeColor = Color.LightSeaGreen
+                    lblTroco.Text = "Troco"
+
+                End If
+
+                txtVlrTroco.Text = FormatNumber(nVlrSaldo)
 
         Else
 
-            txtVlrTroco.ForeColor = Color.LightSeaGreen
-            lblTroco.ForeColor = Color.LightSeaGreen
-            lblTroco.Text = "Troco"
+            nVlrSaldo = nVlrPago - nVlrSaldo
+            txtVlrTroco.Text = FormatNumber(nVlrSaldo)
 
         End If
-
-        txtVlrTroco.Text = FormatNumber(nVlrSaldo)
 
     End Sub
 
@@ -135,6 +145,7 @@
                 frmComanda.btnOk.Text = "Novo pagamento"
                 frmComanda.btnOk.Size = New Size(150, 50)
                 frmComanda.btnOk.Location = New Point(317, 241)
+                frmComanda.Tag = cChamada
                 frmComanda.ShowDialog()
 
             Case "total"
@@ -147,6 +158,7 @@
                 frmComanda.btnOk.Text = "Confirmar"
                 frmComanda.btnOk.Size = New Size(105, 50)
                 frmComanda.btnOk.Location = New Point(359, 241)
+                frmComanda.Tag = cChamada
                 frmComanda.ShowDialog()
 
         End Select
@@ -212,6 +224,13 @@
         End If
 
         oDados.Close()
+        txtTotal.Text = FormatNumber(nVlrTotal)
+
+        'Rotina responsável por ajustar a largura das colunas do listview de pratos e o tamanho das linhas
+        lstItens.Columns(0).Width = (lstItens.Width * 15) / 100
+        lstItens.Columns(1).Width = (lstItens.Width * 50) / 100
+        lstItens.Columns(2).Width = (lstItens.Width * 15) / 100
+        lstItens.Columns(3).Width = (lstItens.Width * 15) / 100
 
         'DADOS DO PEDIDO ATUAL
         'oDados = fnRetornaDados("SELECT 1 codigo, 'Baby Beef 120g' item, 1 qtde, 16.90 valor UNION " & _
@@ -238,8 +257,6 @@
         '    nVlrTotal += oDados("valor")
 
         'End While
-
-        txtTotal.Text = nVlrTotal
         'oDados.Close()
 
     End Sub
@@ -277,12 +294,14 @@
                     'ROTINA QUE EXIIBE O RESUMO DO PAGAMENTO PARCIAL E REALIZA A GRAVAÇÃO DE PAGAMENTOS PARCIAIS
 
                     fnFormComanda("parcial", frmGrupoMoeda.cMoeda)
+                    lPagamentoParcial = True
 
                 Else
 
                     'ROTINA QUE EXIBE O RESUMO DO PAGAMENTO E GRAVA A VENDA E O PAGAMENTO NA BASE
 
                     fnFormComanda("total", frmGrupoMoeda.cMoeda)
+                    lPagamentoParcial = False
 
                 End If
 
@@ -295,12 +314,14 @@
                 'ROTINA QUE EXIIBE O RESUMO DO PAGAMENTO PARCIAL E REALIZA A GRAVAÇÃO DE PAGAMENTOS PARCIAIS
 
                 fnFormComanda("parcial", sender.text)
+                lPagamentoParcial = True
 
             Else
 
                 'ROTINA QUE EXIBE O RESUMO DO PAGAMENTO E GRAVA A VENDA E O PAGAMENTO NA BASE
 
                 fnFormComanda("total", sender.text)
+                lPagamentoParcial = False
 
             End If
 
