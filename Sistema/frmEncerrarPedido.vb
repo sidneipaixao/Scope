@@ -1,9 +1,194 @@
 ﻿Public Class frmEncerrarPedido
 
     Dim nVlrTotal As Double = 0
-    Dim nVlrPago As String = 0
+    Public nVlrPago As String = 0
     Dim lIncluir As Boolean = True
+    Public nSaldo As Double
+    Dim lPagamentoParcial As Boolean = False
 
+    Public Function fnCarregaDados(ByVal nPedido As Integer) As Boolean
+
+        Dim oComando As New SqlClient.SqlCommand("SELECT VDICODIGO, VDISEQUENCIA, VDIPRATO, VDIPRODUTO, PRDNOME, VDIQTDE, VDIVLRUNIT" & _
+                                                 "  FROM VENDAS_ITENS" & _
+                                                 "  LEFT OUTER JOIN PRODUTOS ON VDIPRODUTO = PRDCODIGO" & _
+                                                 " WHERE VDICODIGO = " & nPedido, oConexao)
+        Dim oDados As SqlClient.SqlDataReader
+        Dim oItem As ListViewItem
+
+        oDados = oComando.ExecuteReader
+
+        lstItens.Items.Clear()
+        While oDados.Read
+
+            'VERIFICA SE UM GRUPO JA EXISTE (CADA GRUPO REPRESENTA UM PRATO)
+            With lstItens
+
+                If .Groups("PRT" & oDados("VDIPRATO")) Is Nothing Then
+                    .Groups.Add("PRT" & oDados("VDIPRATO"), "Prato " & oDados("VDIPRATO"))
+                End If
+
+                oItem = .Items.Add("SEQ" & oDados("VDISEQUENCIA") & oDados("VDIPRATO"), oDados("VDIPRODUTO"), 0)
+                oItem.Group = .Groups("PRT" & oDados("VDIPRATO"))
+                oItem.SubItems.Add(oDados("PRDNOME"))
+                oItem.SubItems.Add(oDados("VDIQTDE"))
+                oItem.SubItems.Add(oDados("VDIVLRUNIT"))
+                lstItens.Tag = oDados("VDICODIGO")
+
+                nVlrTotal += CDbl(oDados("VDIVLRUNIT"))
+
+            End With
+
+        End While
+
+        oDados.Close()
+
+        Return True
+
+    End Function
+
+
+
+    Private Sub fnDestacar(ByVal nDirecao As Integer)
+
+        Static nPosicao As Integer
+        Dim nTotal As Double = 0
+
+        For Each oGrupo As ListViewGroup In lstItens.Groups
+            For Each oItem As ListViewItem In oGrupo.Items
+                oItem.BackColor = lstItens.BackColor
+                nTotal += CDbl(oItem.SubItems(3).Text)
+            Next
+        Next
+
+        If nDirecao = 0 Then
+            nPosicao = 0
+        Else
+
+            nTotal = 0
+
+            If nDirecao > 0 AndAlso nPosicao >= lstItens.Groups.Count - 1 Then
+                nPosicao = 0
+            ElseIf nDirecao < 0 AndAlso nPosicao < 1 Then
+                nPosicao = lstItens.Groups.Count - 1
+            Else
+                nPosicao += nDirecao
+            End If
+
+            For Each oItem As ListViewItem In lstItens.Groups(nPosicao).Items
+                oItem.BackColor = Color.SkyBlue
+                nTotal += CDbl(oItem.SubItems(3).Text)
+            Next
+
+        End If
+
+        txtVlrPrato.Text = FormatNumber(nTotal)
+
+    End Sub
+
+
+    Private Sub fnCalculaValores()
+
+        If txtVlrPago.Text = "" Then
+
+            txtVlrPago.Text = "0,00"
+
+        End If
+
+        If txtVlrTroco.Text = "" Then
+
+            txtVlrTroco.Text = "0,00"
+
+        End If
+
+        If txtTotal.Text = "" Then
+
+            txtTotal.Text = "0,00"
+
+        End If
+
+        Dim nVlrTotal As Double = CDbl(txtTotal.Text)
+        Dim nVlrPago As Double = CDbl(txtVlrPago.Text)
+        Dim nVlrSaldo As Double = CDbl(txtVlrTroco.Text)
+
+        If lPagamentoParcial = False Then
+
+            nVlrSaldo = nVlrPago - nVlrTotal
+
+            If nVlrSaldo < 0 Then
+
+                txtVlrTroco.ForeColor = Color.LightCoral
+                lblTroco.ForeColor = Color.LightCoral
+                lblTroco.Text = "Saldo devedor"
+
+            Else
+
+                txtVlrTroco.ForeColor = Color.LightSeaGreen
+                lblTroco.ForeColor = Color.LightSeaGreen
+                lblTroco.Text = "Troco"
+
+            End If
+
+            txtVlrTroco.Text = FormatNumber(nVlrSaldo)
+
+        Else
+
+            nVlrSaldo = nVlrPago - (nSaldo * (-1))
+
+            If nVlrSaldo < 0 Then
+
+                txtVlrTroco.ForeColor = Color.LightCoral
+                lblTroco.ForeColor = Color.LightCoral
+                lblTroco.Text = "Saldo devedor"
+
+            Else
+
+                txtVlrTroco.ForeColor = Color.LightSeaGreen
+                lblTroco.ForeColor = Color.LightSeaGreen
+                lblTroco.Text = "Troco"
+
+            End If
+
+            txtVlrTroco.Text = FormatNumber(nVlrSaldo)
+
+        End If
+
+    End Sub
+
+    Public Sub fnFormComanda(cChamada As String, cMoeda As String, nMoeda As Integer)
+
+        Select Case cChamada
+
+            Case "parcial"
+
+                frmComanda.lblResumo.Text = "Resumo da venda - Pagamento parcial"
+                frmComanda.lblValorTotal.Text = Me.txtTotal.Text & " (pagamento atual: " & txtVlrPago.Text & ")"
+                frmComanda.lblMoeda.Text = cMoeda.ToString.ToUpper
+                frmComanda.lblEmail.Text = Me.txtEmail.Text
+                frmComanda.txtSenha.Enabled = False
+                frmComanda.btnOk.Text = "Novo pagamento"
+                frmComanda.btnOk.Size = New Size(150, 50)
+                frmComanda.btnOk.Location = New Point(317, 241)
+                frmComanda.txtMoeda.Text = nMoeda
+                frmComanda.Tag = cChamada
+                frmComanda.ShowDialog()
+
+            Case "total"
+
+                frmComanda.lblResumo.Text = "Resumo da venda - Finalização"
+                frmComanda.lblValorTotal.Text = Me.txtTotal.Text & " (troco: " & txtVlrTroco.Text & ")"
+                frmComanda.lblMoeda.Text = cMoeda.ToString.ToUpper
+                frmComanda.lblEmail.Text = Me.txtEmail.Text
+                frmComanda.txtSenha.Enabled = True
+                frmComanda.btnOk.Text = "Confirmar"
+                frmComanda.btnOk.Size = New Size(105, 50)
+                frmComanda.btnOk.Location = New Point(359, 241)
+                frmComanda.txtMoeda.Text = nMoeda
+                frmComanda.Tag = cChamada
+                frmComanda.ShowDialog()
+
+        End Select
+
+    End Sub
 
     Private Sub frmPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
@@ -17,8 +202,6 @@
         BackgroundImage = New Bitmap(Width - 1, Height - 1)
         Graphics.FromImage(BackgroundImage).DrawRectangle(New Pen(Color.FromArgb(55, 65, 80)), New Rectangle(New Point(0, 0), Size))
 
-        nVlrPago = ""
-
         Dim oDados As SqlClient.SqlDataReader = fnRetornaDados("SELECT * FROM MOEDAS WHERE MDSRELACAO = 0 AND MDSEXIBICAO <> 0")
 
         While oDados.Read
@@ -27,8 +210,9 @@
 
             oMoeda.Text = oDados("MDSNOME")
             oMoeda.Tag = oDados("MDSCODIGO")
-            oMoeda.Size = New Size(150, 40)
-            oMoeda.BackColor = btnIncluir.BackColor
+            oMoeda.Size = New Size(160, 50)
+            oMoeda.BackColor = btn0.BackColor
+            oMoeda.Font = New Font(btn0.Font, FontStyle.Bold)
             AddHandler oMoeda.Click, AddressOf fnEfetuarPgto
 
             pnlMoedas.Controls.Add(oMoeda)
@@ -39,20 +223,23 @@
 
 
         'VERIFICA SE CLIENTE POSSUI DIREITO A FIDELIDADE
-        oDados = fnRetornaDados("SELECT 0 FIDELIDADE")
+        oDados = fnRetornaDados("SELECT 1 FIDELIDADE")
 
         If oDados.Read Then
 
             Dim oMoeda As New Button
 
-            oMoeda.Text = "FIDELIDADE"
-            oMoeda.Size = New Size(150, 40)
-            oMoeda.BackColor = btnIncluir.BackColor
+            oMoeda.Text = "Fidelidade"
+            oMoeda.Size = New Size(160, 50)
+            oMoeda.BackColor = btn0.BackColor
+            oMoeda.Font = New Font(btn0.Font, FontStyle.Bold)
             oMoeda.Tag = 99
             If oDados("FIDELIDADE") = 0 Then
                 oMoeda.Enabled = False
             Else
-                oMoeda.ForeColor = Color.Red
+                oMoeda.ForeColor = Color.White
+                oMoeda.BackColor = Color.LightSeaGreen
+                oMoeda.FlatStyle = FlatStyle.Flat
             End If
 
             AddHandler oMoeda.Click, AddressOf fnEfetuarPgto
@@ -62,37 +249,40 @@
         End If
 
         oDados.Close()
+        txtTotal.Text = FormatNumber(nVlrTotal)
+
+        'Rotina responsável por ajustar a largura das colunas do listview de pratos e o tamanho das linhas
+        lstItens.Columns(0).Width = (lstItens.Width * 15) / 100
+        lstItens.Columns(1).Width = (lstItens.Width * 50) / 100
+        lstItens.Columns(2).Width = (lstItens.Width * 15) / 100
+        lstItens.Columns(3).Width = (lstItens.Width * 15) / 100
 
         'DADOS DO PEDIDO ATUAL
-        oDados = fnRetornaDados("SELECT 1 codigo, 'Baby Beef 120g' item, 1 qtde, 16.90 valor UNION " & _
-                                "SELECT 21 codigo, 'Arroz Branco (Acomp.)' item, 1 qtde, 0.01 valor UNION " & _
-                                "SELECT 22 codigo, 'Feijão Carioca (Acomp.).' item, 1 qtde, 0.01 valor UNION " & _
-                                "SELECT 23 codigo, 'Batata Frita (Acomp.)' item, 1 qtde, 0.01 valor UNION " & _
-                                "SELECT 195 codigo, 'Refrigerante Lata 350ml' item, 2 qtde, 11.80 valor")
+        'oDados = fnRetornaDados("SELECT 1 codigo, 'Baby Beef 120g' item, 1 qtde, 16.90 valor UNION " & _
+        '                        "SELECT 21 codigo, 'Arroz Branco (Acomp.)' item, 1 qtde, 0.01 valor UNION " & _
+        '                        "SELECT 22 codigo, 'Feijão Carioca (Acomp.).' item, 1 qtde, 0.01 valor UNION " & _
+        '                        "SELECT 23 codigo, 'Batata Frita (Acomp.)' item, 1 qtde, 0.01 valor UNION " & _
+        '                        "SELECT 195 codigo, 'Refrigerante Lata 350ml' item, 2 qtde, 11.80 valor")
 
-        'POPULA O LISTVIEW
-        While oDados.Read
+        ''POPULA O LISTVIEW
+        'While oDados.Read
 
-            Dim oItem As ListViewItem
+        '    Dim oItem As ListViewItem
 
-            oItem = lstItens.Items.Add(oDados("codigo"))
-            oItem.SubItems.Add(oDados("codigo"))
-            oItem.SubItems.Add(oDados("item"))
-            oItem.SubItems.Add(oDados("qtde"))
-            oItem.SubItems.Add(oDados("valor"))
-            oItem.Name = oDados("qtde")
-            oItem.Tag = oDados("codigo")
-            oItem.Text = oDados("valor")
-            oItem.ToolTipText = oDados("item")
+        '    oItem = lstItens.Items.Add(oDados("codigo"))
+        '    oItem.SubItems.Add(oDados("codigo"))
+        '    oItem.SubItems.Add(oDados("item"))
+        '    oItem.SubItems.Add(oDados("qtde"))
+        '    oItem.SubItems.Add(oDados("valor"))
+        '    oItem.Name = oDados("qtde")
+        '    oItem.Tag = oDados("codigo")
+        '    oItem.Text = oDados("valor")
+        '    oItem.ToolTipText = oDados("item")
 
-            nVlrTotal += oDados("valor")
+        '    nVlrTotal += oDados("valor")
 
-        End While
-
-        txtTotal.Text = nVlrTotal
-        oDados.Close()
-
-        txtVlrTroco.Text = "0,00"
+        'End While
+        'oDados.Close()
 
     End Sub
 
@@ -118,50 +308,76 @@
 
             End While
 
+            oDados.Close()
+
             frmGrupoMoeda.lblMoedaPai.Text = sender.text.ToString.ToUpper
 
             frmGrupoMoeda.ShowDialog()
 
             If frmGrupoMoeda.Tag = True Then
 
-                frmComanda.lblValorTotal.Text = Me.txtTotal.Text
-                frmComanda.lblMoeda.Text = frmGrupoMoeda.cMoeda
-                frmComanda.lblEmail.Text = Me.txtEmail.Text
-                frmComanda.ShowDialog()
+                If txtVlrTroco.Text <> "0,00" And lblTroco.Text = "Saldo devedor" Then
+
+                    'ROTINA QUE EXIIBE O RESUMO DO PAGAMENTO PARCIAL E REALIZA A GRAVAÇÃO DE PAGAMENTOS PARCIAIS
+
+                    fnFormComanda("parcial", frmGrupoMoeda.cMoeda, sender.tag)
+                    lPagamentoParcial = True
+
+                Else
+
+                    'ROTINA QUE EXIBE O RESUMO DO PAGAMENTO E GRAVA A VENDA E O PAGAMENTO NA BASE
+
+                    fnFormComanda("total", frmGrupoMoeda.cMoeda, sender.tag)
+                    lPagamentoParcial = False
+
+                End If
 
             End If
 
         Else
 
-            frmComanda.lblValorTotal.Text = Me.txtTotal.Text
-            frmComanda.lblMoeda.Text = sender.text.ToString.ToUpper
-            frmComanda.lblEmail.Text = Me.txtEmail.Text
-            frmComanda.ShowDialog()
+            oDados.Close()
+
+            If txtVlrTroco.Text <> "0,00" And lblTroco.Text = "Saldo devedor" Then
+
+                'ROTINA QUE EXIIBE O RESUMO DO PAGAMENTO PARCIAL E REALIZA A GRAVAÇÃO DE PAGAMENTOS PARCIAIS
+
+                fnFormComanda("parcial", sender.text, sender.tag)
+                lPagamentoParcial = True
+
+            Else
+
+                'ROTINA QUE EXIBE O RESUMO DO PAGAMENTO E GRAVA A VENDA E O PAGAMENTO NA BASE
+
+                fnFormComanda("total", sender.text, sender.tag)
+                lPagamentoParcial = False
+
+            End If
 
         End If
 
-        oDados.Close()
+
 
     End Sub
 
     Private Sub btn9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn9.Click
 
-        nVlrPago = nVlrPago & sender.text
-        txtVlrPago.Text = nVlrPago
+        nVlrPago = nVlrPago & CDbl(sender.text)
+        txtVlrPago.Text = FormatNumber(nVlrPago)
 
     End Sub
 
     Private Sub btn8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn8.Click
 
-        nVlrPago = nVlrPago & sender.text
-        txtVlrPago.Text = nVlrPago
+        nVlrPago = nVlrPago & CDbl(sender.text)
+        txtVlrPago.Text = FormatNumber(nVlrPago)
 
     End Sub
 
     Private Sub btn3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn3.Click
 
-        nVlrPago = nVlrPago & sender.text
-        txtVlrPago.Text = nVlrPago
+        nVlrPago = nVlrPago & CDbl(sender.text)
+        txtVlrPago.Text = FormatNumber(nVlrPago)
 
     End Sub
 
@@ -174,75 +390,83 @@
 
     Private Sub btn2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn2.Click
 
-        nVlrPago = nVlrPago & sender.text
-        txtVlrPago.Text = nVlrPago
+        nVlrPago = nVlrPago & CDbl(sender.text)
+        txtVlrPago.Text = FormatNumber(nVlrPago)
 
     End Sub
 
     Private Sub btn1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn1.Click
 
-        nVlrPago = nVlrPago & sender.text
-        txtVlrPago.Text = nVlrPago
+        nVlrPago = nVlrPago & CDbl(sender.text)
+        txtVlrPago.Text = FormatNumber(nVlrPago)
 
     End Sub
 
     Private Sub btn6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn6.Click
 
-        nVlrPago = nVlrPago & sender.text
-        txtVlrPago.Text = nVlrPago
+        nVlrPago = nVlrPago & CDbl(sender.text)
+        txtVlrPago.Text = FormatNumber(nVlrPago)
 
     End Sub
 
     Private Sub btn5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn5.Click
 
-        nVlrPago = nVlrPago & sender.text
-        txtVlrPago.Text = nVlrPago
+        nVlrPago = nVlrPago & CDbl(sender.text)
+        txtVlrPago.Text = FormatNumber(nVlrPago)
 
     End Sub
 
     Private Sub btn4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn4.Click
 
-        nVlrPago = nVlrPago & sender.text
-        txtVlrPago.Text = nVlrPago
+        nVlrPago = nVlrPago & CDbl(sender.text)
+        txtVlrPago.Text = FormatNumber(nVlrPago)
 
     End Sub
 
     Private Sub btn7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn7.Click
 
-        nVlrPago = nVlrPago & sender.text
-        txtVlrPago.Text = nVlrPago
+        nVlrPago = nVlrPago & CDbl(sender.text)
+        txtVlrPago.Text = FormatNumber(nVlrPago)
 
     End Sub
 
     Private Sub btnApaga_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnApaga.Click
 
         txtVlrPago.Text = "0,00"
-        nVlrPago = ""
+        nVlrPago = 0
 
     End Sub
 
     Private Sub btn0_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn0.Click
 
-        nVlrPago = nVlrPago & sender.text
-        txtVlrPago.Text = nVlrPago
+        nVlrPago = nVlrPago & CDbl(sender.text)
+        txtVlrPago.Text = FormatNumber(nVlrPago)
 
     End Sub
 
     Private Sub txtVlrPago_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtVlrPago.TextChanged
 
-        If txtTotal.Text <> "" Then
+        If Not Application.OpenForms.OfType(Of frmComanda)().Count() > 0 Then
 
-            If CDbl(txtVlrPago.Text) > CDbl(txtTotal.Text) Then
-
-                txtVlrTroco.Text = String.Format("{0:N2}", txtVlrPago.Text - txtTotal.Text)
-
-            Else
-
-                txtVlrTroco.Text = "0,00"
-
-            End If
+            fnCalculaValores()
 
         End If
+
+        'If txtTotal.Text <> "" Then
+
+        '    If CDbl(txtVlrPago.Text) > CDbl(txtTotal.Text) Then
+
+        '        txtVlrTroco.Text = String.Format("{0:N2}", txtVlrPago.Text - txtTotal.Text)
+        '        lblTroco.Text = "Valor troco"
+
+        '    Else
+
+        '        txtVlrTroco.Text = String.Format("{0:N2}", txtVlrPago.Text - txtTotal.Text)
+        '        lblTroco.Text = "Saldo devedor"
+
+        '    End If
+
+        'End If
 
     End Sub
 
@@ -261,12 +485,6 @@
     Private Sub btnA30_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnA30.Click
 
         txtVlrPago.Text = "30,00"
-
-    End Sub
-
-    Private Sub btnA40_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnA40.Click
-
-        txtVlrPago.Text = "40,00"
 
     End Sub
 
@@ -291,19 +509,21 @@
 
     Private Sub txtTotal_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtTotal.TextChanged
 
-        If txtTotal.Text <> "" Then
+        fnCalculaValores()
 
-            If CDbl(txtVlrPago.Text) > CDbl(txtTotal.Text) Then
+        'If txtTotal.Text <> "" Then
 
-                txtVlrTroco.Text = txtVlrPago.Text - txtTotal.Text
+        '    If CDbl(txtVlrPago.Text) > CDbl(txtTotal.Text) Then
 
-            Else
+        '        txtVlrTroco.Text = txtVlrPago.Text - txtTotal.Text
 
-                txtVlrTroco.Text = "0,00"
+        '    Else
 
-            End If
+        '        txtVlrTroco.Text = "0,00"
 
-        End If
+        '    End If
+
+        'End If
 
     End Sub
 
@@ -382,7 +602,19 @@
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
 
-        txtVlrPago.Text = txtTotal.Text
+        txtVlrPago.Text = FormatNumber(CDbl(txtVlrTroco.Text) * -1)
+
+    End Sub
+
+    Private Sub btnAnterior_Click(sender As System.Object, e As System.EventArgs) Handles btnAnterior.Click
+
+        fnDestacar(-1)
+
+    End Sub
+
+    Private Sub btnProximo_Click(sender As System.Object, e As System.EventArgs) Handles btnProximo.Click
+
+        fnDestacar(1)
 
     End Sub
 End Class

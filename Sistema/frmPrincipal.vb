@@ -32,7 +32,7 @@
   End Sub
 
   Private Sub cmdFechar_Click(sender As System.Object, e As System.EventArgs) Handles cmdFechar.Click
-        fnEnviarEmail("Fechando a aplicação", "A aplicação foi fechada pelo botão de fechar")
+        'fnEnviarEmail("Fechando a aplicação", "A aplicação foi fechada pelo botão de fechar")
         Close()
   End Sub
 
