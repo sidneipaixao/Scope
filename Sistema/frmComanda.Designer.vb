@@ -38,6 +38,7 @@ Partial Class frmComanda
         Me.lblResumo = New System.Windows.Forms.Label()
         Me.lblMoeda = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtMoeda = New System.Windows.Forms.TextBox()
         Me.pnlTitulo.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -209,6 +210,16 @@ Partial Class frmComanda
         Me.Label5.TabIndex = 28
         Me.Label5.Text = "Forma de pagamento ............:"
         '
+        'txtMoeda
+        '
+        Me.txtMoeda.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMoeda.Location = New System.Drawing.Point(523, 38)
+        Me.txtMoeda.Name = "txtMoeda"
+        Me.txtMoeda.Size = New System.Drawing.Size(51, 33)
+        Me.txtMoeda.TabIndex = 32
+        Me.txtMoeda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtMoeda.Visible = False
+        '
         'frmComanda
         '
         Me.AcceptButton = Me.btnOk
@@ -216,6 +227,7 @@ Partial Class frmComanda
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancelar
         Me.ClientSize = New System.Drawing.Size(586, 301)
+        Me.Controls.Add(Me.txtMoeda)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.pnlTitulo)
@@ -251,4 +263,5 @@ Partial Class frmComanda
     Friend WithEvents lblResumo As System.Windows.Forms.Label
     Friend WithEvents lblMoeda As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents txtMoeda As System.Windows.Forms.TextBox
 End Class
