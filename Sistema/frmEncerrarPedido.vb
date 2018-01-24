@@ -46,8 +46,6 @@
 
     End Function
 
-
-
     Private Sub fnDestacar(ByVal nDirecao As Integer)
 
         Static nPosicao As Integer

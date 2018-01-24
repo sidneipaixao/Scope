@@ -37,8 +37,7 @@
   End Sub
 
     Private Sub cmdFuncoes_Click(sender As System.Object, e As System.EventArgs) Handles cmdFuncoes.Click
-
         frmMoeda.ShowDialog()
-
     End Sub
+
 End Class

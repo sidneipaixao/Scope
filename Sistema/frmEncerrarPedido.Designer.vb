@@ -127,8 +127,8 @@ Partial Class frmEncerrarPedido
         '
         Me.lstItens.AllowColumnReorder = True
         Me.lstItens.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstItens.BackColor = System.Drawing.Color.White
         Me.lstItens.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lstItens.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.clnCodigo, Me.clnDescricao, Me.clnQtde, Me.clnValor})
@@ -170,7 +170,7 @@ Partial Class frmEncerrarPedido
         'pnlInfo
         '
         Me.pnlInfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlInfo.BackColor = System.Drawing.Color.LightSeaGreen
         Me.pnlInfo.Controls.Add(Me.Label9)
         Me.pnlInfo.Controls.Add(Me.Label10)
@@ -190,7 +190,7 @@ Partial Class frmEncerrarPedido
         Me.Label9.Size = New System.Drawing.Size(604, 18)
         Me.Label9.TabIndex = 18
         Me.Label9.Text = "- A moeda 'Fidelidade' só ficará disponível quando o cliente possuir o direito ao" & _
-    " uso do prêmio.."
+            " uso do prêmio.."
         '
         'Label10
         '
@@ -213,13 +213,13 @@ Partial Class frmEncerrarPedido
         Me.Label11.Size = New System.Drawing.Size(661, 18)
         Me.Label11.TabIndex = 14
         Me.Label11.Text = "- Para excluir itens basta clicar sobre o item desejado na lista (esta ação reque" & _
-    "r senha de administrador)."
+            "r senha de administrador)."
         '
         'Label3
         '
         Me.Label3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
@@ -298,7 +298,7 @@ Partial Class frmEncerrarPedido
         'Panel2
         '
         Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.Label12)
@@ -383,6 +383,7 @@ Partial Class frmEncerrarPedido
         Me.txtVlrPago.Size = New System.Drawing.Size(196, 31)
         Me.txtVlrPago.TabIndex = 17
         Me.txtVlrPago.Text = "0,00"
+        Me.txtVlrPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'btnDec
         '
@@ -592,9 +593,10 @@ Partial Class frmEncerrarPedido
         Me.txtTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtTotal.Location = New System.Drawing.Point(28, 42)
         Me.txtTotal.Name = "txtTotal"
-        Me.txtTotal.Size = New System.Drawing.Size(218, 24)
+        Me.txtTotal.Size = New System.Drawing.Size(196, 24)
         Me.txtTotal.TabIndex = 14
         Me.txtTotal.Text = "0,00"
+        Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'cmdReimprimir
         '
@@ -623,13 +625,14 @@ Partial Class frmEncerrarPedido
         '
         Me.txtVlrTroco.BackColor = System.Drawing.Color.WhiteSmoke
         Me.txtVlrTroco.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtVlrTroco.Font = New System.Drawing.Font("Candara", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtVlrTroco.Font = New System.Drawing.Font("Candara", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVlrTroco.ForeColor = System.Drawing.Color.LightCoral
         Me.txtVlrTroco.Location = New System.Drawing.Point(252, 37)
         Me.txtVlrTroco.Name = "txtVlrTroco"
-        Me.txtVlrTroco.Size = New System.Drawing.Size(209, 30)
+        Me.txtVlrTroco.Size = New System.Drawing.Size(198, 40)
         Me.txtVlrTroco.TabIndex = 18
         Me.txtVlrTroco.Text = "1,20"
+        Me.txtVlrTroco.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'btn0
         '
@@ -693,7 +696,7 @@ Partial Class frmEncerrarPedido
         'pnlMoedas
         '
         Me.pnlMoedas.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlMoedas.AutoScroll = True
         Me.pnlMoedas.BackColor = System.Drawing.Color.WhiteSmoke
         Me.pnlMoedas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -706,8 +709,8 @@ Partial Class frmEncerrarPedido
         'Panel1
         '
         Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.Color.Silver
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.btnAnterior)

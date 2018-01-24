@@ -22,6 +22,7 @@ Partial Class frmPedidos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPedidos))
         Me.pnlTitulo = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -39,6 +40,7 @@ Partial Class frmPedidos
         Me.pnlInfo = New System.Windows.Forms.Panel()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.objBuscaPedido = New System.Windows.Forms.Timer(Me.components)
         Me.pnlTitulo.SuspendLayout()
         Me.pnlInfo.SuspendLayout()
         Me.SuspendLayout()
@@ -82,8 +84,8 @@ Partial Class frmPedidos
         'lstPedidos
         '
         Me.lstPedidos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstPedidos.AutoArrange = False
         Me.lstPedidos.BackColor = System.Drawing.Color.White
         Me.lstPedidos.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.colNome, Me.colContrato, Me.colEmail})
@@ -143,7 +145,7 @@ Partial Class frmPedidos
         'lstRecentes
         '
         Me.lstRecentes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstRecentes.BackColor = System.Drawing.Color.Silver
         Me.lstRecentes.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
         Me.lstRecentes.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -179,7 +181,7 @@ Partial Class frmPedidos
         'pnlInfo
         '
         Me.pnlInfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlInfo.BackColor = System.Drawing.Color.LightSeaGreen
         Me.pnlInfo.Controls.Add(Me.Label10)
         Me.pnlInfo.Controls.Add(Me.Label11)
@@ -198,7 +200,7 @@ Partial Class frmPedidos
         Me.Label10.Size = New System.Drawing.Size(976, 18)
         Me.Label10.TabIndex = 15
         Me.Label10.Text = "- Os itens do painel inferior representam os pedidos recentemente finalizados. Ao" & _
-    " clicar em um pedido suas informações serão exibidas (somente leitura)."
+            " clicar em um pedido suas informações serão exibidas (somente leitura)."
         '
         'Label11
         '
@@ -210,7 +212,12 @@ Partial Class frmPedidos
         Me.Label11.Size = New System.Drawing.Size(907, 18)
         Me.Label11.TabIndex = 14
         Me.Label11.Text = "- Os itens no painel superior representam os pedidos ainda não finalizados. Basta" & _
-    " clicar na tile do pedido desejado para exibir suas informações."
+            " clicar na tile do pedido desejado para exibir suas informações."
+        '
+        'objBuscaPedido
+        '
+        Me.objBuscaPedido.Enabled = True
+        Me.objBuscaPedido.Interval = 30000
         '
         'frmPedidos
         '
@@ -252,4 +259,5 @@ Partial Class frmPedidos
     Friend WithEvents pnlInfo As System.Windows.Forms.Panel
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents objBuscaPedido As System.Windows.Forms.Timer
 End Class

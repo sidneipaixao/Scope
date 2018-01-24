@@ -3,9 +3,9 @@
   <MainDatabase>
     <Type>MSSQL</Type>
     <Name>SCOPE</Name>
-    <Server>.\KPMS17</Server>
+    <Server>.\SQLEXPRESS</Server>
     <User>sa</User>
-    <Credential>abc123@</Credential>
+    <Credential>sid123</Credential>
     <CredentialType>0</CredentialType>
     <Port>0</Port>
   </MainDatabase>

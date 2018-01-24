@@ -1,4 +1,43 @@
-﻿Module mdlControle
+﻿Imports System.Text
+Imports System.Runtime.InteropServices
+
+Namespace ComunicacaoSAT
+
+    Public Class Daruma
+
+        <DllImport("DarumaFramework.dll")> _
+        Public Shared Function eVerificarVersaoDLL_Daruma(ByVal strRet As StringBuilder) As Integer
+        End Function
+
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function aCFAbrir_SAT_Daruma(ByVal strCPF As String, ByVal strNome As String, ByVal strEndereco As String) As Integer
+        End Function
+
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function aCFVender_SAT_Daruma(ByVal strCargaTributaria As String, ByVal strQuantidade As String, ByVal strPrecoUnitario As String, ByVal strTipoDescAcresc As String, ByVal strValorDescAcresc As String, ByVal strCodigoItem As String, ByVal strUnidadeMedida As String, ByVal strDescricaoItem As String) As Integer
+        End Function
+
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function aCFTotalizar_SAT_Daruma(ByVal strTipoDescAcresc As String, ByVal strValorDescAcresc As String) As Integer
+        End Function
+
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function aCFEfetuarPagamento_SAT_Daruma(ByVal strFormaPgto As String, ByVal strValor As String, ByVal strInfoAdicional As String) As Integer
+        End Function
+
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function tCFEncerrar_SAT_Daruma(ByVal strCupomAdicional As String, ByVal strInfoAdic As String) As Integer
+        End Function
+
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function tCFeCancelar_SAT_Daruma() As Integer
+        End Function
+
+    End Class
+
+End Namespace
+
+Module mdlControle
 
     Public Structure tCaixa
         Dim Situacao As Boolean
