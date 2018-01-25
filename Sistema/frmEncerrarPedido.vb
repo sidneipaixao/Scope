@@ -580,7 +580,7 @@
 
         For Each oItem As ListViewItem In lstItens.SelectedItems
 
-            frmExcluirItem.lblMensagem.Text = "Você deseja realmente remover o item abaixo do pedido atual? " & vbNewLine & oItem.ToolTipText
+            frmExcluirItem.lblMensagem.Text = "Você deseja realmente remover o item ou o prato selecionado do pedido atual? " & vbNewLine & oItem.Selected
 
         Next
         frmExcluirItem.ShowDialog()
