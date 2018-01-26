@@ -51,7 +51,22 @@
             With lstPedidos.Items.Add("PDD" & oPedidos("CODPEDIDO"), oPedidos("NOME") & "", 0)
                 .UseItemStyleForSubItems = False
                 .SubItems.Add(oPedidos("CONTRATO") & " ", Color.IndianRed, lstPedidos.BackColor, New Font(lstPedidos.Font.Name, 12, FontStyle.Bold))
-                .SubItems.Add(oPedidos("EMAIL") & " ", Color.Gray, lstPedidos.BackColor, New Font(lstPedidos.Font.Name, 12, FontStyle.Bold))
+                .SubItems.Add(oPedidos("EMAIL") & " ", Color.IndianRed, lstPedidos.BackColor, New Font(lstPedidos.Font.Name, 12, FontStyle.Bold))
+            End With
+        End While
+
+        oPedidos.Close()
+
+        oPedidos = fnRetornaDados("SELECT TOP 20 VNDCODIGO CODPEDIDO, VNDCLIENTENOME NOME, '' CONTRATO, VNDCLIENTEEMAIL EMAIL FROM vendas WHERE VNDCOMANDA IS NOT NULL ORDER BY VNDCODIGO DESC")
+
+        lstRecentes.Items.Clear()
+
+        'CARREGA PEDIDOS DA BASE DE DADOS
+        While oPedidos.Read
+            With lstRecentes.Items.Add("PDD" & oPedidos("CODPEDIDO"), oPedidos("NOME") & "", 0)
+                .UseItemStyleForSubItems = False
+                .SubItems.Add(oPedidos("CONTRATO") & " ", Color.IndianRed, lstPedidos.BackColor, New Font(lstPedidos.Font.Name, 12, FontStyle.Bold))
+                .SubItems.Add(oPedidos("EMAIL") & " ", Color.IndianRed, lstPedidos.BackColor, New Font(lstPedidos.Font.Name, 12, FontStyle.Bold))
             End With
         End While
 

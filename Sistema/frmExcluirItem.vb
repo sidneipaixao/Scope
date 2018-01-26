@@ -49,52 +49,38 @@
 
   End Sub
 
-    Private Sub btnOk_Click(sender As System.Object, e As System.EventArgs) Handles btnOk.Click
+    Private Sub btnOk_Click(sender As System.Object, e As System.EventArgs) Handles btnExcluirPrato.Click
 
-        'Verifica qual a função foi chamada analisando o valor passado na chamada do form na Tag deste
-        If cFuncao = "incluir.qtde" Then
-
-            cFuncao = "confirmar"
-            Close()
-
-        ElseIf cFuncao = "excluir.item" Then
-
-            'Dim oDados As SqlClient.SqlDataReader = fnRetornaDados("SELECT 'admin' senha")
-            '
-            'oDados.Read()
-            '
-            'If txtSenha.Text = oDados("senha") Then
-            '
-            '    Tag = "confirmar"
-            '    Close()
-            '
-            'Else
-            '
-            '    MessageBox.Show("Senha incorreta! Tente novamente.", "Dado incorreto!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            '    Tag = "recusar"
-            '
-            'End If
-            '
-            'oDados.Close()
-
-            Dim oSenha As New BCrypt.Net.BCrypt
+        Dim oSenha As New BCrypt.Net.BCrypt
 
             If oSenha.Verify(txtSenha.Text, cbxUsuario.SelectedItem(1)) Then
-                cFuncao = "confirmar"
+                cFuncao = "excluir_prato"
                 Close()
             Else
                 MessageBox.Show("Senha incorreta! Tente novamente.", "Dado incorreto!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 cFuncao = "recusar"
             End If
 
-        End If
-
-  End Sub
+    End Sub
 
     Private Sub cmdFechar_Click_1(sender As System.Object, e As System.EventArgs) Handles cmdFechar.Click
 
         Close()
         cFuncao = "recusar"
+
+    End Sub
+
+    Private Sub btnExcluirItem_Click(sender As System.Object, e As System.EventArgs) Handles btnExcluirItem.Click
+
+        Dim oSenha As New BCrypt.Net.BCrypt
+
+        If oSenha.Verify(txtSenha.Text, cbxUsuario.SelectedItem(1)) Then
+            cFuncao = "excluir_item"
+            Close()
+        Else
+            MessageBox.Show("Senha incorreta! Tente novamente.", "Dado incorreto!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            cFuncao = "recusar"
+        End If
 
     End Sub
 End Class

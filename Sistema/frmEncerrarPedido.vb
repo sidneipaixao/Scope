@@ -576,23 +576,44 @@
         frmExcluirItem.txtAux.Visible = False
         frmExcluirItem.lblUsuario.Visible = True
         frmExcluirItem.cbxUsuario.Visible = True
-        frmExcluirItem.cFuncao = "excluir.item"
 
         For Each oItem As ListViewItem In lstItens.SelectedItems
 
-            frmExcluirItem.lblMensagem.Text = "Você deseja realmente remover o item abaixo do pedido atual? " & vbNewLine & oItem.ToolTipText
+            frmExcluirItem.lblMensagem.Text = "Você deseja realmente remover o item ou o prato abaixo do pedido atual? " & vbNewLine & "" & vbNewLine & _
+                "ITEM SELECIONADO:" & vbNewLine & oItem.SubItems(1).Text
+            frmExcluirItem.lblAux.Text = "ITENS DO PRATO SELECIONADO:" & vbNewLine
+
+            'For Each oItens As ListViewItem In lstItens.Groups(lstItens.SelectedItems(0).Group.Name).Items
+            For Each oItens As ListViewItem In lstItens.SelectedItems(0).Group.Items
+
+                frmExcluirItem.lblAux.Text = frmExcluirItem.lblAux.Text & oItens.SubItems(1).Text & vbNewLine
+
+            Next
 
         Next
         frmExcluirItem.ShowDialog()
 
-        If frmExcluirItem.cFuncao = "confirmar" Then
+        If frmExcluirItem.cFuncao = "excluir_prato" Then
+
+            Dim oGrupo As ListViewGroup = lstItens.SelectedItems(0).Group
+            For nCont As Integer = 0 To oGrupo.Items.Count - 1
+
+                txtTotal.Text = FormatNumber(CDbl(txtTotal.Text) - CDbl(oGrupo.Items(0).SubItems(3).Text))
+                oGrupo.Items(0).Remove()
+
+            Next
+
+
+        ElseIf frmExcluirItem.cFuncao = "excluir_item" Then
 
             For Each oItem As ListViewItem In lstItens.SelectedItems
 
                 lstItens.Items.Remove(oItem)
-                txtTotal.Text = CDbl(txtTotal.Text) - CDbl(oItem.Text)
+                txtTotal.Text = FormatNumber(CDbl(txtTotal.Text) - CDbl(oItem.SubItems(3).Text))
 
             Next
+
+        Else
 
         End If
 
