@@ -217,7 +217,7 @@ Partial Class frmPedidos
         'objBuscaPedido
         '
         Me.objBuscaPedido.Enabled = True
-        Me.objBuscaPedido.Interval = 60000
+        Me.objBuscaPedido.Interval = 3000
         '
         'frmPedidos
         '

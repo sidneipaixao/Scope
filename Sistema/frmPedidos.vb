@@ -24,6 +24,7 @@
 
         If lstPedidos.SelectedItems.Count > 0 Then
             frmEncerrarPedido.fnCarregaDados(lstPedidos.SelectedItems(0).Name.ToString.Remove(0, 3))
+            frmEncerrarPedido.txtEmail.Text = lstPedidos.SelectedItems(0).SubItems(2).Text
             frmEncerrarPedido.Show()
         End If
 
@@ -36,6 +37,45 @@
     End Sub
 
     Private Sub objBuscaPedido_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles objBuscaPedido.Tick
+
+        'Dim oCon As New MySql.Data.MySqlClient.MySqlConnection
+        'oCon.ConnectionString = "Persist Security Info=False;datasource=admlojas.dyndns.org;port=3307;username=vb;password=vb;database=Lpc_production"
+        'oCon.Open()
+
+        'Dim oMySQLCmd As New MySql.Data.MySqlClient.MySqlCommand("SELECT id CODPEDIDO, identificacao NOME, '' CONTRATO, fidelidade EMAIL FROM vendas WHERE impresso = 'n'", oCon)
+        'Dim oPedidos As MySql.Data.MySqlClient.MySqlDataReader = oMySQLCmd.ExecuteReader
+
+        ''Dim oSenha As New BCrypt.Net.BCrypt
+
+        ''If oPedidos.Read Then
+
+        'lstPedidos.Items.Clear()
+
+        ''MessageBox.Show(oPedidos("CONTADOR"))
+
+        'While oPedidos.Read
+        '    With lstPedidos.Items.Add("PDD" & oPedidos("CODPEDIDO"), oPedidos("NOME") & "", 0)
+        '        .UseItemStyleForSubItems = False
+        '        .SubItems.Add(oPedidos("CONTRATO") & " ", Color.IndianRed, lstPedidos.BackColor, New Font(lstPedidos.Font.Name, 12, FontStyle.Bold))
+        '        .SubItems.Add(oPedidos("EMAIL") & " ", Color.IndianRed, lstPedidos.BackColor, New Font(lstPedidos.Font.Name, 12, FontStyle.Bold))
+        '    End With
+        'End While
+
+        'oPedidos.Close()
+
+        ''End If
+
+
+
+
+
+
+
+
+
+
+
+
 
         ''EXECUTA A CHAMADA DA ROTINA NA BASE DE DADOS
         'oComando.CommandText = "SP_BUSCAPEDIDO"

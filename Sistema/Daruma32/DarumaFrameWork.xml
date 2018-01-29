@@ -5,7 +5,7 @@
     <LogTamMaxMB>5</LogTamMaxMB>
     <ModoObserver>0</ModoObserver>
     <PathBibliotecasAuxiliares>.\</PathBibliotecasAuxiliares>
-    <Produto></Produto>
+    <Produto>DUAL</Produto>
     <ThreadAoIniciar>0</ThreadAoIniciar>
     <TipoRegistro>2</TipoRegistro>
     <TokenEncurtadorUrl>0</TokenEncurtadorUrl>
@@ -26,7 +26,7 @@
     <LinhasGuilhotina>0</LinhasGuilhotina>
     <Margem>00;00</Margem>
     <ModoGaveta>0</ModoGaveta>
-    <PortaComunicacao>COM1</PortaComunicacao>
+    <PortaComunicacao>COM3</PortaComunicacao>
     <Rota1>COM1>000.000.000.000:0000</Rota1>
     <Rota2>COM2>000.000.000.000:0000</Rota2>
     <Rota3>COM3>000.000.000.000:0000</Rota3>
@@ -36,7 +36,7 @@
     <TamanhoBobina>48</TamanhoBobina>
     <TempoEsperaLeitura>10</TempoEsperaLeitura>
     <Termica>1</Termica>
-    <Velocidade>9600</Velocidade>
+    <Velocidade></Velocidade>
     <Wine>0</Wine>
     <ZeroCortado>0</ZeroCortado>
   </DUAL>
@@ -70,8 +70,8 @@
     <MensagemAviso>AVISO: [O PAPEL ESTA ACABANDO!!]. INSIRA NOVA BOBINA DE PAPEL.</MensagemAviso>
     <ModoGaveta>0</ModoGaveta>
     <NaoAvisarPoucoPapel>0</NaoAvisarPoucoPapel>
-    <NomeUltimoCMD></NomeUltimoCMD>
-    <PortaSerial>DEFAULT</PortaSerial>
+    <NomeUltimoCMD>eInterpretarRetorno_ECF_Daruma</NomeUltimoCMD>
+    <PortaSerial>COM3</PortaSerial>
     <ReceberAvisoEmArquivo>0</ReceberAvisoEmArquivo>
     <ReceberDescricaoAvisoEmArquivo>0</ReceberDescricaoAvisoEmArquivo>
     <ReceberDescricaoErroEmArquivo>0</ReceberDescricaoErroEmArquivo>
@@ -131,11 +131,11 @@
     </CFBP>
     <CCD>
       <DocOrigem></DocOrigem>
-      <FormaPgto>Cartao</FormaPgto>
+      <FormaPgto>Débito</FormaPgto>
       <LinhasTEF>20</LinhasTEF>
       <SaltarLinhasTEF>0</SaltarLinhasTEF>
       <Parcelas>01</Parcelas>
-      <Valor></Valor>
+      <Valor>000000001230</Valor>
     </CCD>
     <CHEQUE>
       <XLinha1>10</XLinha1>
@@ -148,7 +148,7 @@
     </CHEQUE>
     <LEI12741>
       <ColunasIBPT>0;4;5;1;6;7</ColunasIBPT>
-      <LocalArquivoNCM>./IBPTAX.csv</LocalArquivoNCM>
+      <LocalArquivoNCM>C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\IBPTAX.csv</LocalArquivoNCM>
       <LocalMSG>0</LocalMSG>
       <MSG>Val Aprox Tributos | Fonte:IBPT</MSG>
       <SeparadorIBPT>;</SeparadorIBPT>
@@ -314,14 +314,14 @@
       <Host>localhost</Host>
       <Porta>8080</Porta>
       <Usuario>usuario</Usuario>
-      <Senha>senha</Senha>
+      <Senha>PjI88+s=BBA269186CC91779D9DC35FCECD0F08E2427CC75</Senha>
     </PROXY>
     <TimeOutWS>10</TimeOutWS>
     <IMPRESSORA>
       <ComunicacaoUSB>0</ComunicacaoUSB>
       <ControleAutomatico>0</ControleAutomatico>
       <MarcaImpressora>0</MarcaImpressora>
-      <PortaComunicacao>COM1</PortaComunicacao>
+      <PortaComunicacao>COM3</PortaComunicacao>
       <TamanhoBobina>48</TamanhoBobina>
       <TempoEsperaLeitura>30</TempoEsperaLeitura>
       <Velocidade>9600</Velocidade>

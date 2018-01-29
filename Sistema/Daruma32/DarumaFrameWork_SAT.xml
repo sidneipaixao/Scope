@@ -1,6 +1,6 @@
 <DARUMAFRAMEWORKSAT>
   <CONFIGURACAO>
-    <estadoCFe>6</estadoCFe>
+    <estadoCFe>1</estadoCFe>
     <numeroSessao>100000</numeroSessao>
     <codigoDeAtivacao>123456789</codigoDeAtivacao>
     <ChaveConsulta></ChaveConsulta>
@@ -34,8 +34,8 @@
   </IDENTIFICACAO_CFE>
   <DEST>
     <CNPJ> </CNPJ>
-    <CPF> </CPF>
-    <xNome> </xNome>
+    <CPF>11111111111</CPF>
+    <xNome>SIDNEI</xNome>
   </DEST>
   <EMIT>
     <CNPJ>11111111111111</CNPJ>
