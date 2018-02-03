@@ -104,7 +104,7 @@
             'EFETUA A ABERTURA DO CUPOM FISCAL ELETRONICO
             '   DADOS: CPF, NOME , ENDERECO (CLIENTE)
             nResult = ComunicacaoSAT.Daruma.aCFAbrir_SAT_Daruma("11111111111", "SIDNEI", "(endereço não informado)")
-            nResult = ComunicacaoSAT.Daruma.iCFAbrirPadrao_ECF_Daruma()
+            'nResult = ComunicacaoSAT.Daruma.iCFAbrirPadrao_ECF_Daruma()
             If nResult <> 1 Then Error 2
 
             'EFETUA O ENVIO DOS ITENS PARA O CFE
@@ -129,8 +129,8 @@
 
             'FINALIZAR E EMITIR CFE *****ESTE PONTO GERA ERRO, POR ISSO ESTA COMENTADO*****
             '   DADOS: NRO. CUPOM ADICIONAL, INFORMACOES ADICIONAIS
-            'nResult = ComunicacaoSAT.Daruma.tCFEncerrar_SAT_Daruma("", "COMANDA:" & 100)
-            'If nResult <> 1 Then Error 2
+            nResult = ComunicacaoSAT.Daruma.tCFEncerrar_SAT_Daruma("", "COMANDA:" & 100)
+            If nResult <> 1 Then Error 2
 
             'A LINHA ABAIXO DEVE SER COMENTADA AO RETIRAR O COMENTARIO DA LINHA ACIMA
             'ESTOU UTILIZANDO APENAS PARA PERMITIR A CONTINUIDADE DOS TESTES NA APLICACAO,
@@ -156,19 +156,19 @@
             ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework("<sl></sl><sl></sl><sl></sl><sl></sl><sl></sl><sl></sl><sl></sl><sl></sl><sn></sn>", 0)
 
             'FISCAL
-            nResult = ComunicacaoSAT.Daruma.iCFAbrirPadrao_ECF_Daruma()
-            nResult = ComunicacaoSAT.Daruma.iCFVender_ECF_Daruma("I1", "1,00", "12,30", "D$", "0,00", "123", "UND", "Prato de comida")
-            nResult = ComunicacaoSAT.Daruma.iCFTotalizarCupomPadrao_ECF_Daruma
-            nResult = ComunicacaoSAT.Daruma.iCFEfetuarPagamentoPadrao_ECF_Daruma
-            nResult = ComunicacaoSAT.Daruma.iCFEfetuarPagamentoFormatado_ECF_Daruma("Débito", "12,30")
-            nResult = ComunicacaoSAT.Daruma.iCFEncerrarPadrao_ECF_Daruma
-            nResult = ComunicacaoSAT.Daruma.iCFIdentificarConsumidor_ECF_Daruma("Sidnei", "Rua sem nome, 215", "213213218-00")
+            'nResult = ComunicacaoSAT.Daruma.iCFAbrirPadrao_ECF_Daruma()
+            'nResult = ComunicacaoSAT.Daruma.iCFVender_ECF_Daruma("I1", "1,00", "12,30", "D$", "0,00", "123", "UND", "Prato de comida")
+            'nResult = ComunicacaoSAT.Daruma.iCFTotalizarCupomPadrao_ECF_Daruma
+            'nResult = ComunicacaoSAT.Daruma.iCFEfetuarPagamentoPadrao_ECF_Daruma
+            'nResult = ComunicacaoSAT.Daruma.iCFEfetuarPagamentoFormatado_ECF_Daruma("Débito", "12,30")
+            'nResult = ComunicacaoSAT.Daruma.iCFEncerrarPadrao_ECF_Daruma
+            'nResult = ComunicacaoSAT.Daruma.iCFIdentificarConsumidor_ECF_Daruma("Sidnei", "Rua sem nome, 215", "213213218-00")
 
             Return True
 
         Catch oErro As Exception
 
-            If oErro.Message = "Application-defined or object-defined error." Then
+            If oErro.Message = "Application-defined or object-defined error." Or oErro.Message = "Erro definido por aplicativo ou definido por objeto." Then
                 Select Case nResult
                     Case 0
                         MessageBox.Show("[0] - Método não executado / Tag inválida / Não foi possível comunicar com impressora", "Erro na impressão do cupom", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -294,6 +294,8 @@
                 MessageBox.Show(oErro.Message, "Erro na impressão do cupom", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
 
+            'PARA O CUPOM NAO FICAR ABERTO CASO OCORRA ERRO NA IMPRESSAO
+            ComunicacaoSAT.Daruma.tCFeCancelar_SAT_Daruma()
             Return False
 
         End Try

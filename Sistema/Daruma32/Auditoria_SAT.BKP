@@ -1,0 +1,479 @@
+03/02/2018-18:13:22:822:	>> fnDefinirProduto_Daruma(SAT)
+03/02/2018-18:13:22:853:		>> fnXML_START_PathLocalArquivos(.\)
+03/02/2018-18:13:22:860:			>> fnXML_START_PathPadrao(.\)
+03/02/2018-18:13:22:867:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+03/02/2018-18:13:22:873:		<< fnXML_START_PathLocalArquivos - RETORNO NUMERO: 1
+03/02/2018-18:13:22:903:		<< fnXML_START_PathLocalArquivos - RETORNO NUMERO: 1
+03/02/2018-18:13:22:911:		>> fnXML_START_PathLocalArquivosRelatorios(C:\)
+03/02/2018-18:13:22:919:			>> fnXML_START_PathPadrao(C:\)
+03/02/2018-18:13:22:927:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+03/02/2018-18:13:22:934:		<< fnXML_START_PathLocalArquivosRelatorios - RETORNO NUMERO: 1
+03/02/2018-18:13:22:940:		>> fnXML_START_PathLocalArquivosRelatorios(C:\)
+03/02/2018-18:13:22:946:			>> fnXML_START_PathPadrao(C:\)
+03/02/2018-18:13:22:953:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+03/02/2018-18:13:23:042:		<< fnXML_START_PathLocalArquivosRelatorios - RETORNO NUMERO: 1
+03/02/2018-18:13:23:049:		>> fnXML_START_PathBibliotecasAuxiliares(.\)
+03/02/2018-18:13:23:055:			>> fnXML_START_PathPadrao(.\)
+03/02/2018-18:13:23:062:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+03/02/2018-18:13:23:069:		<< fnXML_START_PathBibliotecasAuxiliares - RETORNO NUMERO: 1
+03/02/2018-18:13:23:076:		>> fnXML_START_PathBibliotecasAuxiliares(.\)
+03/02/2018-18:13:23:082:			>> fnXML_START_PathPadrao(.\)
+03/02/2018-18:13:23:089:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+03/02/2018-18:13:23:095:		<< fnXML_START_PathBibliotecasAuxiliares - RETORNO NUMERO: 1
+03/02/2018-18:13:23:605:		>> aCFeAbrir_SAT_Daruma(<dest><CPF>11111111111</CPF><xNome>SIDNEI</xNome></dest>)
+03/02/2018-18:13:23:613:			 ----------- Zerando TAG DEST !! ABERTURA SAT ---------------
+03/02/2018-18:13:23:685:			>> fnXML_AlterarValor(DEST\CNPJ,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:13:23:727:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:13:23:737:			>> fnXML_AlterarValor(DEST\CPF,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:13:23:767:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:13:23:776:			>> fnXML_AlterarValor(DEST\xNome,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:13:23:803:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:13:23:811:			>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:13:23:820:				Retornando => '4'
+03/02/2018-18:13:23:832:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:13:23:848:		<< aCFeAbrir_SAT_Daruma - RETORNO NUMERO: -130
+03/02/2018-18:13:23:858:	<< aCFAbrir_SAT_Daruma - RETORNO NUMERO: -130
+03/02/2018-18:13:23:866:	-----------------------------------------------------
+
+03/02/2018-18:13:41:045:	>> tCFeCancelar_SAT_Daruma()
+03/02/2018-18:13:41:052:		>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:13:41:062:			Retornando => '4'
+03/02/2018-18:13:41:072:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:13:41:081:		>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:13:41:089:			Retornando => '4'
+03/02/2018-18:13:41:099:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:13:41:107:		## CANCELAMENTO - EM MEMORIA
+03/02/2018-18:13:41:118:		>> fnXML_AlterarValor(CONFIGURACAO\estadoCFe, 6, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:13:41:160:		<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:13:41:169:		 ----------- Zerando TAG DEST !! CANCELAMENTO SAT ---------------
+03/02/2018-18:13:41:177:		>> fnXML_AlterarValor(DEST\CNPJ,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:13:41:201:		<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:13:41:210:		>> fnXML_AlterarValor(DEST\CPF,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:13:41:241:		<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:13:41:248:		>> fnXML_AlterarValor(DEST\xNome,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:13:41:268:		<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:13:41:276:	<< tCFeCancelar_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:13:41:283:	-----------------------------------------------------
+
+03/02/2018-18:14:01:428:	>> aCFAbrir_SAT_Daruma(11111111111, SIDNEI, (endereÁo n„o informado))
+03/02/2018-18:14:01:439:		>> aCFeAbrir_SAT_Daruma(<dest><CPF>11111111111</CPF><xNome>SIDNEI</xNome></dest>)
+03/02/2018-18:14:01:449:			 ----------- Zerando TAG DEST !! ABERTURA SAT ---------------
+03/02/2018-18:14:01:457:			>> fnXML_AlterarValor(DEST\CNPJ,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:01:483:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:01:493:			>> fnXML_AlterarValor(DEST\CPF,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:01:516:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:01:524:			>> fnXML_AlterarValor(DEST\xNome,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:01:546:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:01:555:			>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:01:564:				Retornando => '6'
+03/02/2018-18:14:01:573:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:01:586:			>> fnXML_AlterarValor(CONFIGURACAO\vCFeLei12741, 0.00, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:01:610:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:01:620:			>> fnXML_AlterarValor(CONFIGURACAO\vCFeLei12741Porcentagem, 0.00, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:01:642:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:01:653:			>> fnXML_AlterarValor(CONFIGURACAO\estadoCFe, 1, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:01:674:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:01:683:			>> fnXML_AlterarValor(DEST\CPF, 11111111111, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:01:707:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:01:717:			>> fnXML_AlterarValor(DEST\xNome, SIDNEI, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:01:739:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:01:749:		<< aCFeAbrir_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:14:01:756:	<< aCFAbrir_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:14:01:764:	-----------------------------------------------------
+
+03/02/2018-18:14:04:761:	>> aCFVender_SAT_Daruma(12,00, 1, 14,89, D$, 0, 1691, UND, Frango fatiado)
+03/02/2018-18:14:04:775:		>> fnXML_RetornarValor(PROD\CFOP, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:04:790:			Retornando => '0001'
+03/02/2018-18:14:04:801:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:04:814:		>> fnXML_RetornarValor(PROD\NCM, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:04:825:			Retornando => '01012100'
+03/02/2018-18:14:04:836:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:04:849:		>> fnXML_RetornarValor(PROD\indRegra, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:04:858:			Retornando => 'T'
+03/02/2018-18:14:04:865:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:04:873:		>> fnXML_RetornarValor(PROD\indRegra, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:04:880:			Retornando => 'T'
+03/02/2018-18:14:04:889:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:04:896:		>> aCFeVender_SAT_Daruma(<prod><cProd>1691</cProd><xProd>Frango fatiado</xProd><NCM>01012100</NCM><CFOP>0001</CFOP><uCom>UND</uCom><qCom>1.0000</qCom><vUnCom>14.89</vUnCom><indRegra>T</indRegra></prod><imposto><ICMS><ICMS00><Orig>0</Orig><CST>00</CST><pICMS>12.00</pICMS></ICMS00></ICMS><PIS><PISAliq><CST>01</CST><vBC>14.89</vBC><pPIS>1.0000</pPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>14.89</vBC><pCOFINS>1.0000</pCOFINS></COFINSAliq></COFINS></imposto>)
+03/02/2018-18:14:04:904:			>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:04:913:				Retornando => '1'
+03/02/2018-18:14:04:920:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:04:939:			>> fnXML_AlterarValor(CONFIGURACAO\estadoCFe, 2, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:04:986:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:04:997:		<< aCFeVender_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:14:05:007:	<< aCFVender_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:14:05:019:	-----------------------------------------------------
+
+03/02/2018-18:14:07:277:	>> aCFVender_SAT_Daruma(12,00, 1, 0,01, D$, 0, 10189, UND,  Ac. Feij„o e Vinagrete)
+03/02/2018-18:14:07:291:		>> fnXML_RetornarValor(PROD\CFOP, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:07:300:			Retornando => '0001'
+03/02/2018-18:14:07:310:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:07:319:		>> fnXML_RetornarValor(PROD\NCM, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:07:326:			Retornando => '01012100'
+03/02/2018-18:14:07:335:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:07:345:		>> fnXML_RetornarValor(PROD\indRegra, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:07:354:			Retornando => 'T'
+03/02/2018-18:14:07:364:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:07:372:		>> fnXML_RetornarValor(PROD\indRegra, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:07:382:			Retornando => 'T'
+03/02/2018-18:14:07:391:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:07:401:		>> aCFeVender_SAT_Daruma(<prod><cProd>10189</cProd><xProd> Ac. Feij„o e Vinagrete</xProd><NCM>01012100</NCM><CFOP>0001</CFOP><uCom>UND</uCom><qCom>1.0000</qCom><vUnCom>0.01</vUnCom><indRegra>T</indRegra></prod><imposto><ICMS><ICMS00><Orig>0</Orig><CST>00</CST><pICMS>12.00</pICMS></ICMS00></ICMS><PIS><PISAliq><CST>01</CST><vBC>0.01</vBC><pPIS>1.0000</pPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>0.01</vBC><pCOFINS>1.0000</pCOFINS></COFINSAliq></COFINS></imposto>)
+03/02/2018-18:14:07:410:			>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:07:419:				Retornando => '2'
+03/02/2018-18:14:07:429:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:07:450:			>> fnXML_AlterarValor(CONFIGURACAO\estadoCFe, 2, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:07:476:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:07:487:		<< aCFeVender_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:14:07:496:	<< aCFVender_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:14:07:505:	-----------------------------------------------------
+
+03/02/2018-18:14:08:309:	>> aCFVender_SAT_Daruma(12,00, 1, 1,90, D$, 0, 9020, UND, Feij„o)
+03/02/2018-18:14:08:318:		>> fnXML_RetornarValor(PROD\CFOP, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:08:331:			Retornando => '0001'
+03/02/2018-18:14:08:339:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:08:347:		>> fnXML_RetornarValor(PROD\NCM, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:08:354:			Retornando => '01012100'
+03/02/2018-18:14:08:362:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:08:370:		>> fnXML_RetornarValor(PROD\indRegra, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:08:379:			Retornando => 'T'
+03/02/2018-18:14:08:387:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:08:397:		>> fnXML_RetornarValor(PROD\indRegra, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:08:407:			Retornando => 'T'
+03/02/2018-18:14:08:415:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:08:422:		>> aCFeVender_SAT_Daruma(<prod><cProd>9020</cProd><xProd>Feij„o</xProd><NCM>01012100</NCM><CFOP>0001</CFOP><uCom>UND</uCom><qCom>1.0000</qCom><vUnCom>1.90</vUnCom><indRegra>T</indRegra></prod><imposto><ICMS><ICMS00><Orig>0</Orig><CST>00</CST><pICMS>12.00</pICMS></ICMS00></ICMS><PIS><PISAliq><CST>01</CST><vBC>1.90</vBC><pPIS>1.0000</pPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>1.90</vBC><pCOFINS>1.0000</pCOFINS></COFINSAliq></COFINS></imposto>)
+03/02/2018-18:14:08:429:			>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:08:437:				Retornando => '2'
+03/02/2018-18:14:08:444:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:08:463:			>> fnXML_AlterarValor(CONFIGURACAO\estadoCFe, 2, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:08:498:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:08:509:		<< aCFeVender_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:14:08:516:	<< aCFVender_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:14:08:524:	-----------------------------------------------------
+
+03/02/2018-18:14:10:041:	>> aCFTotalizar_SAT_Daruma(D$, 0,00)
+03/02/2018-18:14:10:050:		>> fnXML_RetornarValor(CONFIGURACAO\vCFeLei12741, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:10:062:			Retornando => '0.00'
+03/02/2018-18:14:10:070:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:10:080:		>> aCFeTotalizar_SAT_Daruma(<total><vCFeLei12741>0.00</vCFeLei12741></total>)
+03/02/2018-18:14:10:087:			>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:10:094:				Retornando => '2'
+03/02/2018-18:14:10:103:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:10:122:			>> fnXML_AlterarValor(CONFIGURACAO\estadoCFe, 3, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:10:142:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:10:150:		<< aCFeTotalizar_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:14:10:156:	<< aCFTotalizar_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:14:10:164:	-----------------------------------------------------
+
+03/02/2018-18:14:12:327:	>> aCFEfetuarPagamento_SAT_Daruma(Dinheiro, 16,80, )
+03/02/2018-18:14:12:336:		>> aCFeEfetuarPagamento_SAT_Daruma(<MP><cMP>01</cMP><vMP>16.80</vMP></MP>)
+03/02/2018-18:14:12:344:			>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:12:352:				Retornando => '3'
+03/02/2018-18:14:12:362:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:12:381:			>> fnXML_AlterarValor(CONFIGURACAO\estadoCFe, 4, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:12:403:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:12:412:		<< aCFeEfetuarPagamento_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:14:12:420:	<< aCFEfetuarPagamento_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:14:12:427:	-----------------------------------------------------
+
+03/02/2018-18:14:16:727:	>> tCFEncerrar_SAT_Daruma(, COMANDA:100)
+03/02/2018-18:14:16:735:		>> tCFeEncerrar_SAT_Daruma(<infAdic><infCpl>COMANDA:100</infCpl></infAdic>)
+03/02/2018-18:14:16:743:			>> fnSeImpressoraDaruma_SAT()
+03/02/2018-18:14:16:752:				## Verificar Modelo de Impressora!
+03/02/2018-18:14:16:761:				>> fnVerificaSeModeloImpressoraOK_SAT()
+03/02/2018-18:14:16:768:					>> hsImpEscreverBytes(@)
+03/02/2018-18:14:16:775:						>> esEscreverSerial(COM3, @, 2)
+03/02/2018-18:14:16:783:							>> fnEscreveSerial(3, pszBytes, 2)
+03/02/2018-18:14:16:790:							<< fnEscreveSerial - RETORNO NUMERO: 2
+03/02/2018-18:14:16:797:						<< esEscreverSerial - RETORNO NUMERO: 1
+03/02/2018-18:14:16:804:					<< hsImpEscreverBytes - RETORNO NUMERO: 1
+03/02/2018-18:14:16:862:					>> hsImpEscreverBytes(√)
+03/02/2018-18:14:16:870:						>> esEscreverSerial(COM3, √, 2)
+03/02/2018-18:14:16:877:							>> fnEscreveSerial(3, pszBytes, 2)
+03/02/2018-18:14:16:885:							<< fnEscreveSerial - RETORNO NUMERO: 2
+03/02/2018-18:14:16:892:						<< esEscreverSerial - RETORNO NUMERO: 1
+03/02/2018-18:14:16:899:					<< hsImpEscreverBytes - RETORNO NUMERO: 1
+03/02/2018-18:14:17:007:					>> hsImpLerBytes()
+03/02/2018-18:14:17:218:						bytes recebidos (:20001)
+03/02/2018-18:14:17:226:					<< hsImpLerBytes - RETORNO NUMERO: 1
+03/02/2018-18:14:17:233:					Modelo Impressora = [:20001]
+03/02/2018-18:14:17:240:				<< fnVerificaSeModeloImpressoraOK_SAT - RETORNO NUMERO: 1
+03/02/2018-18:14:17:248:			<< fnSeImpressoraDaruma_SAT - RETORNO NUMERO: 1
+03/02/2018-18:14:17:255:			>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:17:262:				Retornando => '4'
+03/02/2018-18:14:17:269:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:17:295:			>> fnXML_RetornarValor(IDENTIFICACAO_CFE\CNPJ, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:17:302:				Retornando => '22222222222222'
+03/02/2018-18:14:17:309:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:17:317:			>> fnXML_RetornarValor(IDENTIFICACAO_CFE\signAC, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:17:324:				Retornando => '11111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111'
+03/02/2018-18:14:17:331:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:17:338:			>> fnXML_RetornarValor(IDENTIFICACAO_CFE\numeroCaixa, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:17:348:				Retornando => '001'
+03/02/2018-18:14:17:357:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:17:365:			>> fnXML_RetornarValor(EMIT\CNPJ, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:17:373:				Retornando => '11111111111111'
+03/02/2018-18:14:17:381:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:17:388:			>> fnXML_RetornarValor(EMIT\IE, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:17:395:				Retornando => '111111111111'
+03/02/2018-18:14:17:402:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:17:409:			>> fnXML_RetornarValor(EMIT\IM, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:17:416:				Retornando => ' '
+03/02/2018-18:14:17:424:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:17:431:			>> fnXML_RetornarValor(EMIT\cRegTribISSQN, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:17:437:				Retornando => '1'
+03/02/2018-18:14:17:444:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:17:452:			>> fnXML_RetornarValor(EMIT\indRatISSQN, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:17:459:				Retornando => 'N'
+03/02/2018-18:14:17:466:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:17:474:			>> fnConfigurarVersaoDadosEnt_SAT()
+03/02/2018-18:14:17:481:				>> fnXML_RetornarValor(CONFIGURACAO\VersaoDadosEnt, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:17:488:					Retornando => 'xx.xx'
+03/02/2018-18:14:17:495:				<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:17:503:				>> rConsultarStatusEspecifico_SAT_Daruma()
+03/02/2018-18:14:17:510:					>> fnEnviarComando_SAT(5, <pszBuffer>, , )
+03/02/2018-18:14:17:517:						## pszBuffer -> 
+03/02/2018-18:14:17:525:						17
+03/02/2018-18:14:17:532:						>> fnXML_RetornarValor(EMIT\UF, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:17:538:							Retornando => ' '
+03/02/2018-18:14:17:545:						<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:17:552:						>> fnCarregarLibDllSAT()
+03/02/2018-18:14:17:560:							NAO foi possivel carregar a biblioteca SAT
+03/02/2018-18:14:17:567:						<< fnCarregarLibDllSAT - RETORNO NUMERO: -140
+03/02/2018-18:14:17:574:					<< fnEnviarComando_SAT - RETORNO NUMERO: -140
+03/02/2018-18:14:17:581:				<< rConsultarStatusEspecifico_SAT_Daruma - RETORNO NUMERO: -140
+03/02/2018-18:14:17:588:			<< fnConfigurarVersaoDadosEnt_SAT - RETORNO NUMERO: -140
+03/02/2018-18:14:17:597:			>> fnEnviarComando_SAT(1, <pszBuffer>, , )
+03/02/2018-18:14:17:603:				## pszBuffer -> 
+03/02/2018-18:14:17:612:				<dest><CPF>11111111111</CPF><xNome>SIDNEI</xNome></dest><det nItem='001'><prod><cProd>1691</cProd><xProd>Frango fatiado</xProd><NCM>01012100</NCM><CFOP>0001</CFOP><uCom>UND</uCom><qCom>1.0000</qCom><vUnCom>14.89</vUnCom><indRegra>T</indRegra></prod><imposto><ICMS><ICMS00><Orig>0</Orig><CST>00</CST><pICMS>12.00</pICMS></ICMS00></ICMS><PIS><PISAliq><CST>01</CST><vBC>14.89</vBC><pPIS>1.0000</pPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>14.89</vBC><pCOFINS>1.0000</pCOFINS></COFINSAliq></COFINS></imposto></det><det nItem='002'><prod><cProd>10189</cProd><xProd> Ac. Feij√£o e Vinagrete</xProd><NCM>01012100</NCM><CFOP>0001</CFOP><uCom>UND</uCom><qCom>1.0000</qCom><vUnCom>0.01</vUnCom><indRegra>T</indRegra></prod><imposto><ICMS><ICMS00><Orig>0</Orig><CST>00</CST><pICMS>12.00</pICMS></ICMS00></ICMS><PIS><PISAliq><CST>01</CST><vBC>0.01</vBC><pPIS>1.0000</pPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>0.01</vBC><pCOFINS>1.0000</pCOFINS></COFINSAliq></COFINS></imposto></det><det nItem='003'><prod><cProd>9020</cProd><xProd>Feij√£o</xProd><NCM>01012100</NCM><CFOP>0001</CFOP><uCom>UND</uCom><qCom>1.0000</qCom><vUnCom>1.90</vUnCom><indRegra>T</indRegra></prod><imposto><ICMS><ICMS00><Orig>0</Orig><CST>00</CST><pICMS>12.00</pICMS></ICMS00></ICMS><PIS><PISAliq><CST>01</CST><vBC>1.90</vBC><pPIS>1.0000</pPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>1.90</vBC><pCOFINS>1.0000</pCOFINS></COFINSAliq></COFINS></imposto></det><total><vCFeLei12741>0.00</vCFeLei12741></total><pgto><MP><cMP>01</cMP><vMP>16.80</vMP></MP></pgto><infAdic><infCpl>COMANDA:100</infCpl></infAdic></infCFe></CFe>
+03/02/2018-18:14:17:619:				>> fnXML_RetornarValor(EMIT\UF, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:17:627:					Retornando => ' '
+03/02/2018-18:14:17:634:				<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:17:641:				>> fnCarregarLibDllSAT()
+03/02/2018-18:14:17:648:					NAO foi possivel carregar a biblioteca SAT
+03/02/2018-18:14:17:655:				<< fnCarregarLibDllSAT - RETORNO NUMERO: -140
+03/02/2018-18:14:17:662:			<< fnEnviarComando_SAT - RETORNO NUMERO: -140
+03/02/2018-18:14:17:669:		<< tCFeEncerrar_SAT_Daruma - RETORNO NUMERO: -140
+03/02/2018-18:14:17:676:	<< tCFEncerrar_SAT_Daruma - RETORNO NUMERO: -140
+03/02/2018-18:14:17:683:	-----------------------------------------------------
+
+03/02/2018-18:14:29:855:	>> tCFeCancelar_SAT_Daruma()
+03/02/2018-18:14:29:865:		>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:29:875:			Retornando => '4'
+03/02/2018-18:14:29:884:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:29:893:		>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:14:29:900:			Retornando => '4'
+03/02/2018-18:14:29:908:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:29:915:		## CANCELAMENTO - EM MEMORIA
+03/02/2018-18:14:29:926:		>> fnXML_AlterarValor(CONFIGURACAO\estadoCFe, 6, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:29:954:		<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:29:963:		 ----------- Zerando TAG DEST !! CANCELAMENTO SAT ---------------
+03/02/2018-18:14:29:971:		>> fnXML_AlterarValor(DEST\CNPJ,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:29:992:		<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:30:000:		>> fnXML_AlterarValor(DEST\CPF,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:30:020:		<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:30:028:		>> fnXML_AlterarValor(DEST\xNome,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:14:30:049:		<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:14:30:057:	<< tCFeCancelar_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:14:30:064:	-----------------------------------------------------
+
+03/02/2018-18:14:54:064:	>> DllMain - Entrada - DLL_THREAD_DETACH
+03/02/2018-18:14:54:071:	<< DllMain - Saida - DLL_THREAD_DETACH
+03/02/2018-18:28:35:193:	>> fnDefinirProduto_Daruma(SAT)
+03/02/2018-18:28:35:312:		>> fnXML_START_PathLocalArquivos(.\)
+03/02/2018-18:28:35:319:			>> fnXML_START_PathPadrao(.\)
+03/02/2018-18:28:35:327:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+03/02/2018-18:28:35:336:		<< fnXML_START_PathLocalArquivos - RETORNO NUMERO: 1
+03/02/2018-18:28:35:396:		<< fnXML_START_PathLocalArquivos - RETORNO NUMERO: 1
+03/02/2018-18:28:35:403:		>> fnXML_START_PathLocalArquivosRelatorios(C:\)
+03/02/2018-18:28:35:410:			>> fnXML_START_PathPadrao(C:\)
+03/02/2018-18:28:35:418:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+03/02/2018-18:28:35:426:		<< fnXML_START_PathLocalArquivosRelatorios - RETORNO NUMERO: 1
+03/02/2018-18:28:35:433:		>> fnXML_START_PathLocalArquivosRelatorios(C:\)
+03/02/2018-18:28:35:441:			>> fnXML_START_PathPadrao(C:\)
+03/02/2018-18:28:35:448:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+03/02/2018-18:28:35:455:		<< fnXML_START_PathLocalArquivosRelatorios - RETORNO NUMERO: 1
+03/02/2018-18:28:35:463:		>> fnXML_START_PathBibliotecasAuxiliares(.\)
+03/02/2018-18:28:35:470:			>> fnXML_START_PathPadrao(.\)
+03/02/2018-18:28:35:477:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+03/02/2018-18:28:35:485:		<< fnXML_START_PathBibliotecasAuxiliares - RETORNO NUMERO: 1
+03/02/2018-18:28:35:492:		>> fnXML_START_PathBibliotecasAuxiliares(.\)
+03/02/2018-18:28:35:499:			>> fnXML_START_PathPadrao(.\)
+03/02/2018-18:28:35:506:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+03/02/2018-18:28:35:514:		<< fnXML_START_PathBibliotecasAuxiliares - RETORNO NUMERO: 1
+03/02/2018-18:28:36:123:		>> aCFeAbrir_SAT_Daruma(<dest><CPF>11111111111</CPF><xNome>SIDNEI</xNome></dest>)
+03/02/2018-18:28:36:131:			 ----------- Zerando TAG DEST !! ABERTURA SAT ---------------
+03/02/2018-18:28:36:138:			>> fnXML_AlterarValor(DEST\CNPJ,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:28:36:159:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:167:			>> fnXML_AlterarValor(DEST\CPF,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:28:36:189:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:197:			>> fnXML_AlterarValor(DEST\xNome,  , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:28:36:218:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:253:			>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:36:263:				Retornando => '6'
+03/02/2018-18:28:36:272:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:296:			>> fnXML_AlterarValor(CONFIGURACAO\vCFeLei12741, 0.00, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:28:36:316:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:323:			>> fnXML_AlterarValor(CONFIGURACAO\vCFeLei12741Porcentagem, 0.00, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:28:36:350:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:360:			>> fnXML_AlterarValor(CONFIGURACAO\estadoCFe, 1, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:28:36:405:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:413:			>> fnXML_AlterarValor(DEST\CPF, 11111111111, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:28:36:441:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:449:			>> fnXML_AlterarValor(DEST\xNome, SIDNEI, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:28:36:539:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:550:		<< aCFeAbrir_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:28:36:560:	<< aCFAbrir_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:28:36:569:	-----------------------------------------------------
+
+03/02/2018-18:28:36:577:	>> aCFVender_SAT_Daruma(12,00, 1, 13,90, D$, 0, 1790, UND, Salada dos Loucos)
+03/02/2018-18:28:36:584:		>> fnXML_RetornarValor(PROD\CFOP, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:36:592:			Retornando => '0001'
+03/02/2018-18:28:36:599:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:606:		>> fnXML_RetornarValor(PROD\NCM, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:36:613:			Retornando => '01012100'
+03/02/2018-18:28:36:620:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:627:		>> fnXML_RetornarValor(PROD\indRegra, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:36:634:			Retornando => 'T'
+03/02/2018-18:28:36:641:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:648:		>> fnXML_RetornarValor(PROD\indRegra, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:36:655:			Retornando => 'T'
+03/02/2018-18:28:36:663:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:671:		>> aCFeVender_SAT_Daruma(<prod><cProd>1790</cProd><xProd>Salada dos Loucos</xProd><NCM>01012100</NCM><CFOP>0001</CFOP><uCom>UND</uCom><qCom>1.0000</qCom><vUnCom>13.90</vUnCom><indRegra>T</indRegra></prod><imposto><ICMS><ICMS00><Orig>0</Orig><CST>00</CST><pICMS>12.00</pICMS></ICMS00></ICMS><PIS><PISAliq><CST>01</CST><vBC>13.90</vBC><pPIS>1.0000</pPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>13.90</vBC><pCOFINS>1.0000</pCOFINS></COFINSAliq></COFINS></imposto>)
+03/02/2018-18:28:36:678:			>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:36:685:				Retornando => '1'
+03/02/2018-18:28:36:692:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:707:			>> fnXML_AlterarValor(CONFIGURACAO\estadoCFe, 2, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:28:36:732:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:740:		<< aCFeVender_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:28:36:747:	<< aCFVender_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:28:36:755:	-----------------------------------------------------
+
+03/02/2018-18:28:36:763:	>> aCFVender_SAT_Daruma(12,00, 1, 2,90, D$, 0, 310, UND, Arroz Branco)
+03/02/2018-18:28:36:771:		>> fnXML_RetornarValor(PROD\CFOP, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:36:778:			Retornando => '0001'
+03/02/2018-18:28:36:785:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:792:		>> fnXML_RetornarValor(PROD\NCM, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:36:798:			Retornando => '01012100'
+03/02/2018-18:28:36:806:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:812:		>> fnXML_RetornarValor(PROD\indRegra, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:36:819:			Retornando => 'T'
+03/02/2018-18:28:36:826:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:834:		>> fnXML_RetornarValor(PROD\indRegra, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:36:841:			Retornando => 'T'
+03/02/2018-18:28:36:848:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:855:		>> aCFeVender_SAT_Daruma(<prod><cProd>310</cProd><xProd>Arroz Branco</xProd><NCM>01012100</NCM><CFOP>0001</CFOP><uCom>UND</uCom><qCom>1.0000</qCom><vUnCom>2.90</vUnCom><indRegra>T</indRegra></prod><imposto><ICMS><ICMS00><Orig>0</Orig><CST>00</CST><pICMS>12.00</pICMS></ICMS00></ICMS><PIS><PISAliq><CST>01</CST><vBC>2.90</vBC><pPIS>1.0000</pPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>2.90</vBC><pCOFINS>1.0000</pCOFINS></COFINSAliq></COFINS></imposto>)
+03/02/2018-18:28:36:862:			>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:36:869:				Retornando => '2'
+03/02/2018-18:28:36:876:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:892:			>> fnXML_AlterarValor(CONFIGURACAO\estadoCFe, 2, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:28:36:911:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:918:		<< aCFeVender_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:28:36:925:	<< aCFVender_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:28:36:932:	-----------------------------------------------------
+
+03/02/2018-18:28:36:940:	>> aCFTotalizar_SAT_Daruma(D$, 0,00)
+03/02/2018-18:28:36:947:		>> fnXML_RetornarValor(CONFIGURACAO\vCFeLei12741, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:36:954:			Retornando => '0.00'
+03/02/2018-18:28:36:963:		<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:36:972:		>> aCFeTotalizar_SAT_Daruma(<total><vCFeLei12741>0.00</vCFeLei12741></total>)
+03/02/2018-18:28:36:979:			>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:36:987:				Retornando => '2'
+03/02/2018-18:28:36:994:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:37:011:			>> fnXML_AlterarValor(CONFIGURACAO\estadoCFe, 3, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:28:37:034:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:37:043:		<< aCFeTotalizar_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:28:37:050:	<< aCFTotalizar_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:28:37:057:	-----------------------------------------------------
+
+03/02/2018-18:28:37:065:	>> aCFEfetuarPagamento_SAT_Daruma(Dinheiro, 16,80, )
+03/02/2018-18:28:37:072:		>> aCFeEfetuarPagamento_SAT_Daruma(<MP><cMP>01</cMP><vMP>16.80</vMP></MP>)
+03/02/2018-18:28:37:078:			>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:37:085:				Retornando => '3'
+03/02/2018-18:28:37:092:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:37:109:			>> fnXML_AlterarValor(CONFIGURACAO\estadoCFe, 4, C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml, 1)
+03/02/2018-18:28:37:134:			<< fnXML_AlterarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:37:141:		<< aCFeEfetuarPagamento_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:28:37:148:	<< aCFEfetuarPagamento_SAT_Daruma - RETORNO NUMERO: 1
+03/02/2018-18:28:37:156:	-----------------------------------------------------
+
+03/02/2018-18:28:41:084:	>> tCFEncerrar_SAT_Daruma(, COMANDA:100)
+03/02/2018-18:28:41:092:		>> tCFeEncerrar_SAT_Daruma(<infAdic><infCpl>COMANDA:100</infCpl></infAdic>)
+03/02/2018-18:28:41:101:			>> fnSeImpressoraDaruma_SAT()
+03/02/2018-18:28:41:109:				## Verificar Modelo de Impressora!
+03/02/2018-18:28:41:117:				>> fnVerificaSeModeloImpressoraOK_SAT()
+03/02/2018-18:28:41:127:					>> hsImpEscreverBytes(@)
+03/02/2018-18:28:41:134:						>> esEscreverSerial(COM3, @, 2)
+03/02/2018-18:28:41:142:							>> fnEscreveSerial(3, pszBytes, 2)
+03/02/2018-18:28:41:149:							<< fnEscreveSerial - RETORNO NUMERO: 2
+03/02/2018-18:28:41:156:						<< esEscreverSerial - RETORNO NUMERO: 1
+03/02/2018-18:28:41:164:					<< hsImpEscreverBytes - RETORNO NUMERO: 1
+03/02/2018-18:28:41:222:					>> hsImpEscreverBytes(√)
+03/02/2018-18:28:41:229:						>> esEscreverSerial(COM3, √, 2)
+03/02/2018-18:28:41:236:							>> fnEscreveSerial(3, pszBytes, 2)
+03/02/2018-18:28:41:243:							<< fnEscreveSerial - RETORNO NUMERO: 2
+03/02/2018-18:28:41:250:						<< esEscreverSerial - RETORNO NUMERO: 1
+03/02/2018-18:28:41:258:					<< hsImpEscreverBytes - RETORNO NUMERO: 1
+03/02/2018-18:28:41:366:					>> hsImpLerBytes()
+03/02/2018-18:28:41:577:						bytes recebidos (:20001)
+03/02/2018-18:28:41:584:					<< hsImpLerBytes - RETORNO NUMERO: 1
+03/02/2018-18:28:41:591:					Modelo Impressora = [:20001]
+03/02/2018-18:28:41:598:				<< fnVerificaSeModeloImpressoraOK_SAT - RETORNO NUMERO: 1
+03/02/2018-18:28:41:605:			<< fnSeImpressoraDaruma_SAT - RETORNO NUMERO: 1
+03/02/2018-18:28:41:613:			>> fnXML_RetornarValor(CONFIGURACAO\estadoCFe, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:41:621:				Retornando => '4'
+03/02/2018-18:28:41:629:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:41:651:			>> fnXML_RetornarValor(IDENTIFICACAO_CFE\CNPJ, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:41:658:				Retornando => '22222222222222'
+03/02/2018-18:28:41:666:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:41:673:			>> fnXML_RetornarValor(IDENTIFICACAO_CFE\signAC, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:41:681:				Retornando => '11111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111'
+03/02/2018-18:28:41:687:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:41:694:			>> fnXML_RetornarValor(IDENTIFICACAO_CFE\numeroCaixa, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:41:701:				Retornando => '001'
+03/02/2018-18:28:41:709:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:41:716:			>> fnXML_RetornarValor(EMIT\CNPJ, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:41:723:				Retornando => '11111111111111'
+03/02/2018-18:28:41:730:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:41:737:			>> fnXML_RetornarValor(EMIT\IE, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:41:744:				Retornando => '111111111111'
+03/02/2018-18:28:41:751:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:41:758:			>> fnXML_RetornarValor(EMIT\IM, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:41:766:				Retornando => ' '
+03/02/2018-18:28:41:774:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:41:781:			>> fnXML_RetornarValor(EMIT\cRegTribISSQN, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:41:788:				Retornando => '1'
+03/02/2018-18:28:41:795:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:41:803:			>> fnXML_RetornarValor(EMIT\indRatISSQN, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:41:810:				Retornando => 'N'
+03/02/2018-18:28:41:817:			<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:41:824:			>> fnConfigurarVersaoDadosEnt_SAT()
+03/02/2018-18:28:41:833:				>> fnXML_RetornarValor(CONFIGURACAO\VersaoDadosEnt, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:41:840:					Retornando => 'xx.xx'
+03/02/2018-18:28:41:847:				<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:41:854:				>> rConsultarStatusEspecifico_SAT_Daruma()
+03/02/2018-18:28:41:861:					>> fnEnviarComando_SAT(5, <pszBuffer>, , )
+03/02/2018-18:28:41:868:						## pszBuffer -> 
+03/02/2018-18:28:41:875:						17
+03/02/2018-18:28:41:882:						>> fnXML_RetornarValor(EMIT\UF, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:41:889:							Retornando => ' '
+03/02/2018-18:28:41:899:						<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:41:908:						>> fnCarregarLibDllSAT()
+03/02/2018-18:28:41:916:							NAO foi possivel carregar a biblioteca SAT
+03/02/2018-18:28:41:924:						<< fnCarregarLibDllSAT - RETORNO NUMERO: -140
+03/02/2018-18:28:41:932:					<< fnEnviarComando_SAT - RETORNO NUMERO: -140
+03/02/2018-18:28:41:943:				<< rConsultarStatusEspecifico_SAT_Daruma - RETORNO NUMERO: -140
+03/02/2018-18:28:41:951:			<< fnConfigurarVersaoDadosEnt_SAT - RETORNO NUMERO: -140
+03/02/2018-18:28:41:961:			>> fnEnviarComando_SAT(1, <pszBuffer>, , )
+03/02/2018-18:28:41:970:				## pszBuffer -> 
+03/02/2018-18:28:41:978:				<dest><CPF>11111111111</CPF><xNome>SIDNEI</xNome></dest><det nItem='001'><prod><cProd>1790</cProd><xProd>Salada dos Loucos</xProd><NCM>01012100</NCM><CFOP>0001</CFOP><uCom>UND</uCom><qCom>1.0000</qCom><vUnCom>13.90</vUnCom><indRegra>T</indRegra></prod><imposto><ICMS><ICMS00><Orig>0</Orig><CST>00</CST><pICMS>12.00</pICMS></ICMS00></ICMS><PIS><PISAliq><CST>01</CST><vBC>13.90</vBC><pPIS>1.0000</pPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>13.90</vBC><pCOFINS>1.0000</pCOFINS></COFINSAliq></COFINS></imposto></det><det nItem='002'><prod><cProd>310</cProd><xProd>Arroz Branco</xProd><NCM>01012100</NCM><CFOP>0001</CFOP><uCom>UND</uCom><qCom>1.0000</qCom><vUnCom>2.90</vUnCom><indRegra>T</indRegra></prod><imposto><ICMS><ICMS00><Orig>0</Orig><CST>00</CST><pICMS>12.00</pICMS></ICMS00></ICMS><PIS><PISAliq><CST>01</CST><vBC>2.90</vBC><pPIS>1.0000</pPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>2.90</vBC><pCOFINS>1.0000</pCOFINS></COFINSAliq></COFINS></imposto></det><total><vCFeLei12741>0.00</vCFeLei12741></total><pgto><MP><cMP>01</cMP><vMP>16.80</vMP></MP></pgto><infAdic><infCpl>COMANDA:100</infCpl></infAdic></infCFe></CFe>
+03/02/2018-18:28:41:986:				>> fnXML_RetornarValor(EMIT\UF, , C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\Daruma32\DarumaFrameWork_SAT.xml)
+03/02/2018-18:28:41:993:					Retornando => ' '
+03/02/2018-18:28:42:001:				<< fnXML_RetornarValor - RETORNO NUMERO: 1
+03/02/2018-18:28:42:009:				>> fnCarregarLibDllSAT()
+03/02/2018-18:28:42:017:					NAO foi possivel carregar a biblioteca SAT
+03/02/2018-18:28:42:027:				<< fnCarregarLibDllSAT - RETORNO NUMERO: -140
+03/02/2018-18:28:42:036:			<< fnEnviarComando_SAT - RETORNO NUMERO: -140
+03/02/2018-18:28:42:052:		<< tCFeEncerrar_SAT_Daruma - RETORNO NUMERO: -140
+03/02/2018-18:28:42:069:	<< tCFEncerrar_SAT_Daruma - RETORNO NUMERO: -140
+03/02/2018-18:28:42:086:	-----------------------------------------------------
+

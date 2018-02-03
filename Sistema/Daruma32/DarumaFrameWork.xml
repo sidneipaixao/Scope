@@ -258,7 +258,7 @@
   </MODEM>
   <DSP>
     <Auditoria>0</Auditoria>
-    <PortaSerial>COM5</PortaSerial>
+    <PortaSerial>COM3</PortaSerial>
     <Velocidade>9600</Velocidade>
     <Mascara></Mascara>
     <MENSAGEMABERTURA>
@@ -350,7 +350,7 @@
       <ComunicacaoUSB>0</ComunicacaoUSB>
       <ControleAutomatico>0</ControleAutomatico>
       <MarcaImpressora>0</MarcaImpressora>
-      <PortaComunicacao>COM1</PortaComunicacao>
+      <PortaComunicacao>COM3</PortaComunicacao>
       <TamanhoBobina>48</TamanhoBobina>
       <Velocidade>9600</Velocidade>
       <ConfAnterior>0</ConfAnterior>
