@@ -34,6 +34,7 @@ Partial Class frmExcluirItem
         Me.lblMensagem = New System.Windows.Forms.Label()
         Me.cbxUsuario = New System.Windows.Forms.ComboBox()
         Me.lblUsuario = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.txtAux = New System.Windows.Forms.TextBox()
         Me.pnlTitulo.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -74,22 +75,23 @@ Partial Class frmExcluirItem
         '
         'btnOk
         '
+        Me.btnOk.FlatAppearance.BorderSize = 0
         Me.btnOk.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnOk.Location = New System.Drawing.Point(469, 221)
+        Me.btnOk.Location = New System.Drawing.Point(360, 215)
         Me.btnOk.Name = "btnOk"
-        Me.btnOk.Size = New System.Drawing.Size(105, 31)
+        Me.btnOk.Size = New System.Drawing.Size(105, 50)
         Me.btnOk.TabIndex = 2
         Me.btnOk.Tag = "4"
-        Me.btnOk.Text = "Confirmar"
+        Me.btnOk.Text = "Excluir Prato"
         Me.btnOk.UseVisualStyleBackColor = True
         '
         'btnCancelar
         '
         Me.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancelar.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancelar.Location = New System.Drawing.Point(358, 221)
+        Me.btnCancelar.Location = New System.Drawing.Point(469, 215)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(105, 31)
+        Me.btnCancelar.Size = New System.Drawing.Size(105, 50)
         Me.btnCancelar.TabIndex = 3
         Me.btnCancelar.Tag = "3"
         Me.btnCancelar.Text = "Cancelar"
@@ -160,6 +162,17 @@ Partial Class frmExcluirItem
         Me.lblUsuario.TabIndex = 33
         Me.lblUsuario.Text = "Usuário"
         '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(251, 215)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(105, 50)
+        Me.Button1.TabIndex = 35
+        Me.Button1.Tag = "4"
+        Me.Button1.Text = "Excluir Item"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'txtAux
         '
         Me.txtAux.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -174,7 +187,8 @@ Partial Class frmExcluirItem
         Me.AcceptButton = Me.btnOk
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.CancelButton = Me.btnCancelar
-        Me.ClientSize = New System.Drawing.Size(586, 266)
+        Me.ClientSize = New System.Drawing.Size(586, 277)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtAux)
         Me.Controls.Add(Me.lblUsuario)
         Me.Controls.Add(Me.cbxUsuario)
@@ -207,5 +221,6 @@ Partial Class frmExcluirItem
     Friend WithEvents cmdFechar As System.Windows.Forms.Button
     Friend WithEvents cbxUsuario As System.Windows.Forms.ComboBox
     Friend WithEvents lblUsuario As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents txtAux As System.Windows.Forms.TextBox
 End Class
