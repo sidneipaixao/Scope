@@ -26,16 +26,18 @@ Partial Class frmExcluirItem
         Me.pnlTitulo = New System.Windows.Forms.Panel()
         Me.cmdFechar = New System.Windows.Forms.Button()
         Me.txtSenha = New System.Windows.Forms.TextBox()
-        Me.btnOk = New System.Windows.Forms.Button()
+        Me.btnExcluirPrato = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.lblCxTexto = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblAux = New System.Windows.Forms.Label()
         Me.lblTitulo = New System.Windows.Forms.Label()
         Me.lblMensagem = New System.Windows.Forms.Label()
         Me.cbxUsuario = New System.Windows.Forms.ComboBox()
         Me.lblUsuario = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.txtAux = New System.Windows.Forms.TextBox()
+        Me.btnExcluirItem = New System.Windows.Forms.Button()
         Me.pnlTitulo.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -67,32 +69,32 @@ Partial Class frmExcluirItem
         'txtSenha
         '
         Me.txtSenha.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSenha.Location = New System.Drawing.Point(330, 180)
+        Me.txtSenha.Location = New System.Drawing.Point(330, 318)
         Me.txtSenha.Name = "txtSenha"
         Me.txtSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtSenha.Size = New System.Drawing.Size(244, 27)
         Me.txtSenha.TabIndex = 1
         '
-        'btnOk
+        'btnExcluirPrato
         '
-        Me.btnOk.FlatAppearance.BorderSize = 0
-        Me.btnOk.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnOk.Location = New System.Drawing.Point(360, 215)
-        Me.btnOk.Name = "btnOk"
-        Me.btnOk.Size = New System.Drawing.Size(105, 50)
-        Me.btnOk.TabIndex = 2
-        Me.btnOk.Tag = "4"
-        Me.btnOk.Text = "Excluir Prato"
-        Me.btnOk.UseVisualStyleBackColor = True
+        Me.btnExcluirPrato.FlatAppearance.BorderSize = 0
+        Me.btnExcluirPrato.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExcluirPrato.Location = New System.Drawing.Point(361, 357)
+        Me.btnExcluirPrato.Name = "btnExcluirPrato"
+        Me.btnExcluirPrato.Size = New System.Drawing.Size(105, 50)
+        Me.btnExcluirPrato.TabIndex = 3
+        Me.btnExcluirPrato.Tag = "4"
+        Me.btnExcluirPrato.Text = "Excluir Prato"
+        Me.btnExcluirPrato.UseVisualStyleBackColor = True
         '
         'btnCancelar
         '
         Me.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancelar.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancelar.Location = New System.Drawing.Point(469, 215)
+        Me.btnCancelar.Location = New System.Drawing.Point(469, 357)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(105, 50)
-        Me.btnCancelar.TabIndex = 3
+        Me.btnCancelar.TabIndex = 4
         Me.btnCancelar.Tag = "3"
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -101,7 +103,7 @@ Partial Class frmExcluirItem
         '
         Me.lblCxTexto.AutoSize = True
         Me.lblCxTexto.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCxTexto.Location = New System.Drawing.Point(327, 159)
+        Me.lblCxTexto.Location = New System.Drawing.Point(327, 297)
         Me.lblCxTexto.Name = "lblCxTexto"
         Me.lblCxTexto.Size = New System.Drawing.Size(47, 18)
         Me.lblCxTexto.TabIndex = 20
@@ -110,13 +112,25 @@ Partial Class frmExcluirItem
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel1.Controls.Add(Me.lblAux)
         Me.Panel1.Controls.Add(Me.lblTitulo)
         Me.Panel1.Controls.Add(Me.lblMensagem)
         Me.Panel1.Location = New System.Drawing.Point(11, 51)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(563, 106)
+        Me.Panel1.Size = New System.Drawing.Size(563, 237)
         Me.Panel1.TabIndex = 31
         Me.Panel1.Tag = "5"
+        '
+        'lblAux
+        '
+        Me.lblAux.AutoSize = True
+        Me.lblAux.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAux.ForeColor = System.Drawing.Color.White
+        Me.lblAux.Location = New System.Drawing.Point(252, 85)
+        Me.lblAux.Name = "lblAux"
+        Me.lblAux.Size = New System.Drawing.Size(95, 18)
+        Me.lblAux.TabIndex = 28
+        Me.lblAux.Text = "Label Auxiliar"
         '
         'lblTitulo
         '
@@ -136,9 +150,9 @@ Partial Class frmExcluirItem
         Me.lblMensagem.ForeColor = System.Drawing.Color.White
         Me.lblMensagem.Location = New System.Drawing.Point(21, 49)
         Me.lblMensagem.Name = "lblMensagem"
-        Me.lblMensagem.Size = New System.Drawing.Size(197, 18)
+        Me.lblMensagem.Size = New System.Drawing.Size(101, 18)
         Me.lblMensagem.TabIndex = 27
-        Me.lblMensagem.Text = "Valor total .............................:"
+        Me.lblMensagem.Text = "Label Principal"
         '
         'cbxUsuario
         '
@@ -146,7 +160,7 @@ Partial Class frmExcluirItem
         Me.cbxUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxUsuario.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbxUsuario.FormattingEnabled = True
-        Me.cbxUsuario.Location = New System.Drawing.Point(11, 180)
+        Me.cbxUsuario.Location = New System.Drawing.Point(11, 318)
         Me.cbxUsuario.Name = "cbxUsuario"
         Me.cbxUsuario.Size = New System.Drawing.Size(312, 27)
         Me.cbxUsuario.TabIndex = 0
@@ -156,7 +170,7 @@ Partial Class frmExcluirItem
         '
         Me.lblUsuario.AutoSize = True
         Me.lblUsuario.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUsuario.Location = New System.Drawing.Point(8, 160)
+        Me.lblUsuario.Location = New System.Drawing.Point(8, 298)
         Me.lblUsuario.Name = "lblUsuario"
         Me.lblUsuario.Size = New System.Drawing.Size(55, 18)
         Me.lblUsuario.TabIndex = 33
@@ -176,26 +190,37 @@ Partial Class frmExcluirItem
         'txtAux
         '
         Me.txtAux.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAux.Location = New System.Drawing.Point(11, 180)
+        Me.txtAux.Location = New System.Drawing.Point(11, 318)
         Me.txtAux.Name = "txtAux"
         Me.txtAux.Size = New System.Drawing.Size(244, 27)
         Me.txtAux.TabIndex = 34
         Me.txtAux.Text = "1"
         '
+        'btnExcluirItem
+        '
+        Me.btnExcluirItem.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExcluirItem.Location = New System.Drawing.Point(253, 357)
+        Me.btnExcluirItem.Name = "btnExcluirItem"
+        Me.btnExcluirItem.Size = New System.Drawing.Size(105, 50)
+        Me.btnExcluirItem.TabIndex = 2
+        Me.btnExcluirItem.Tag = "4"
+        Me.btnExcluirItem.Text = "Excluir Item"
+        Me.btnExcluirItem.UseVisualStyleBackColor = True
+        '
         'frmExcluirItem
         '
-        Me.AcceptButton = Me.btnOk
+        Me.AcceptButton = Me.btnExcluirPrato
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.CancelButton = Me.btnCancelar
-        Me.ClientSize = New System.Drawing.Size(586, 277)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(586, 419)
+        Me.Controls.Add(Me.btnExcluirItem)
         Me.Controls.Add(Me.txtAux)
         Me.Controls.Add(Me.lblUsuario)
         Me.Controls.Add(Me.cbxUsuario)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblCxTexto)
         Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.btnOk)
+        Me.Controls.Add(Me.btnExcluirPrato)
         Me.Controls.Add(Me.txtSenha)
         Me.Controls.Add(Me.pnlTitulo)
         Me.Font = New System.Drawing.Font("Arial Narrow", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -212,7 +237,7 @@ Partial Class frmExcluirItem
     End Sub
     Friend WithEvents pnlTitulo As System.Windows.Forms.Panel
     Friend WithEvents txtSenha As System.Windows.Forms.TextBox
-    Friend WithEvents btnOk As System.Windows.Forms.Button
+    Friend WithEvents btnExcluirPrato As System.Windows.Forms.Button
     Friend WithEvents btnCancelar As System.Windows.Forms.Button
     Friend WithEvents lblCxTexto As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
@@ -223,4 +248,6 @@ Partial Class frmExcluirItem
     Friend WithEvents lblUsuario As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents txtAux As System.Windows.Forms.TextBox
+    Friend WithEvents btnExcluirItem As System.Windows.Forms.Button
+    Friend WithEvents lblAux As System.Windows.Forms.Label
 End Class

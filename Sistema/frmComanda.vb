@@ -84,7 +84,7 @@
         BackgroundImage = New Bitmap(Width - 1, Height - 1)
         Graphics.FromImage(BackgroundImage).DrawRectangle(New Pen(Color.FromArgb(55, 65, 80)), New Rectangle(New Point(0, 0), Size))
         txtSenha.Text = ""
-        Panel1.Focus()
+        'Panel1.Focus()
 
     End Sub
 
@@ -101,10 +101,10 @@
 
             'VERIFICA SE AS DLLs ESTAO ACESSIVEIS
             ComunicacaoSAT.Daruma.eVerificarVersaoDLL_Daruma(cVersao)
-
             'EFETUA A ABERTURA DO CUPOM FISCAL ELETRONICO
             '   DADOS: CPF, NOME , ENDERECO (CLIENTE)
             nResult = ComunicacaoSAT.Daruma.aCFAbrir_SAT_Daruma("11111111111", "SIDNEI", "(endereço não informado)")
+            'nResult = ComunicacaoSAT.Daruma.iCFAbrirPadrao_ECF_Daruma()
             If nResult <> 1 Then Error 2
 
             'EFETUA O ENVIO DOS ITENS PARA O CFE
@@ -129,7 +129,7 @@
 
             'FINALIZAR E EMITIR CFE *****ESTE PONTO GERA ERRO, POR ISSO ESTA COMENTADO*****
             '   DADOS: NRO. CUPOM ADICIONAL, INFORMACOES ADICIONAIS
-            'nResult = ComunicacaoSAT.Daruma.tCFEncerrar_SAT_Daruma("", "COMANDA:" & 100)
+            nResult = ComunicacaoSAT.Daruma.tCFEncerrar_SAT_Daruma("", "COMANDA:" & 100)
             If nResult <> 1 Then Error 2
 
             'A LINHA ABAIXO DEVE SER COMENTADA AO RETIRAR O COMENTARIO DA LINHA ACIMA
@@ -138,11 +138,37 @@
             nResult = ComunicacaoSAT.Daruma.tCFeCancelar_SAT_Daruma()
             If nResult <> 1 Then Error 2
 
+
+            '*************** ROTINAS IMPRESSAO *******************
+            'NAO FISCAL -> OK
+            nResult = ComunicacaoSAT.Daruma.regPortaComunicacao_DUAL_DarumaFramework("COM3")
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework("<tc>#</tc>", 0)
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework("<e><ce>Loucos por churrasco</ce></e>", 0)
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework("<tb><i><ce>Shopping Zona Leste</ce></i></tb>", 0)
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework("<tb><i>Itaquera</i></tb>", 0)
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework("<tb>CNPJ 06.227.709-0001/00</tb>", 0)
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework("<tc>#</tc><l></l>", 0)
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework("<i><dt></dt></i>", 0)
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework("<ad>Cupom não fiscal = 123456789</ad><l></l>", 0)
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework("<c>Cliente</c>", 0)
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework("<ce><e>Valor pago: 200,30</e></ce>", 0)
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework("<tc>_</tc><l></l>", 0)
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework("<sl></sl><sl></sl><sl></sl><sl></sl><sl></sl><sl></sl><sl></sl><sl></sl><sn></sn>", 0)
+
+            'FISCAL
+            'nResult = ComunicacaoSAT.Daruma.iCFAbrirPadrao_ECF_Daruma()
+            'nResult = ComunicacaoSAT.Daruma.iCFVender_ECF_Daruma("I1", "1,00", "12,30", "D$", "0,00", "123", "UND", "Prato de comida")
+            'nResult = ComunicacaoSAT.Daruma.iCFTotalizarCupomPadrao_ECF_Daruma
+            'nResult = ComunicacaoSAT.Daruma.iCFEfetuarPagamentoPadrao_ECF_Daruma
+            'nResult = ComunicacaoSAT.Daruma.iCFEfetuarPagamentoFormatado_ECF_Daruma("Débito", "12,30")
+            'nResult = ComunicacaoSAT.Daruma.iCFEncerrarPadrao_ECF_Daruma
+            'nResult = ComunicacaoSAT.Daruma.iCFIdentificarConsumidor_ECF_Daruma("Sidnei", "Rua sem nome, 215", "213213218-00")
+
             Return True
 
         Catch oErro As Exception
 
-            If oErro.Message = "Application-defined or object-defined error." Then
+            If oErro.Message = "Application-defined or object-defined error." Or oErro.Message = "Erro definido por aplicativo ou definido por objeto." Then
                 Select Case nResult
                     Case 0
                         MessageBox.Show("[0] - Método não executado / Tag inválida / Não foi possível comunicar com impressora", "Erro na impressão do cupom", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -268,6 +294,8 @@
                 MessageBox.Show(oErro.Message, "Erro na impressão do cupom", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
 
+            'PARA O CUPOM NAO FICAR ABERTO CASO OCORRA ERRO NA IMPRESSAO
+            ComunicacaoSAT.Daruma.tCFeCancelar_SAT_Daruma()
             Return False
 
         End Try

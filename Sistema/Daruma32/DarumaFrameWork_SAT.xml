@@ -40,8 +40,8 @@
   <EMIT>
     <CNPJ>11111111111111</CNPJ>
     <IE>111111111111</IE>
-    <IM></IM>
-    <UF> </UF>
+    <IM> </IM>
+    <UF>SP</UF>
     <cRegTribISSQN>1</cRegTribISSQN>
     <indRatISSQN>N</indRatISSQN>
   </EMIT>

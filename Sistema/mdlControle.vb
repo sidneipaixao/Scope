@@ -5,6 +5,7 @@ Namespace ComunicacaoSAT
 
     Public Class Daruma
 
+        'SAT
         <DllImport("DarumaFramework.dll")> _
         Public Shared Function eVerificarVersaoDLL_Daruma(ByVal strRet As StringBuilder) As Integer
         End Function
@@ -31,6 +32,43 @@ Namespace ComunicacaoSAT
 
         <DllImport("DarumaFrameWork.dll")> _
         Public Shared Function tCFeCancelar_SAT_Daruma() As Integer
+        End Function
+
+        'IMPRESSORA
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function iImprimirTexto_DUAL_DarumaFramework(ByVal stTexto As String, ByVal iTam As Integer) As Integer
+        End Function
+
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function regPortaComunicacao_DUAL_DarumaFramework(stParametro As System.String) As Integer
+        End Function
+
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function iCFAbrirPadrao_ECF_Daruma() As Integer
+        End Function
+
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function iCFVender_ECF_Daruma(ByVal pszCargaTributaria As String, ByVal pszQuantidade As String, ByVal pszPrecoUnitario As String, ByVal pszTipoDescAcresc As String, ByVal pszValorDescAcresc As String, ByVal pszCodigoItem As String, ByVal pszUnidadeMedida As String, ByVal pszDescricaoItem As String) As Integer
+        End Function
+
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function iCFTotalizarCupomPadrao_ECF_Daruma() As Integer
+        End Function
+
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function iCFEfetuarPagamentoPadrao_ECF_Daruma() As Integer
+        End Function
+
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function iCFEfetuarPagamentoFormatado_ECF_Daruma(ByVal pszFormaPgto As String, ByVal pszValor As String) As Integer
+        End Function
+
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function iCFEncerrarPadrao_ECF_Daruma() As Integer
+        End Function
+
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function iCFIdentificarConsumidor_ECF_Daruma(ByVal pszNome As String, ByVal pszEndereco As String, ByVal pszDoc As String) As Integer
         End Function
 
     End Class
