@@ -35,6 +35,7 @@ Partial Class frmExcluirItem
         Me.lblMensagem = New System.Windows.Forms.Label()
         Me.cbxUsuario = New System.Windows.Forms.ComboBox()
         Me.lblUsuario = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.txtAux = New System.Windows.Forms.TextBox()
         Me.btnExcluirItem = New System.Windows.Forms.Button()
         Me.pnlTitulo.SuspendLayout()
@@ -175,6 +176,17 @@ Partial Class frmExcluirItem
         Me.lblUsuario.TabIndex = 33
         Me.lblUsuario.Text = "Usuário"
         '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(251, 215)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(105, 50)
+        Me.Button1.TabIndex = 35
+        Me.Button1.Tag = "4"
+        Me.Button1.Text = "Excluir Item"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'txtAux
         '
         Me.txtAux.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -234,6 +246,7 @@ Partial Class frmExcluirItem
     Friend WithEvents cmdFechar As System.Windows.Forms.Button
     Friend WithEvents cbxUsuario As System.Windows.Forms.ComboBox
     Friend WithEvents lblUsuario As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents txtAux As System.Windows.Forms.TextBox
     Friend WithEvents btnExcluirItem As System.Windows.Forms.Button
     Friend WithEvents lblAux As System.Windows.Forms.Label

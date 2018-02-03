@@ -20,7 +20,7 @@
         Close()
     End Sub
 
-  Private Sub lstPedidos_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles lstPedidos.MouseClick
+    Private Sub lstPedidos_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles lstPedidos.MouseClick
 
         If lstPedidos.SelectedItems.Count > 0 Then
             frmEncerrarPedido.fnCarregaDados(lstPedidos.SelectedItems(0).Name.ToString.Remove(0, 3))
@@ -28,7 +28,7 @@
             frmEncerrarPedido.Show()
         End If
 
-  End Sub
+    End Sub
 
     Private Sub cmdFechar_Click_1(sender As System.Object, e As System.EventArgs) Handles cmdFechar.Click
 

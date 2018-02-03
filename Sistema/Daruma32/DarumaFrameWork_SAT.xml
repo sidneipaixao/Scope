@@ -1,6 +1,6 @@
 <DARUMAFRAMEWORKSAT>
   <CONFIGURACAO>
-    <estadoCFe>6</estadoCFe>
+    <estadoCFe>4</estadoCFe>
     <numeroSessao>100000</numeroSessao>
     <codigoDeAtivacao>123456789</codigoDeAtivacao>
     <ChaveConsulta></ChaveConsulta>
