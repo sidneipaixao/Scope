@@ -251,7 +251,7 @@
 
         'Rotina responsável por ajustar a largura das colunas do listview de pratos e o tamanho das linhas
         lstItens.Columns(0).Width = (lstItens.Width * 15) / 100
-        lstItens.Columns(1).Width = (lstItens.Width * 50) / 100
+        lstItens.Columns(1).Width = (lstItens.Width * 55) / 100
         lstItens.Columns(2).Width = (lstItens.Width * 15) / 100
         lstItens.Columns(3).Width = (lstItens.Width * 15) / 100
 

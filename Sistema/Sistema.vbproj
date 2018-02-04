@@ -126,6 +126,12 @@
     <Compile Include="frmGrupoMoeda.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmIncluirPedido.Designer.vb">
+      <DependentUpon>frmIncluirPedido.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmIncluirPedido.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMoeda.Designer.vb">
       <DependentUpon>frmMoeda.vb</DependentUpon>
     </Compile>
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGrupoMoeda.resx">
       <DependentUpon>frmGrupoMoeda.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIncluirPedido.resx">
+      <DependentUpon>frmIncluirPedido.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMoeda.resx">
       <DependentUpon>frmMoeda.vb</DependentUpon>

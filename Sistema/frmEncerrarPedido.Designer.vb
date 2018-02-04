@@ -133,7 +133,7 @@ Partial Class frmEncerrarPedido
         Me.lstItens.BackColor = System.Drawing.Color.White
         Me.lstItens.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lstItens.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.clnCodigo, Me.clnDescricao, Me.clnQtde, Me.clnValor})
-        Me.lstItens.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lstItens.Font = New System.Drawing.Font("Candara", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstItens.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.lstItens.FullRowSelect = True
         Me.lstItens.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
@@ -501,11 +501,11 @@ Partial Class frmEncerrarPedido
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Label1.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(24, 15)
+        Me.Label1.Location = New System.Drawing.Point(25, 8)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(153, 19)
+        Me.Label1.Size = New System.Drawing.Size(182, 23)
         Me.Label1.TabIndex = 36
         Me.Label1.Text = "Total geral do pedido"
         '
@@ -545,11 +545,11 @@ Partial Class frmEncerrarPedido
         '
         Me.txtTotal.BackColor = System.Drawing.Color.WhiteSmoke
         Me.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtTotal.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotal.Font = New System.Drawing.Font("Candara", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtTotal.Location = New System.Drawing.Point(28, 42)
+        Me.txtTotal.Location = New System.Drawing.Point(28, 39)
         Me.txtTotal.Name = "txtTotal"
-        Me.txtTotal.Size = New System.Drawing.Size(196, 24)
+        Me.txtTotal.Size = New System.Drawing.Size(196, 36)
         Me.txtTotal.TabIndex = 14
         Me.txtTotal.Text = "0,00"
         Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -641,11 +641,11 @@ Partial Class frmEncerrarPedido
         Me.txtVlrPrato.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtVlrPrato.BackColor = System.Drawing.Color.Silver
         Me.txtVlrPrato.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtVlrPrato.Font = New System.Drawing.Font("Candara", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtVlrPrato.Font = New System.Drawing.Font("Candara", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVlrPrato.ForeColor = System.Drawing.Color.IndianRed
         Me.txtVlrPrato.Location = New System.Drawing.Point(12, 547)
         Me.txtVlrPrato.Name = "txtVlrPrato"
-        Me.txtVlrPrato.Size = New System.Drawing.Size(151, 30)
+        Me.txtVlrPrato.Size = New System.Drawing.Size(151, 40)
         Me.txtVlrPrato.TabIndex = 48
         Me.txtVlrPrato.Text = "0,00"
         '
