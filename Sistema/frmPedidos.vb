@@ -23,6 +23,8 @@
     Private Sub lstPedidos_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles lstPedidos.MouseClick
 
         If lstPedidos.SelectedItems.Count > 0 Then
+            frmEncerrarPedido.txtEmail.Text = lstPedidos.SelectedItems(0).SubItems(2).Text
+            frmComanda.txtNome.Text = lstPedidos.SelectedItems(0).Text
             frmEncerrarPedido.fnCarregaDados(lstPedidos.SelectedItems(0).Name.ToString.Remove(0, 3))
             frmEncerrarPedido.Show()
         End If

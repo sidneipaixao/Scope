@@ -39,8 +39,16 @@ Partial Class frmComanda
         Me.lblMoeda = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtMoeda = New System.Windows.Forms.TextBox()
+        Me.lblNome = New System.Windows.Forms.Label()
+        Me.txtNome = New System.Windows.Forms.TextBox()
+        Me.lblEndereço = New System.Windows.Forms.Label()
+        Me.txtEndereço = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtCPF = New System.Windows.Forms.MaskedTextBox()
+        Me.pnlDadosCliente = New System.Windows.Forms.Panel()
         Me.pnlTitulo.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.pnlDadosCliente.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label2
@@ -55,22 +63,24 @@ Partial Class frmComanda
         '
         'btnCancelar
         '
+        Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancelar.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.Location = New System.Drawing.Point(470, 241)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(105, 50)
-        Me.btnCancelar.TabIndex = 2
+        Me.btnCancelar.TabIndex = 5
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
         'btnOk
         '
+        Me.btnOk.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnOk.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOk.Location = New System.Drawing.Point(317, 241)
         Me.btnOk.Name = "btnOk"
         Me.btnOk.Size = New System.Drawing.Size(150, 50)
-        Me.btnOk.TabIndex = 1
+        Me.btnOk.TabIndex = 4
         Me.btnOk.Text = "Novo pagamento"
         Me.btnOk.UseVisualStyleBackColor = True
         '
@@ -78,6 +88,7 @@ Partial Class frmComanda
         '
         Me.txtSenha.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSenha.Location = New System.Drawing.Point(13, 202)
+        Me.txtSenha.MaxLength = 3
         Me.txtSenha.Name = "txtSenha"
         Me.txtSenha.Size = New System.Drawing.Size(290, 33)
         Me.txtSenha.TabIndex = 0
@@ -117,7 +128,7 @@ Partial Class frmComanda
         Me.cmdFechar.Location = New System.Drawing.Point(557, 7)
         Me.cmdFechar.Name = "cmdFechar"
         Me.cmdFechar.Size = New System.Drawing.Size(24, 21)
-        Me.cmdFechar.TabIndex = 4
+        Me.cmdFechar.TabIndex = 6
         Me.cmdFechar.UseVisualStyleBackColor = True
         '
         'Label4
@@ -166,6 +177,8 @@ Partial Class frmComanda
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel1.Controls.Add(Me.lblEmail)
         Me.Panel1.Controls.Add(Me.lblValorTotal)
@@ -220,15 +233,89 @@ Partial Class frmComanda
         Me.txtMoeda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtMoeda.Visible = False
         '
+        'lblNome
+        '
+        Me.lblNome.AutoSize = True
+        Me.lblNome.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNome.Location = New System.Drawing.Point(1, 5)
+        Me.lblNome.Name = "lblNome"
+        Me.lblNome.Size = New System.Drawing.Size(111, 18)
+        Me.lblNome.TabIndex = 36
+        Me.lblNome.Text = "Nome do Cliente"
+        '
+        'txtNome
+        '
+        Me.txtNome.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtNome.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNome.Location = New System.Drawing.Point(4, 26)
+        Me.txtNome.Name = "txtNome"
+        Me.txtNome.Size = New System.Drawing.Size(486, 33)
+        Me.txtNome.TabIndex = 2
+        '
+        'lblEndereço
+        '
+        Me.lblEndereço.AutoSize = True
+        Me.lblEndereço.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEndereço.Location = New System.Drawing.Point(1, 71)
+        Me.lblEndereço.Name = "lblEndereço"
+        Me.lblEndereço.Size = New System.Drawing.Size(133, 18)
+        Me.lblEndereço.TabIndex = 38
+        Me.lblEndereço.Text = "Endereço do Cliente"
+        '
+        'txtEndereço
+        '
+        Me.txtEndereço.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtEndereço.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEndereço.Location = New System.Drawing.Point(4, 92)
+        Me.txtEndereço.Name = "txtEndereço"
+        Me.txtEndereço.Size = New System.Drawing.Size(486, 33)
+        Me.txtEndereço.TabIndex = 3
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(307, 181)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(88, 18)
+        Me.Label1.TabIndex = 34
+        Me.Label1.Text = "Informar CPF"
+        '
+        'txtCPF
+        '
+        Me.txtCPF.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCPF.Location = New System.Drawing.Point(309, 202)
+        Me.txtCPF.Mask = "000,000,000-00"
+        Me.txtCPF.Name = "txtCPF"
+        Me.txtCPF.Size = New System.Drawing.Size(265, 33)
+        Me.txtCPF.TabIndex = 1
+        Me.txtCPF.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        '
+        'pnlDadosCliente
+        '
+        Me.pnlDadosCliente.Controls.Add(Me.txtEndereço)
+        Me.pnlDadosCliente.Controls.Add(Me.lblEndereço)
+        Me.pnlDadosCliente.Controls.Add(Me.lblNome)
+        Me.pnlDadosCliente.Controls.Add(Me.txtNome)
+        Me.pnlDadosCliente.Location = New System.Drawing.Point(306, 239)
+        Me.pnlDadosCliente.Name = "pnlDadosCliente"
+        Me.pnlDadosCliente.Size = New System.Drawing.Size(493, 130)
+        Me.pnlDadosCliente.TabIndex = 39
+        Me.pnlDadosCliente.Visible = False
+        '
         'frmComanda
         '
         Me.AcceptButton = Me.btnOk
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancelar
-        Me.ClientSize = New System.Drawing.Size(586, 301)
+        Me.ClientSize = New System.Drawing.Size(586, 305)
         Me.Controls.Add(Me.txtMoeda)
         Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.txtCPF)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.pnlTitulo)
         Me.Controls.Add(Me.lblMoeda)
@@ -236,6 +323,7 @@ Partial Class frmComanda
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.btnOk)
         Me.Controls.Add(Me.txtSenha)
+        Me.Controls.Add(Me.pnlDadosCliente)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmComanda"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -244,6 +332,8 @@ Partial Class frmComanda
         Me.pnlTitulo.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.pnlDadosCliente.ResumeLayout(False)
+        Me.pnlDadosCliente.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -264,4 +354,11 @@ Partial Class frmComanda
     Friend WithEvents lblMoeda As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents txtMoeda As System.Windows.Forms.TextBox
+    Friend WithEvents lblNome As System.Windows.Forms.Label
+    Friend WithEvents txtNome As System.Windows.Forms.TextBox
+    Friend WithEvents lblEndereço As System.Windows.Forms.Label
+    Friend WithEvents txtEndereço As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents txtCPF As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents pnlDadosCliente As System.Windows.Forms.Panel
 End Class
