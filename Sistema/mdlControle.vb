@@ -126,4 +126,42 @@ Module mdlControle
 
     End Function
 
+    Public Function fnCPFValido(ByVal cCPF As String) As Boolean
+        Dim cBase As String
+        Dim cDigito As String
+        Dim d As String
+        Dim D_aux As Long
+        Dim i As Long, J As Long, xx As Long, SOMA As Long
+
+        '**** Rotina de verificação de validade do CPF
+        cCPF = Trim(cCPF)
+        If Len(cCPF) = 11 Then
+            cBase = Left(cCPF, 9)
+            cDigito = Right(cCPF, 2)
+            For i = 1 To 2
+                xx = 2
+                SOMA = 0
+                For J = Len(cBase) To 1 Step -1
+                    SOMA = SOMA + Val(Mid(cBase, J, 1)) * xx
+                    xx = xx + 1
+                Next J
+
+                D_aux = 11 - (SOMA Mod 11)
+                d = Left(Trim(Str(IIf(D_aux >= 10, 0, D_aux))), 1)
+                cBase = cBase + d
+            Next i
+            If Right(cBase, 2) = cDigito Then
+                Return True
+            Else
+
+                MessageBox.Show("Este numero de CPF não é válido. Por favor tente novamente.", "CPF Inválido!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+                Return False
+
+            End If
+        Else
+            Return False
+        End If
+    End Function
+
 End Module

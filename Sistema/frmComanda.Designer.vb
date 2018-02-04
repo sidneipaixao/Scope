@@ -287,10 +287,11 @@ Partial Class frmComanda
         '
         Me.txtCPF.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCPF.Location = New System.Drawing.Point(309, 202)
-        Me.txtCPF.Mask = "000.000.000-00"
+        Me.txtCPF.Mask = "000,000,000-00"
         Me.txtCPF.Name = "txtCPF"
         Me.txtCPF.Size = New System.Drawing.Size(265, 33)
         Me.txtCPF.TabIndex = 1
+        Me.txtCPF.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         '
         'pnlDadosCliente
         '

@@ -1,8 +1,14 @@
 ﻿Public Class frmComanda
 
+    Dim lGravaCPF As Boolean = False
+
     Private Sub btnCancelar_Click(sender As System.Object, e As System.EventArgs) Handles btnCancelar.Click
 
         Close()
+        pnlDadosCliente.Visible = False
+        txtCPF.Text = ""
+        Me.Size = New Size(586, 305)
+        lGravaCPF = False
 
     End Sub
 
@@ -23,12 +29,26 @@
                     If txtSenha.Text <> "" Then
 
                         'REALIZA INSERT
-                        'FUNÇÃO PARA GRAVAR PAGAMENTO PARCIAIS
+                        'FUNÇÃO PARA GRAVAR PAGAMENTOS TOTAIS
                         Try
 
-                            cSQL = "INSERT INTO VENDAS_PAGAMENTOS(PGTVENDA, PGTSEQUENCIA, PGTMETODO, PGTSALDO, PGTVALOR, PGTDATA)" & _
-                                    " SELECT " & frmEncerrarPedido.lstItens.Tag & ", ISNULL(MAX(PGTSEQUENCIA) + 1, 0)," & txtMoeda.Text & ", " & frmEncerrarPedido.txtVlrTroco.Text.Replace(",", ".") & ", " & frmEncerrarPedido.txtVlrPago.Text.Replace(",", ".") & ", CONVERT(DATETIME, GETDATE(),103) FROM VENDAS_PAGAMENTOS WHERE PGTVENDA = " & frmEncerrarPedido.lstItens.Tag & _
-                                    "   UPDATE VENDAS SET VNDCOMANDA = " & txtSenha.Text & " WHERE VNDCODIGO = " & frmEncerrarPedido.lstItens.Tag
+                            If lGravaCPF Then
+
+                                cSQL = "INSERT INTO VENDAS_PAGAMENTOS(PGTVENDA, PGTSEQUENCIA, PGTMETODO, PGTSALDO, PGTVALOR, PGTDATA)" & _
+                                        " SELECT " & frmEncerrarPedido.lstItens.Tag & ", ISNULL(MAX(PGTSEQUENCIA) + 1, 0)," & txtMoeda.Text & ", " & frmEncerrarPedido.txtVlrTroco.Text.Replace(",", ".") & ", " & frmEncerrarPedido.txtVlrPago.Text.Replace(",", ".") & ", CONVERT(DATETIME, GETDATE(),103) FROM VENDAS_PAGAMENTOS WHERE PGTVENDA = " & frmEncerrarPedido.lstItens.Tag & vbNewLine & _
+                                        "   UPDATE VENDAS SET VNDCOMANDA = " & txtSenha.Text & ", " & vbNewLine & _
+                                        "                     VNDCLIENTECPF = '" & txtCPF.Text & "', " & vbNewLine & _
+                                        "                     VNDCLIENTENOME = '" & txtNome.Text & "' " & vbNewLine & _
+                                        " WHERE VNDCODIGO = " & frmEncerrarPedido.lstItens.Tag
+
+                            Else
+
+                                cSQL = "INSERT INTO VENDAS_PAGAMENTOS(PGTVENDA, PGTSEQUENCIA, PGTMETODO, PGTSALDO, PGTVALOR, PGTDATA)" & _
+                                        " SELECT " & frmEncerrarPedido.lstItens.Tag & ", ISNULL(MAX(PGTSEQUENCIA) + 1, 0)," & txtMoeda.Text & ", " & frmEncerrarPedido.txtVlrTroco.Text.Replace(",", ".") & ", " & frmEncerrarPedido.txtVlrPago.Text.Replace(",", ".") & ", CONVERT(DATETIME, GETDATE(),103) FROM VENDAS_PAGAMENTOS WHERE PGTVENDA = " & frmEncerrarPedido.lstItens.Tag & _
+                                        "   UPDATE VENDAS SET VNDCOMANDA = " & txtSenha.Text & vbNewLine & _
+                                        " WHERE VNDCODIGO = " & frmEncerrarPedido.lstItens.Tag
+
+                            End If
 
                             oComando.CommandText = cSQL
                             oComando.ExecuteNonQuery()
@@ -36,6 +56,8 @@
                             pnlDadosCliente.Visible = False
                             txtCPF.Text = ""
                             Me.Size = New Size(586, 305)
+                            lGravaCPF = False
+                            frmEncerrarPedido.Close()
 
                         Catch
 
@@ -91,16 +113,32 @@
                 'FUNÇÃO PARA GRAVAR PAGAMENTO PARCIAIS
                 Try
 
-                    cSQL = "INSERT INTO VENDAS_PAGAMENTOS(PGTVENDA, PGTSEQUENCIA, PGTMETODO, PGTSALDO, PGTVALOR, PGTDATA)" & _
-                            " SELECT " & frmEncerrarPedido.lstItens.Tag & ", ISNULL(MAX(PGTSEQUENCIA) + 1, 0)," & txtMoeda.Text & ", " & frmEncerrarPedido.txtVlrTroco.Text.Replace(",", ".") & ", " & frmEncerrarPedido.txtVlrPago.Text.Replace(",", ".") & ", CONVERT(DATETIME, GETDATE(),103) FROM VENDAS_PAGAMENTOS WHERE PGTVENDA = " & frmEncerrarPedido.lstItens.Tag & _
-                            "   UPDATE VENDAS SET VNDCOMANDA = " & txtSenha.Text & " WHERE VNDCODIGO = " & frmEncerrarPedido.lstItens.Tag
+                        If lGravaCPF Then
+
+                            cSQL = "INSERT INTO VENDAS_PAGAMENTOS(PGTVENDA, PGTSEQUENCIA, PGTMETODO, PGTSALDO, PGTVALOR, PGTDATA)" & _
+                                        " SELECT " & frmEncerrarPedido.lstItens.Tag & ", ISNULL(MAX(PGTSEQUENCIA) + 1, 0)," & txtMoeda.Text & ", " & frmEncerrarPedido.txtVlrTroco.Text.Replace(",", ".") & ", " & frmEncerrarPedido.txtVlrPago.Text.Replace(",", ".") & ", CONVERT(DATETIME, GETDATE(),103) FROM VENDAS_PAGAMENTOS WHERE PGTVENDA = " & frmEncerrarPedido.lstItens.Tag & vbNewLine & _
+                                        "   UPDATE VENDAS SET VNDCOMANDA = " & txtSenha.Text & ", " & vbNewLine & _
+                                        "                     VNDCLIENTECPF = '" & txtCPF.Text & "', " & vbNewLine & _
+                                        "                     VNDCLIENTENOME = '" & txtNome.Text & "' " & vbNewLine & _
+                                        " WHERE VNDCODIGO = " & frmEncerrarPedido.lstItens.Tag
+
+                        Else
+
+                            cSQL = "INSERT INTO VENDAS_PAGAMENTOS(PGTVENDA, PGTSEQUENCIA, PGTMETODO, PGTSALDO, PGTVALOR, PGTDATA)" & _
+                                    " SELECT " & frmEncerrarPedido.lstItens.Tag & ", ISNULL(MAX(PGTSEQUENCIA) + 1, 0)," & txtMoeda.Text & ", " & frmEncerrarPedido.txtVlrTroco.Text.Replace(",", ".") & ", " & frmEncerrarPedido.txtVlrPago.Text.Replace(",", ".") & ", CONVERT(DATETIME, GETDATE(),103) FROM VENDAS_PAGAMENTOS WHERE PGTVENDA = " & frmEncerrarPedido.lstItens.Tag & _
+                                    "   UPDATE VENDAS SET VNDCOMANDA = " & txtSenha.Text & vbNewLine & _
+                                    " WHERE VNDCODIGO = " & frmEncerrarPedido.lstItens.Tag
+
+                        End If
 
                     oComando.CommandText = cSQL
                     oComando.ExecuteNonQuery()
                     frmPedidos.Refresh()
                     pnlDadosCliente.Visible = False
                     txtCPF.Text = ""
-                    Me.Size = New Size(586, 305)
+                        Me.Size = New Size(586, 305)
+                        lGravaCPF = False
+                        frmEncerrarPedido.Close()
 
                 Catch
 
@@ -152,6 +190,7 @@
         pnlDadosCliente.Visible = False
         txtCPF.Text = ""
         Me.Size = New Size(586, 305)
+        lGravaCPF = False
 
     End Sub
 
@@ -349,22 +388,23 @@
 
     End Function
 
-    Private Sub txtCPF_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtCPF.KeyPress
+    Private Sub txtCPF_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles txtCPF.KeyDown
 
-        If txtCPF.Text.Length <= 0 Then
-
-            MessageBox.Show("teste")
-
-        End If
+        MessageBox.Show(txtCPF.Text)
 
     End Sub
 
-    Private Sub txtCPF_Validated(sender As Object, e As System.EventArgs) Handles txtCPF.Validated
+    Private Sub txtCPF_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtCPF.Validating
 
-        pnlDadosCliente.Visible = True
-        Me.Size = New Size(807, 439)
-        BackgroundImage = New Bitmap(Width - 1, Height - 1)
-        Graphics.FromImage(BackgroundImage).DrawRectangle(New Pen(Color.FromArgb(55, 65, 80)), New Rectangle(New Point(0, 0), Size))
+        If fnCPFValido(txtCPF.Text) Then
+
+            pnlDadosCliente.Visible = True
+            Me.Size = New Size(807, 439)
+            BackgroundImage = New Bitmap(Width - 1, Height - 1)
+            Graphics.FromImage(BackgroundImage).DrawRectangle(New Pen(Color.FromArgb(55, 65, 80)), New Rectangle(New Point(0, 0), Size))
+            lGravaCPF = True
+
+        End If
 
     End Sub
 End Class
