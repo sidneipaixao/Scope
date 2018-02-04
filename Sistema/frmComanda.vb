@@ -388,23 +388,39 @@
 
     End Function
 
-    Private Sub txtCPF_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles txtCPF.KeyDown
+    Private Sub txtCPF_KeyUp(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles txtCPF.KeyUp
 
-        MessageBox.Show(txtCPF.Text)
+        If txtCPF.Text.Length < 11 Then
+
+            pnlDadosCliente.Visible = False
+            Me.Size = New Size(586, 305)
+            BackgroundImage = New Bitmap(Width - 1, Height - 1)
+            Graphics.FromImage(BackgroundImage).DrawRectangle(New Pen(Color.FromArgb(55, 65, 80)), New Rectangle(New Point(0, 0), Size))
+            lGravaCPF = False
+
+        Else
+
+            If fnCPFValido(txtCPF.Text) Then
+
+                pnlDadosCliente.Visible = True
+                Me.Size = New Size(807, 439)
+                BackgroundImage = New Bitmap(Width - 1, Height - 1)
+                Graphics.FromImage(BackgroundImage).DrawRectangle(New Pen(Color.FromArgb(55, 65, 80)), New Rectangle(New Point(0, 0), Size))
+                lGravaCPF = True
+
+            Else
+
+                txtSenha.Focus()
+
+            End If
+
+        End If
 
     End Sub
 
     Private Sub txtCPF_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtCPF.Validating
 
-        If fnCPFValido(txtCPF.Text) Then
 
-            pnlDadosCliente.Visible = True
-            Me.Size = New Size(807, 439)
-            BackgroundImage = New Bitmap(Width - 1, Height - 1)
-            Graphics.FromImage(BackgroundImage).DrawRectangle(New Pen(Color.FromArgb(55, 65, 80)), New Rectangle(New Point(0, 0), Size))
-            lGravaCPF = True
-
-        End If
 
     End Sub
 End Class

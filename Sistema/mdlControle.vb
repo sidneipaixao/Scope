@@ -155,7 +155,6 @@ Module mdlControle
             Else
 
                 MessageBox.Show("Este numero de CPF não é válido. Por favor tente novamente.", "CPF Inválido!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
                 Return False
 
             End If
