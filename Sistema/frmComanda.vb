@@ -10,6 +10,79 @@
 
         Dim cSQL As String
 
+        'INICIA PROCESSO DE ENVIO DE DADOS PARA O SAT
+        If Not fnImprimeCupom() Then
+            If MessageBox.Show("Ocorreu um erro na rotina de impressão do cupom fiscal. Deseja encerrar o pedido mesmo assim?", "Impressão cupom fiscal", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.No Then
+
+                Me.Close()
+
+            Else
+
+                If Me.Tag = "total" Then
+
+                    If txtSenha.Text <> "" Then
+
+                        'REALIZA INSERT
+                        'FUNÇÃO PARA GRAVAR PAGAMENTO PARCIAIS
+                        Try
+
+                            cSQL = "INSERT INTO VENDAS_PAGAMENTOS(PGTVENDA, PGTSEQUENCIA, PGTMETODO, PGTSALDO, PGTVALOR, PGTDATA)" & _
+                                    " SELECT " & frmEncerrarPedido.lstItens.Tag & ", ISNULL(MAX(PGTSEQUENCIA) + 1, 0)," & txtMoeda.Text & ", " & frmEncerrarPedido.txtVlrTroco.Text.Replace(",", ".") & ", " & frmEncerrarPedido.txtVlrPago.Text.Replace(",", ".") & ", CONVERT(DATETIME, GETDATE(),103) FROM VENDAS_PAGAMENTOS WHERE PGTVENDA = " & frmEncerrarPedido.lstItens.Tag & _
+                                    "   UPDATE VENDAS SET VNDCOMANDA = " & txtSenha.Text & " WHERE VNDCODIGO = " & frmEncerrarPedido.lstItens.Tag
+
+                            oComando.CommandText = cSQL
+                            oComando.ExecuteNonQuery()
+                            frmPedidos.Refresh()
+                            pnlDadosCliente.Visible = False
+                            txtCPF.Text = ""
+                            Me.Size = New Size(586, 305)
+
+                        Catch
+
+                            MessageBox.Show("Erro ao gravar a venda! Tente novamente e se o problema persistir entre em contato com o administrador do sistema." _
+                                           & vbNewLine & Err.Number & " - " & Err.Description, "Erro ao gravar!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+                        End Try
+
+                        MessageBox.Show("Venda realizada com sucesso, porém, ocorreram problemas na impressão do cupom fiscal.", "Venda realizada!.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Close()
+
+                    Else
+
+                        MessageBox.Show("O campo Comanda/Mesa não pode ser vazio.", "Ops! Campo vazio.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        txtSenha.Focus()
+
+                    End If
+
+                Else
+
+                    'FUNÇÃO PARA GRAVAR PAGAMENTO PARCIAIS
+                    Try
+
+                        cSQL = "INSERT INTO VENDAS_PAGAMENTOS(PGTVENDA, PGTSEQUENCIA, PGTMETODO, PGTSALDO, PGTVALOR, PGTDATA)" & _
+                                " SELECT " & frmEncerrarPedido.lstItens.Tag & ", ISNULL(MAX(PGTSEQUENCIA) + 1, 0)," & txtMoeda.Text & ", " & frmEncerrarPedido.txtVlrTroco.Text.Replace(",", ".") & ", " & frmEncerrarPedido.txtVlrPago.Text.Replace(",", ".") & ", CONVERT(DATETIME, GETDATE(),103) FROM VENDAS_PAGAMENTOS WHERE PGTVENDA = " & frmEncerrarPedido.lstItens.Tag
+
+                        oComando.CommandText = cSQL
+                        oComando.ExecuteNonQuery()
+
+                    Catch
+
+                        MessageBox.Show("Erro ao gravar a venda! Tente novamente e se o problema persistir entre em contato com o administrador do sistema." _
+                                       & vbNewLine & Err.Number & " - " & Err.Description, "Erro ao gravar!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+                    End Try
+
+
+                    frmEncerrarPedido.nSaldo = frmEncerrarPedido.txtVlrTroco.Text
+                    frmEncerrarPedido.txtVlrPago.Text = "0,00"
+                    frmEncerrarPedido.nVlrPago = 0
+                    Close()
+
+                End If
+
+            End If
+        Else
+
         If Me.Tag = "total" Then
 
             If txtSenha.Text <> "" Then
@@ -25,6 +98,9 @@
                     oComando.CommandText = cSQL
                     oComando.ExecuteNonQuery()
                     frmPedidos.Refresh()
+                    pnlDadosCliente.Visible = False
+                    txtCPF.Text = ""
+                    Me.Size = New Size(586, 305)
 
                 Catch
 
@@ -33,16 +109,8 @@
 
                 End Try
 
-                Close()
-
-                'INICIA PROCESSO DE ENVIO DE DADOS PARA O SAT
-                If Not fnImprimeCupom() Then
-                    If MessageBox.Show("Ocorreu um erro na rotina de impressão do cupom fiscal. Deseja encerrar o pedido mesmo assim?", "Impressão cupom fiscal", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.Yes Then
-                        frmEncerrarPedido.Close()
-                    End If
-                Else
-                    frmEncerrarPedido.Close()
-                End If
+                    MessageBox.Show("Venda realizada com sucesso!", "Venda realizada!.", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Close()
 
             Else
 
@@ -75,7 +143,15 @@
             frmEncerrarPedido.nVlrPago = 0
             Close()
 
+            End If
+
+            frmEncerrarPedido.Close()
+
         End If
+
+        pnlDadosCliente.Visible = False
+        txtCPF.Text = ""
+        Me.Size = New Size(586, 305)
 
     End Sub
 
@@ -84,7 +160,6 @@
         BackgroundImage = New Bitmap(Width - 1, Height - 1)
         Graphics.FromImage(BackgroundImage).DrawRectangle(New Pen(Color.FromArgb(55, 65, 80)), New Rectangle(New Point(0, 0), Size))
         txtSenha.Text = ""
-        Panel1.Focus()
 
     End Sub
 
@@ -129,7 +204,7 @@
 
             'FINALIZAR E EMITIR CFE *****ESTE PONTO GERA ERRO, POR ISSO ESTA COMENTADO*****
             '   DADOS: NRO. CUPOM ADICIONAL, INFORMACOES ADICIONAIS
-            'nResult = ComunicacaoSAT.Daruma.tCFEncerrar_SAT_Daruma("", "COMANDA:" & 100)
+            nResult = ComunicacaoSAT.Daruma.tCFEncerrar_SAT_Daruma("", "COMANDA:" & 100)
             If nResult <> 1 Then Error 2
 
             'A LINHA ABAIXO DEVE SER COMENTADA AO RETIRAR O COMENTARIO DA LINHA ACIMA
@@ -142,7 +217,7 @@
 
         Catch oErro As Exception
 
-            If oErro.Message = "Application-defined or object-defined error." Then
+            If oErro.Message = "Application-defined or object-defined error." Or oErro.Message = "Erro definido por aplicativo ou definido por objeto." Then
                 Select Case nResult
                     Case 0
                         MessageBox.Show("[0] - Método não executado / Tag inválida / Não foi possível comunicar com impressora", "Erro na impressão do cupom", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -274,4 +349,22 @@
 
     End Function
 
+    Private Sub txtCPF_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtCPF.KeyPress
+
+        If txtCPF.Text.Length <= 0 Then
+
+            MessageBox.Show("teste")
+
+        End If
+
+    End Sub
+
+    Private Sub txtCPF_Validated(sender As Object, e As System.EventArgs) Handles txtCPF.Validated
+
+        pnlDadosCliente.Visible = True
+        Me.Size = New Size(807, 439)
+        BackgroundImage = New Bitmap(Width - 1, Height - 1)
+        Graphics.FromImage(BackgroundImage).DrawRectangle(New Pen(Color.FromArgb(55, 65, 80)), New Rectangle(New Point(0, 0), Size))
+
+    End Sub
 End Class

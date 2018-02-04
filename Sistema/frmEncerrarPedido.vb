@@ -286,46 +286,70 @@
 
     Private Sub fnEfetuarPgto(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
-        Dim oDados As SqlClient.SqlDataReader = fnRetornaDados("SELECT * FROM MOEDAS WHERE MDSEXIBICAO <> 0 AND MDSRELACAO = " & sender.tag)
+        If CDbl(txtVlrPago.Text) <> 0.0 Or CDbl(txtVlrPago.Text) <> 0 Then
 
-        If oDados.HasRows Then
+            Dim oDados As SqlClient.SqlDataReader = fnRetornaDados("SELECT * FROM MOEDAS WHERE MDSEXIBICAO <> 0 AND MDSRELACAO = " & sender.tag)
 
-            frmGrupoMoeda.pnlMoedas.Controls.Clear()
+            If oDados.HasRows Then
 
-            While oDados.Read
+                frmGrupoMoeda.pnlMoedas.Controls.Clear()
 
-                Dim oMoeda As New Button
+                While oDados.Read
 
-                oMoeda.Text = oDados("MDSNOME")
-                oMoeda.Tag = oDados("MDSCODIGO")
-                oMoeda.Size = New Size(150, 40)
-                oMoeda.BackColor = btnIncluir.BackColor
-                AddHandler oMoeda.Click, AddressOf frmGrupoMoeda.fnEfetuarPgtoGrupo
+                    Dim oMoeda As New Button
 
-                frmGrupoMoeda.pnlMoedas.Controls.Add(oMoeda)
+                    oMoeda.Text = oDados("MDSNOME")
+                    oMoeda.Tag = oDados("MDSCODIGO")
+                    oMoeda.Size = New Size(150, 40)
+                    oMoeda.BackColor = btnIncluir.BackColor
+                    AddHandler oMoeda.Click, AddressOf frmGrupoMoeda.fnEfetuarPgtoGrupo
 
-            End While
+                    frmGrupoMoeda.pnlMoedas.Controls.Add(oMoeda)
 
-            oDados.Close()
+                End While
 
-            frmGrupoMoeda.lblMoedaPai.Text = sender.text.ToString.ToUpper
+                oDados.Close()
 
-            frmGrupoMoeda.ShowDialog()
+                frmGrupoMoeda.lblMoedaPai.Text = sender.text.ToString.ToUpper
 
-            If frmGrupoMoeda.Tag = True Then
+                frmGrupoMoeda.ShowDialog()
+
+                If frmGrupoMoeda.Tag = True Then
+
+                    If txtVlrTroco.Text <> "0,00" And lblTroco.Text = "Saldo devedor" Then
+
+                        'ROTINA QUE EXIIBE O RESUMO DO PAGAMENTO PARCIAL E REALIZA A GRAVAÇÃO DE PAGAMENTOS PARCIAIS
+
+                        fnFormComanda("parcial", frmGrupoMoeda.cMoeda, sender.tag)
+                        lPagamentoParcial = True
+
+                    Else
+
+                        'ROTINA QUE EXIBE O RESUMO DO PAGAMENTO E GRAVA A VENDA E O PAGAMENTO NA BASE
+
+                        fnFormComanda("total", frmGrupoMoeda.cMoeda, sender.tag)
+                        lPagamentoParcial = False
+
+                    End If
+
+                End If
+
+            Else
+
+                oDados.Close()
 
                 If txtVlrTroco.Text <> "0,00" And lblTroco.Text = "Saldo devedor" Then
 
                     'ROTINA QUE EXIIBE O RESUMO DO PAGAMENTO PARCIAL E REALIZA A GRAVAÇÃO DE PAGAMENTOS PARCIAIS
 
-                    fnFormComanda("parcial", frmGrupoMoeda.cMoeda, sender.tag)
+                    fnFormComanda("parcial", sender.text, sender.tag)
                     lPagamentoParcial = True
 
                 Else
 
                     'ROTINA QUE EXIBE O RESUMO DO PAGAMENTO E GRAVA A VENDA E O PAGAMENTO NA BASE
 
-                    fnFormComanda("total", frmGrupoMoeda.cMoeda, sender.tag)
+                    fnFormComanda("total", sender.text, sender.tag)
                     lPagamentoParcial = False
 
                 End If
@@ -334,27 +358,11 @@
 
         Else
 
-            oDados.Close()
-
-            If txtVlrTroco.Text <> "0,00" And lblTroco.Text = "Saldo devedor" Then
-
-                'ROTINA QUE EXIIBE O RESUMO DO PAGAMENTO PARCIAL E REALIZA A GRAVAÇÃO DE PAGAMENTOS PARCIAIS
-
-                fnFormComanda("parcial", sender.text, sender.tag)
-                lPagamentoParcial = True
-
-            Else
-
-                'ROTINA QUE EXIBE O RESUMO DO PAGAMENTO E GRAVA A VENDA E O PAGAMENTO NA BASE
-
-                fnFormComanda("total", sender.text, sender.tag)
-                lPagamentoParcial = False
-
-            End If
+            MessageBox.Show("Por favor informar um valor para o campo Valor Pago. Não é possível realizar um pagamento sem informar este valor!" _
+                                   , "Campo não preenchido!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txtVlrPago.Focus()
 
         End If
-
-
 
     End Sub
 
@@ -613,6 +621,30 @@
     Private Sub btnProximo_Click(sender As System.Object, e As System.EventArgs) Handles btnProximo.Click
 
         fnDestacar(1)
+
+    End Sub
+
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+
+        Dim cSQL As String
+
+        Try
+
+            cSQL = "UPDATE VENDAS SET VNDCLIENTEEMAIL ='" & txtEmail.Text & "' WHERE VNDCODIGO =" & lstItens.Tag
+
+            oComando.CommandText = cSQL
+            oComando.ExecuteNonQuery()
+
+            MessageBox.Show("O e-mail do cliente foi alterado com sucesso para:" & vbNewLine & _
+                                 txtEmail.Text, "E-mail alterado!" _
+                                , MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+
+            MessageBox.Show("Erro ao alterar o e-mail! Tente novamente e se o problema persistir entre em contato com o administrador do sistema." _
+                                   & vbNewLine & Err.Number & " - " & Err.Description, "Erro ao alterar!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+        End Try
 
     End Sub
 End Class
