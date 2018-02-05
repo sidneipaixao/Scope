@@ -40,4 +40,7 @@
         frmMoeda.ShowDialog()
     End Sub
 
+    Private Sub cmdRecibos_Click(sender As System.Object, e As System.EventArgs) Handles cmdRecibos.Click
+        frmIncluirPedido.ShowDialog()
+    End Sub
 End Class
