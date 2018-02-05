@@ -1,5 +1,9 @@
 ﻿Public Class frmEncerrarPedido
 
+
+    Dim oItens As New ListView
+
+    'VERIFICAR NECESSIDADE DESTAS VARIAVEIS
     Dim nVlrTotal As Double = 0
     Public nVlrPago As String = 0
     Dim lIncluir As Boolean = True
@@ -15,34 +19,66 @@
         Dim oDados As SqlClient.SqlDataReader
         Dim oItem As ListViewItem
 
-        oDados = oComando.ExecuteReader
+        Try
+            'FUNCAO MODIFICADA PARA INCLUIR OS ITENS NUM LISTVIEW EM MEMORIA
+            oDados = oComando.ExecuteReader
 
-        lstItens.Items.Clear()
-        While oDados.Read
+            lstItens.Items.Clear()
+            While oDados.Read
 
-            'VERIFICA SE UM GRUPO JA EXISTE (CADA GRUPO REPRESENTA UM PRATO)
-            With lstItens
+                'VERIFICA SE UM GRUPO JA EXISTE (CADA GRUPO REPRESENTA UM PRATO)
+                With oItens
 
-                If .Groups("PRT" & oDados("VDIPRATO")) Is Nothing Then
-                    .Groups.Add("PRT" & oDados("VDIPRATO"), "Prato " & oDados("VDIPRATO"))
-                End If
+                    If .Groups("PRT" & oDados("VDIPRATO")) Is Nothing Then
+                        .Groups.Add("PRT" & oDados("VDIPRATO"), "Prato " & oDados("VDIPRATO"))
+                    End If
 
-                oItem = .Items.Add("SEQ" & oDados("VDISEQUENCIA") & oDados("VDIPRATO"), oDados("VDIPRODUTO"), 0)
-                oItem.Group = .Groups("PRT" & oDados("VDIPRATO"))
-                oItem.SubItems.Add(oDados("PRDNOME"))
-                oItem.SubItems.Add(oDados("VDIQTDE"))
-                oItem.SubItems.Add(oDados("VDIVLRUNIT"))
-                lstItens.Tag = oDados("VDICODIGO")
+                    oItem = .Items.Add("SEQ" & oDados("VDISEQUENCIA") & oDados("VDIPRATO"), oDados("VDIPRODUTO"), 0)
+                    oItem.Group = .Groups("PRT" & oDados("VDIPRATO"))
+                    oItem.SubItems.Add(oDados("PRDNOME"))
+                    oItem.SubItems.Add(oDados("VDIQTDE"))
+                    oItem.SubItems.Add(oDados("VDIVLRUNIT"))
+                    lstItens.Tag = oDados("VDICODIGO")
 
-                nVlrTotal += CDbl(oDados("VDIVLRUNIT"))
+                    nVlrTotal += CDbl(oDados("VDIVLRUNIT"))
 
-            End With
+                End With
 
-        End While
+            End While
 
-        oDados.Close()
+            oDados.Close()
 
-        Return True
+            'CARREGA OS ITENS DO PRIMEIRO GRUPO NO LISTVIEW DA TELA; USAR O LISTVIEW EM MEMORIA PARA TODAS AS DEMAIS OPERACOES
+            For Each oItem In oItens.Groups(0).Items
+                With lstItens.Items.Add(oItem.Name, oItem.Text, 0)
+                    .SubItems.Add(oItem.SubItems(1))
+                    .SubItems.Add(oItem.SubItems(2))
+                    .SubItems.Add(oItem.SubItems(3))
+                End With
+            Next
+            lblQtde.Text = "1/" & oItens.Groups.Count
+
+            'AGORA TENTA VERIFICAR SE O NOME NO PEDIDO E' UM EMAIL, SE FOR UTILIZA
+            oComando.CommandText = "SELECT CASE WHEN VNDCLIENTEEMAIL = 'N' OR VNDCLIENTEEMAIL = 'NN'" & _
+                                   "            THEN CASE WHEN VNDCLIENTENOME LIKE '%_@__%.%'" & _
+                                   "                      THEN VNDCLIENTENOME" & _
+                                   "                      ELSE ''" & _
+                                   "                 END" & _
+                                   "            ELSE VNDCLIENTEEMAIL" & _
+                                   "       END EMAIL" & _
+                                   "  FROM VENDAS" & _
+                                   " WHERE VNDCODIGO = " & nPedido
+            txtEmail.Text = oComando.ExecuteScalar & ""
+
+            Return True
+
+        Catch oErro As Exception
+
+            MessageBox.Show(oErro.Message, "Erro ao carregar pedido " & nPedido, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
+
+        End Try
+
 
     End Function
 
@@ -51,38 +87,68 @@
         Static nPosicao As Integer
         Dim nTotal As Double = 0
 
-        For Each oGrupo As ListViewGroup In lstItens.Groups
-            For Each oItem As ListViewItem In oGrupo.Items
-                oItem.BackColor = lstItens.BackColor
-                nTotal += CDbl(oItem.SubItems(3).Text)
-            Next
-        Next
+        'ROTINA ANTIGA; NAO DESCARTAR AINDA, DEVIDO A ROTINA DE CALCULO DO VALOR TOTAL
+        'For Each oGrupo As ListViewGroup In lstItens.Groups
+        '    For Each oItem As ListViewItem In oGrupo.Items
+        '        oItem.BackColor = lstItens.BackColor
+        '        nTotal += CDbl(oItem.SubItems(3).Text)
+        '    Next
+        'Next
+        '
+        'If nDirecao = 0 Then
+        '    nPosicao = 0
+        'Else
+        '
+        '    nTotal = 0
+        '
+        '    If nDirecao > 0 AndAlso nPosicao >= lstItens.Groups.Count - 1 Then
+        '        nPosicao = 0
+        '    ElseIf nDirecao < 0 AndAlso nPosicao < 1 Then
+        '        nPosicao = lstItens.Groups.Count - 1
+        '    Else
+        '        nPosicao += nDirecao
+        '    End If
+        '
+        '    For Each oItem As ListViewItem In lstItens.Groups(nPosicao).Items
+        '        oItem.BackColor = Color.SkyBlue
+        '        nTotal += CDbl(oItem.SubItems(3).Text)
+        '    Next
+        '
+        'End If
+        '
+        'txtVlrPrato.Text = FormatNumber(nTotal)
 
-        If nDirecao = 0 Then
-            nPosicao = 0
-        Else
-
-            nTotal = 0
-
-            If nDirecao > 0 AndAlso nPosicao >= lstItens.Groups.Count - 1 Then
+        Try
+            If nDirecao > 0 AndAlso nPosicao >= oItens.Groups.Count - 1 Then
                 nPosicao = 0
             ElseIf nDirecao < 0 AndAlso nPosicao < 1 Then
-                nPosicao = lstItens.Groups.Count - 1
+                nPosicao = oItens.Groups.Count - 1
             Else
                 nPosicao += nDirecao
             End If
 
-            For Each oItem As ListViewItem In lstItens.Groups(nPosicao).Items
-                oItem.BackColor = Color.SkyBlue
+            'REMOVE OS ITENS (SE) QUE ESTIVEREM SENDO EXIBIDOS NO LISTVIEW, NA TELA
+            lstItens.Items.Clear()
+
+            'CARREGA OS ITENS DE UM PRATO ESPECIFICO
+            For Each oItem As ListViewItem In oItens.Groups(nPosicao).Items
+                With lstItens.Items.Add(oItem.Name, oItem.Text, 0)
+                    .SubItems.Add(oItem.SubItems(1))
+                    .SubItems.Add(oItem.SubItems(2))
+                    .SubItems.Add(oItem.SubItems(3))
+                End With
                 nTotal += CDbl(oItem.SubItems(3).Text)
             Next
 
-        End If
+            'ATUALIZA O VALOR DO PRATO E A POSICAO NA TELA
+            txtVlrPrato.Text = FormatNumber(nTotal, 2, TriState.True)
+            lblQtde.Text = (nPosicao + 1) & "/" & oItens.Groups.Count
 
-        txtVlrPrato.Text = FormatNumber(nTotal)
+        Catch oErro As Exception
+            MessageBox.Show(oErro.Message, "Erro ao trocar prato", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
 
     End Sub
-
 
     Private Sub fnCalculaValores()
 
@@ -188,6 +254,14 @@
 
     End Sub
 
+    Private Sub frmEncerrarPedido_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
+
+        If e.KeyCode = 27 Then
+            Close()
+        End If
+
+    End Sub
+
     Private Sub frmPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         'NAO PODE MAXIMIZAR, SENAO COBRE BARRA DE TAREFAS DO WINDOWS, POR ISSO NAO USA WINDOWSTATE
@@ -200,8 +274,28 @@
         BackgroundImage = New Bitmap(Width - 1, Height - 1)
         Graphics.FromImage(BackgroundImage).DrawRectangle(New Pen(Color.FromArgb(55, 65, 80)), New Rectangle(New Point(0, 0), Size))
 
-        Dim oDados As SqlClient.SqlDataReader = fnRetornaDados("SELECT * FROM MOEDAS WHERE MDSRELACAO = 0 AND MDSEXIBICAO <> 0")
+        'Rotina responsável por ajustar a largura das colunas do listview de pratos e o tamanho das linhas
+        lstItens.Columns(0).Width = (lstItens.Width * 15) / 100
+        lstItens.Columns(1).Width = (lstItens.Width * 50) / 100
+        lstItens.Columns(2).Width = (lstItens.Width * 15) / 100
+        lstItens.Columns(3).Width = (lstItens.Width * 15) / 100
 
+        txtTotal.Text = FormatNumber(nVlrTotal, 2, TriState.True)
+
+
+        'EXIBICAO DAS MOEDAS REALIZADA POR FUNCAO, PARA PERMITIR EXIBICAO DE MOEDAS DO GRUPO / SUBGRUPO CONFORME SELECAO
+        fnExibeMoedas(0)
+
+    End Sub
+
+    Private Sub fnExibeMoedas(Optional ByVal nGrupo As Integer = 0)
+
+        Dim oDados As SqlClient.SqlDataReader = fnRetornaDados("SELECT * FROM MOEDAS WHERE MDSRELACAO = 0" & nGrupo & " AND MDSEXIBICAO <> 0")
+
+        'SE EXISTIREM MOEDAS SENDO EXIBIDAS, APAGA
+        pnlMoedas.Controls.Clear()
+
+        'EXIBE AS MOEDAS DO GRUPO SELECIONADO, OU MOEDAS PRINCIPAIS SE NGRUPO = 0
         While oDados.Read
 
             Dim oMoeda As New Button
@@ -220,139 +314,92 @@
         oDados.Close()
 
 
-        'VERIFICA SE CLIENTE POSSUI DIREITO A FIDELIDADE
-        oDados = fnRetornaDados("SELECT 1 FIDELIDADE")
+        'CASO ESTEJA NO NIVEL PRINCIPAL, VERIFICA SE CLIENTE POSSUI DIREITO A FIDELIDADE
+        If nGrupo = 0 Then
 
-        If oDados.Read Then
+            oDados = fnRetornaDados("SELECT ISNULL(MAX(CLIQTDFIDELIDADE), 0) FIDELIDADE" & _
+                                    "  FROM CLIENTES" & _
+                                    " WHERE CLIEMAIL IN (SELECT VNDCLIENTEEMAIL" & _
+                                    "                      FROM VENDAS" & _
+                                    "                     WHERE VNDCODIGO = " & lstItens.Tag & ")")
 
+            If oDados.Read Then
+
+                Dim oMoeda As New Button
+
+                oMoeda.Text = "Fidelidade"
+                oMoeda.Size = New Size(160, 50)
+                oMoeda.BackColor = btn0.BackColor
+                oMoeda.Font = New Font(btn0.Font, FontStyle.Bold)
+                oMoeda.Tag = 99
+                If oDados("FIDELIDADE") < 14 Then
+                    oMoeda.Enabled = False
+                Else
+                    oMoeda.ForeColor = Color.White
+                    oMoeda.BackColor = Color.LightSeaGreen
+                    oMoeda.FlatStyle = FlatStyle.Flat
+                End If
+
+                AddHandler oMoeda.Click, AddressOf fnEfetuarPgto
+
+                pnlMoedas.Controls.Add(oMoeda)
+
+            End If
+
+            oDados.Close()
+
+        Else
+
+            'CASO CONTRARIO, EXIBE BOTAO PARA VOLTAR PARA O GRUPO PRINCIPAL
             Dim oMoeda As New Button
 
-            oMoeda.Text = "Fidelidade"
+            oMoeda.Text = "< RETORNAR"
             oMoeda.Size = New Size(160, 50)
             oMoeda.BackColor = btn0.BackColor
             oMoeda.Font = New Font(btn0.Font, FontStyle.Bold)
-            oMoeda.Tag = 99
-            If oDados("FIDELIDADE") = 0 Then
-                oMoeda.Enabled = False
-            Else
-                oMoeda.ForeColor = Color.White
-                oMoeda.BackColor = Color.LightSeaGreen
-                oMoeda.FlatStyle = FlatStyle.Flat
-            End If
+            oMoeda.Tag = -1
+            oMoeda.ForeColor = Color.White
+            oMoeda.BackColor = Color.LightSeaGreen
+            oMoeda.FlatStyle = FlatStyle.Flat
 
             AddHandler oMoeda.Click, AddressOf fnEfetuarPgto
-
             pnlMoedas.Controls.Add(oMoeda)
 
         End If
-
-        oDados.Close()
-        txtTotal.Text = FormatNumber(nVlrTotal)
-
-        'Rotina responsável por ajustar a largura das colunas do listview de pratos e o tamanho das linhas
-        lstItens.Columns(0).Width = (lstItens.Width * 15) / 100
-        lstItens.Columns(1).Width = (lstItens.Width * 50) / 100
-        lstItens.Columns(2).Width = (lstItens.Width * 15) / 100
-        lstItens.Columns(3).Width = (lstItens.Width * 15) / 100
-
-        'DADOS DO PEDIDO ATUAL
-        'oDados = fnRetornaDados("SELECT 1 codigo, 'Baby Beef 120g' item, 1 qtde, 16.90 valor UNION " & _
-        '                        "SELECT 21 codigo, 'Arroz Branco (Acomp.)' item, 1 qtde, 0.01 valor UNION " & _
-        '                        "SELECT 22 codigo, 'Feijão Carioca (Acomp.).' item, 1 qtde, 0.01 valor UNION " & _
-        '                        "SELECT 23 codigo, 'Batata Frita (Acomp.)' item, 1 qtde, 0.01 valor UNION " & _
-        '                        "SELECT 195 codigo, 'Refrigerante Lata 350ml' item, 2 qtde, 11.80 valor")
-
-        ''POPULA O LISTVIEW
-        'While oDados.Read
-
-        '    Dim oItem As ListViewItem
-
-        '    oItem = lstItens.Items.Add(oDados("codigo"))
-        '    oItem.SubItems.Add(oDados("codigo"))
-        '    oItem.SubItems.Add(oDados("item"))
-        '    oItem.SubItems.Add(oDados("qtde"))
-        '    oItem.SubItems.Add(oDados("valor"))
-        '    oItem.Name = oDados("qtde")
-        '    oItem.Tag = oDados("codigo")
-        '    oItem.Text = oDados("valor")
-        '    oItem.ToolTipText = oDados("item")
-
-        '    nVlrTotal += oDados("valor")
-
-        'End While
-        'oDados.Close()
 
     End Sub
 
     Private Sub fnEfetuarPgto(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
+        Dim nQtdeMoedasGrupo As Integer = 0
+
+        'BOTAO RETORNAR, APENAS RECARREGA AS MOEDAS DO GRUPO PRINCIPAL
+        If sender.Tag = -1 Then
+            fnExibeMoedas(0)
+            Exit Sub
+        End If
+
         If CDbl(txtVlrPago.Text) <> 0.0 Or CDbl(txtVlrPago.Text) <> 0 Then
 
-            Dim oDados As SqlClient.SqlDataReader = fnRetornaDados("SELECT * FROM MOEDAS WHERE MDSEXIBICAO <> 0 AND MDSRELACAO = " & sender.tag)
+            oComando.CommandText = "SELECT COUNT(0) QTDE FROM MOEDAS WHERE MDSEXIBICAO <> 0 AND MDSRELACAO = 0" & sender.Tag
+            nQtdeMoedasGrupo = oComando.ExecuteScalar
 
-            If oDados.HasRows Then
+            If nQtdeMoedasGrupo > 0 Then
+                fnExibeMoedas(sender.Tag)
+                Exit Sub
+            End If
 
-                frmGrupoMoeda.pnlMoedas.Controls.Clear()
+            If txtVlrTroco.Text <> "0,00" And lblTroco.Text = "Saldo devedor" Then
 
-                While oDados.Read
-
-                    Dim oMoeda As New Button
-
-                    oMoeda.Text = oDados("MDSNOME")
-                    oMoeda.Tag = oDados("MDSCODIGO")
-                    oMoeda.Size = New Size(150, 40)
-                    oMoeda.BackColor = btnIncluir.BackColor
-                    AddHandler oMoeda.Click, AddressOf frmGrupoMoeda.fnEfetuarPgtoGrupo
-
-                    frmGrupoMoeda.pnlMoedas.Controls.Add(oMoeda)
-
-                End While
-
-                oDados.Close()
-
-                frmGrupoMoeda.lblMoedaPai.Text = sender.text.ToString.ToUpper
-
-                frmGrupoMoeda.ShowDialog()
-
-                If frmGrupoMoeda.Tag = True Then
-
-                    If txtVlrTroco.Text <> "0,00" And lblTroco.Text = "Saldo devedor" Then
-
-                        'ROTINA QUE EXIIBE O RESUMO DO PAGAMENTO PARCIAL E REALIZA A GRAVAÇÃO DE PAGAMENTOS PARCIAIS
-
-                        fnFormComanda("parcial", frmGrupoMoeda.cMoeda, sender.tag)
-                        lPagamentoParcial = True
-
-                    Else
-
-                        'ROTINA QUE EXIBE O RESUMO DO PAGAMENTO E GRAVA A VENDA E O PAGAMENTO NA BASE
-
-                        fnFormComanda("total", frmGrupoMoeda.cMoeda, sender.tag)
-                        lPagamentoParcial = False
-
-                    End If
-
-                End If
+                'ROTINA QUE EXIIBE O RESUMO DO PAGAMENTO PARCIAL E REALIZA A GRAVAÇÃO DE PAGAMENTOS PARCIAIS
+                fnFormComanda("parcial", sender.Text, sender.tag)
+                lPagamentoParcial = True
 
             Else
 
-                oDados.Close()
-
-                If txtVlrTroco.Text <> "0,00" And lblTroco.Text = "Saldo devedor" Then
-
-                    'ROTINA QUE EXIIBE O RESUMO DO PAGAMENTO PARCIAL E REALIZA A GRAVAÇÃO DE PAGAMENTOS PARCIAIS
-
-                    fnFormComanda("parcial", sender.text, sender.tag)
-                    lPagamentoParcial = True
-
-                Else
-
-                    'ROTINA QUE EXIBE O RESUMO DO PAGAMENTO E GRAVA A VENDA E O PAGAMENTO NA BASE
-
-                    fnFormComanda("total", sender.text, sender.tag)
-                    lPagamentoParcial = False
-
-                End If
+                'ROTINA QUE EXIBE O RESUMO DO PAGAMENTO E GRAVA A VENDA E O PAGAMENTO NA BASE
+                fnFormComanda("total", sender.Text, sender.tag)
+                lPagamentoParcial = False
 
             End If
 
@@ -606,7 +653,7 @@
 
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub cmdLevarTotal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdLevarTotal.Click
 
         txtVlrPago.Text = FormatNumber(CDbl(txtVlrTroco.Text) * -1)
 
@@ -624,7 +671,7 @@
 
     End Sub
 
-    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+    Private Sub cmdAlteraEmail_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdAlteraEmail.Click
 
         Dim cSQL As String
 
@@ -647,4 +694,5 @@
         End Try
 
     End Sub
+
 End Class

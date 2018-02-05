@@ -40,13 +40,14 @@ Partial Class frmEncerrarPedido
         Me.clValor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnEncerrar = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.cmdAlteraEmail = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.btn3 = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtVlrPago = New System.Windows.Forms.TextBox()
         Me.btnDec = New System.Windows.Forms.Button()
         Me.btnA20 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmdLevarTotal = New System.Windows.Forms.Button()
         Me.btnA10 = New System.Windows.Forms.Button()
         Me.btnA60 = New System.Windows.Forms.Button()
         Me.btn7 = New System.Windows.Forms.Button()
@@ -72,18 +73,18 @@ Partial Class frmEncerrarPedido
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtVlrPrato = New System.Windows.Forms.TextBox()
         Me.pnlMoedas = New System.Windows.Forms.FlowLayoutPanel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pnlItens = New System.Windows.Forms.Panel()
+        Me.lblQtde = New System.Windows.Forms.Label()
         Me.btnAnterior = New System.Windows.Forms.Button()
         Me.btnProximo = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.pnlInfo = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.pnlTitulo.SuspendLayout()
         CType(Me.grdItemPedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        Me.Panel1.SuspendLayout()
+        Me.pnlItens.SuspendLayout()
         Me.pnlInfo.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -128,8 +129,8 @@ Partial Class frmEncerrarPedido
         '
         Me.lstItens.AllowColumnReorder = True
         Me.lstItens.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstItens.BackColor = System.Drawing.Color.White
         Me.lstItens.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lstItens.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.clnCodigo, Me.clnDescricao, Me.clnQtde, Me.clnValor})
@@ -171,8 +172,8 @@ Partial Class frmEncerrarPedido
         'Label3
         '
         Me.Label3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
@@ -251,17 +252,17 @@ Partial Class frmEncerrarPedido
         'Panel2
         '
         Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel2.Controls.Add(Me.Button2)
+        Me.Panel2.Controls.Add(Me.cmdAlteraEmail)
         Me.Panel2.Controls.Add(Me.Label12)
         Me.Panel2.Controls.Add(Me.btn3)
         Me.Panel2.Controls.Add(Me.Label7)
         Me.Panel2.Controls.Add(Me.txtVlrPago)
         Me.Panel2.Controls.Add(Me.btnDec)
         Me.Panel2.Controls.Add(Me.btnA20)
-        Me.Panel2.Controls.Add(Me.Button1)
+        Me.Panel2.Controls.Add(Me.cmdLevarTotal)
         Me.Panel2.Controls.Add(Me.btnA10)
         Me.Panel2.Controls.Add(Me.btnA60)
         Me.Panel2.Controls.Add(Me.btn7)
@@ -288,6 +289,18 @@ Partial Class frmEncerrarPedido
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(704, 643)
         Me.Panel2.TabIndex = 46
+        '
+        'cmdAlteraEmail
+        '
+        Me.cmdAlteraEmail.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmdAlteraEmail.BackColor = System.Drawing.Color.Gainsboro
+        Me.cmdAlteraEmail.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdAlteraEmail.Location = New System.Drawing.Point(18, 571)
+        Me.cmdAlteraEmail.Name = "cmdAlteraEmail"
+        Me.cmdAlteraEmail.Size = New System.Drawing.Size(221, 50)
+        Me.cmdAlteraEmail.TabIndex = 49
+        Me.cmdAlteraEmail.Text = "Confirmar Alteração"
+        Me.cmdAlteraEmail.UseVisualStyleBackColor = False
         '
         'Label12
         '
@@ -361,18 +374,18 @@ Partial Class frmEncerrarPedido
         Me.btnA20.Text = "R$20"
         Me.btnA20.UseVisualStyleBackColor = False
         '
-        'Button1
+        'cmdLevarTotal
         '
-        Me.Button1.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(19, 404)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(205, 50)
-        Me.Button1.TabIndex = 31
-        Me.Button1.Text = "Totalizar"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.cmdLevarTotal.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.cmdLevarTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdLevarTotal.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdLevarTotal.ForeColor = System.Drawing.Color.White
+        Me.cmdLevarTotal.Location = New System.Drawing.Point(19, 404)
+        Me.cmdLevarTotal.Name = "cmdLevarTotal"
+        Me.cmdLevarTotal.Size = New System.Drawing.Size(205, 50)
+        Me.cmdLevarTotal.TabIndex = 31
+        Me.cmdLevarTotal.Text = "Totalizar"
+        Me.cmdLevarTotal.UseVisualStyleBackColor = False
         '
         'btnA10
         '
@@ -652,7 +665,7 @@ Partial Class frmEncerrarPedido
         'pnlMoedas
         '
         Me.pnlMoedas.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlMoedas.AutoScroll = True
         Me.pnlMoedas.BackColor = System.Drawing.Color.WhiteSmoke
         Me.pnlMoedas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -662,25 +675,36 @@ Partial Class frmEncerrarPedido
         Me.pnlMoedas.Size = New System.Drawing.Size(221, 532)
         Me.pnlMoedas.TabIndex = 0
         '
-        'Panel1
+        'pnlItens
         '
-        Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel1.BackColor = System.Drawing.Color.Silver
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.btnAnterior)
-        Me.Panel1.Controls.Add(Me.btnProximo)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.btnIncluir)
-        Me.Panel1.Controls.Add(Me.btnEncerrar)
-        Me.Panel1.Controls.Add(Me.grdItemPedido)
-        Me.Panel1.Controls.Add(Me.txtVlrPrato)
-        Me.Panel1.Controls.Add(Me.Label8)
-        Me.Panel1.Location = New System.Drawing.Point(9, 45)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(464, 643)
-        Me.Panel1.TabIndex = 42
+        Me.pnlItens.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlItens.BackColor = System.Drawing.Color.Silver
+        Me.pnlItens.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlItens.Controls.Add(Me.lblQtde)
+        Me.pnlItens.Controls.Add(Me.btnAnterior)
+        Me.pnlItens.Controls.Add(Me.btnProximo)
+        Me.pnlItens.Controls.Add(Me.Label3)
+        Me.pnlItens.Controls.Add(Me.btnIncluir)
+        Me.pnlItens.Controls.Add(Me.btnEncerrar)
+        Me.pnlItens.Controls.Add(Me.grdItemPedido)
+        Me.pnlItens.Controls.Add(Me.txtVlrPrato)
+        Me.pnlItens.Controls.Add(Me.Label8)
+        Me.pnlItens.Location = New System.Drawing.Point(9, 45)
+        Me.pnlItens.Name = "pnlItens"
+        Me.pnlItens.Size = New System.Drawing.Size(464, 643)
+        Me.pnlItens.TabIndex = 42
+        '
+        'lblQtde
+        '
+        Me.lblQtde.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblQtde.Location = New System.Drawing.Point(322, 525)
+        Me.lblQtde.Name = "lblQtde"
+        Me.lblQtde.Size = New System.Drawing.Size(32, 40)
+        Me.lblQtde.TabIndex = 50
+        Me.lblQtde.Text = "1/1"
+        Me.lblQtde.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnAnterior
         '
@@ -689,7 +713,7 @@ Partial Class frmEncerrarPedido
         Me.btnAnterior.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAnterior.Location = New System.Drawing.Point(221, 523)
         Me.btnAnterior.Name = "btnAnterior"
-        Me.btnAnterior.Size = New System.Drawing.Size(114, 50)
+        Me.btnAnterior.Size = New System.Drawing.Size(95, 50)
         Me.btnAnterior.TabIndex = 49
         Me.btnAnterior.Text = "<"
         Me.btnAnterior.UseVisualStyleBackColor = False
@@ -699,9 +723,9 @@ Partial Class frmEncerrarPedido
         Me.btnProximo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnProximo.BackColor = System.Drawing.Color.Gainsboro
         Me.btnProximo.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnProximo.Location = New System.Drawing.Point(341, 523)
+        Me.btnProximo.Location = New System.Drawing.Point(360, 523)
         Me.btnProximo.Name = "btnProximo"
-        Me.btnProximo.Size = New System.Drawing.Size(114, 50)
+        Me.btnProximo.Size = New System.Drawing.Size(95, 50)
         Me.btnProximo.TabIndex = 49
         Me.btnProximo.Text = ">"
         Me.btnProximo.UseVisualStyleBackColor = False
@@ -716,7 +740,7 @@ Partial Class frmEncerrarPedido
         Me.Label11.Size = New System.Drawing.Size(661, 18)
         Me.Label11.TabIndex = 14
         Me.Label11.Text = "- Para excluir itens basta clicar sobre o item desejado na lista (esta ação reque" & _
-    "r senha de administrador)."
+            "r senha de administrador)."
         '
         'Label10
         '
@@ -739,12 +763,12 @@ Partial Class frmEncerrarPedido
         Me.Label9.Size = New System.Drawing.Size(604, 18)
         Me.Label9.TabIndex = 18
         Me.Label9.Text = "- A moeda 'Fidelidade' só ficará disponível quando o cliente possuir o direito ao" & _
-    " uso do prêmio.."
+            " uso do prêmio.."
         '
         'pnlInfo
         '
         Me.pnlInfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlInfo.BackColor = System.Drawing.Color.LightSeaGreen
         Me.pnlInfo.Controls.Add(Me.Label9)
         Me.pnlInfo.Controls.Add(Me.Label10)
@@ -755,18 +779,6 @@ Partial Class frmEncerrarPedido
         Me.pnlInfo.TabIndex = 47
         Me.pnlInfo.Visible = False
         '
-        'Button2
-        '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.BackColor = System.Drawing.Color.Gainsboro
-        Me.Button2.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(18, 571)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(221, 50)
-        Me.Button2.TabIndex = 49
-        Me.Button2.Text = "Confirmar Alteração"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
         'frmEncerrarPedido
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -774,11 +786,12 @@ Partial Class frmEncerrarPedido
         Me.Controls.Add(Me.lstItens)
         Me.Controls.Add(Me.pnlTitulo)
         Me.Controls.Add(Me.pnlMoedas)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.pnlItens)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.pnlInfo)
         Me.Font = New System.Drawing.Font("Arial Narrow", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.Name = "frmEncerrarPedido"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -788,8 +801,8 @@ Partial Class frmEncerrarPedido
         CType(Me.grdItemPedido, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.pnlItens.ResumeLayout(False)
+        Me.pnlItens.PerformLayout()
         Me.pnlInfo.ResumeLayout(False)
         Me.pnlInfo.PerformLayout()
         Me.ResumeLayout(False)
@@ -813,7 +826,7 @@ Partial Class frmEncerrarPedido
     Friend WithEvents btnEncerrar As System.Windows.Forms.Button
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents cmdLevarTotal As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents cmdReimprimir As System.Windows.Forms.Button
     Friend WithEvents pnlMoedas As System.Windows.Forms.FlowLayoutPanel
@@ -824,7 +837,7 @@ Partial Class frmEncerrarPedido
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents lblTroco As System.Windows.Forms.Label
     Friend WithEvents txtEmail As System.Windows.Forms.TextBox
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents pnlItens As System.Windows.Forms.Panel
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents txtVlrPrato As System.Windows.Forms.TextBox
     Friend WithEvents btn3 As System.Windows.Forms.Button
@@ -847,9 +860,10 @@ Partial Class frmEncerrarPedido
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents btnAnterior As System.Windows.Forms.Button
     Friend WithEvents btnProximo As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents cmdAlteraEmail As System.Windows.Forms.Button
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents pnlInfo As System.Windows.Forms.Panel
+    Friend WithEvents lblQtde As System.Windows.Forms.Label
 End Class
