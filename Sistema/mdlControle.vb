@@ -33,6 +33,10 @@ Namespace ComunicacaoSAT
         Public Shared Function tCFeCancelar_SAT_Daruma() As Integer
         End Function
 
+        <DllImport("DarumaFrameWork.dll")> _
+        Public Shared Function iImprimirTexto_DUAL_DarumaFramework(ByVal stTexto As String, ByVal iTam As Integer) As Integer
+        End Function
+
     End Class
 
 End Namespace
