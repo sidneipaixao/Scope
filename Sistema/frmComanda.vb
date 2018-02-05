@@ -223,7 +223,7 @@
 
             'EFETUA O ENVIO DOS ITENS PARA O CFE
             '   DADOS: ALIQ ICMS, QTDE, PRECO UNITARIO, TIPO DESC/ACRESC, VLR/PERC DESC/ACRESC, CODIGO, UNID MEDIDA, NOME (PRODUTO)
-            For Each oGrupo As ListViewGroup In frmEncerrarPedido.lstItens.Groups
+            For Each oGrupo As ListViewGroup In frmEncerrarPedido.OItens.Groups
                 For Each oItem As ListViewItem In oGrupo.Items
                     nResult = ComunicacaoSAT.Daruma.aCFVender_SAT_Daruma("12,00", "1", oItem.SubItems(3).Text, "D$", 0, oItem.Text, "UND", oItem.SubItems(1).Text)
                     If nResult <> 1 Then Error 2

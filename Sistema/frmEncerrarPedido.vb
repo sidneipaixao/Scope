@@ -1,7 +1,7 @@
 ﻿Public Class frmEncerrarPedido
 
 
-    Dim oItens As New ListView
+    Public oItens As New ListView
 
     'VERIFICAR NECESSIDADE DESTAS VARIAVEIS
     Dim nVlrTotal As Double = 0
@@ -49,14 +49,7 @@
             oDados.Close()
 
             'CARREGA OS ITENS DO PRIMEIRO GRUPO NO LISTVIEW DA TELA; USAR O LISTVIEW EM MEMORIA PARA TODAS AS DEMAIS OPERACOES
-            For Each oItem In oItens.Groups(0).Items
-                With lstItens.Items.Add(oItem.Name, oItem.Text, 0)
-                    .SubItems.Add(oItem.SubItems(1))
-                    .SubItems.Add(oItem.SubItems(2))
-                    .SubItems.Add(oItem.SubItems(3))
-                End With
-            Next
-            lblQtde.Text = "1/" & oItens.Groups.Count
+            fnDestacar(0)
 
             'AGORA TENTA VERIFICAR SE O NOME NO PEDIDO E' UM EMAIL, SE FOR UTILIZA
             oComando.CommandText = "SELECT CASE WHEN VNDCLIENTEEMAIL = 'N' OR VNDCLIENTEEMAIL = 'NN'" & _

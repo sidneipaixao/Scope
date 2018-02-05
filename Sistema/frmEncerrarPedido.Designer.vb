@@ -22,6 +22,7 @@ Partial Class frmEncerrarPedido
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEncerrarPedido))
         Me.pnlTitulo = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -81,6 +82,7 @@ Partial Class frmEncerrarPedido
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.pnlInfo = New System.Windows.Forms.Panel()
+        Me.objDistanciaItens = New System.Windows.Forms.ImageList(Me.components)
         Me.pnlTitulo.SuspendLayout()
         CType(Me.grdItemPedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -134,7 +136,7 @@ Partial Class frmEncerrarPedido
         Me.lstItens.BackColor = System.Drawing.Color.White
         Me.lstItens.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lstItens.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.clnCodigo, Me.clnDescricao, Me.clnQtde, Me.clnValor})
-        Me.lstItens.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lstItens.Font = New System.Drawing.Font("Candara", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstItens.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.lstItens.FullRowSelect = True
         Me.lstItens.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
@@ -142,6 +144,7 @@ Partial Class frmEncerrarPedido
         Me.lstItens.MultiSelect = False
         Me.lstItens.Name = "lstItens"
         Me.lstItens.Size = New System.Drawing.Size(449, 486)
+        Me.lstItens.SmallImageList = Me.objDistanciaItens
         Me.lstItens.TabIndex = 41
         Me.lstItens.UseCompatibleStateImageBehavior = False
         Me.lstItens.View = System.Windows.Forms.View.Details
@@ -474,7 +477,6 @@ Partial Class frmEncerrarPedido
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(431, 27)
         Me.txtEmail.TabIndex = 43
-        Me.txtEmail.Text = "user.system@scope.com.br"
         '
         'btnApaga
         '
@@ -558,11 +560,11 @@ Partial Class frmEncerrarPedido
         '
         Me.txtTotal.BackColor = System.Drawing.Color.WhiteSmoke
         Me.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtTotal.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotal.Font = New System.Drawing.Font("Candara", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtTotal.Location = New System.Drawing.Point(28, 42)
         Me.txtTotal.Name = "txtTotal"
-        Me.txtTotal.Size = New System.Drawing.Size(196, 24)
+        Me.txtTotal.Size = New System.Drawing.Size(196, 40)
         Me.txtTotal.TabIndex = 14
         Me.txtTotal.Text = "0,00"
         Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -596,7 +598,7 @@ Partial Class frmEncerrarPedido
         Me.txtVlrTroco.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtVlrTroco.Font = New System.Drawing.Font("Candara", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVlrTroco.ForeColor = System.Drawing.Color.LightCoral
-        Me.txtVlrTroco.Location = New System.Drawing.Point(252, 37)
+        Me.txtVlrTroco.Location = New System.Drawing.Point(252, 42)
         Me.txtVlrTroco.Name = "txtVlrTroco"
         Me.txtVlrTroco.Size = New System.Drawing.Size(198, 40)
         Me.txtVlrTroco.TabIndex = 18
@@ -654,11 +656,11 @@ Partial Class frmEncerrarPedido
         Me.txtVlrPrato.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtVlrPrato.BackColor = System.Drawing.Color.Silver
         Me.txtVlrPrato.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtVlrPrato.Font = New System.Drawing.Font("Candara", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtVlrPrato.Font = New System.Drawing.Font("Candara", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVlrPrato.ForeColor = System.Drawing.Color.IndianRed
         Me.txtVlrPrato.Location = New System.Drawing.Point(12, 547)
         Me.txtVlrPrato.Name = "txtVlrPrato"
-        Me.txtVlrPrato.Size = New System.Drawing.Size(151, 30)
+        Me.txtVlrPrato.Size = New System.Drawing.Size(151, 40)
         Me.txtVlrPrato.TabIndex = 48
         Me.txtVlrPrato.Text = "0,00"
         '
@@ -779,6 +781,12 @@ Partial Class frmEncerrarPedido
         Me.pnlInfo.TabIndex = 47
         Me.pnlInfo.Visible = False
         '
+        'objDistanciaItens
+        '
+        Me.objDistanciaItens.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.objDistanciaItens.ImageSize = New System.Drawing.Size(1, 50)
+        Me.objDistanciaItens.TransparentColor = System.Drawing.Color.Transparent
+        '
         'frmEncerrarPedido
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -866,4 +874,5 @@ Partial Class frmEncerrarPedido
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents pnlInfo As System.Windows.Forms.Panel
     Friend WithEvents lblQtde As System.Windows.Forms.Label
+    Friend WithEvents objDistanciaItens As System.Windows.Forms.ImageList
 End Class

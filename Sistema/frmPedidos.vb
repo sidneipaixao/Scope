@@ -1,6 +1,27 @@
 ﻿Public Class frmPedidos
 
-    Private Sub frmPedidos_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmPedidos_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
+
+        'ESC -> FECHAR TELA
+        If e.KeyCode = 27 Then
+            Close()
+        End If
+
+        'ENTER -> SE TIVER PEDIDO SELECIONADO, EXIBE TELA ENCERRAMENTO
+        If e.KeyCode = 13 Then
+            If lstPedidos.SelectedItems.Count > 0 Then
+                lstPedidos_MouseClick(lstPedidos, Nothing)
+            End If
+        End If
+
+        'F5 -> RECARREGA PEDIDOS NA TELA
+        If e.KeyCode = Keys.F5 Then
+            objBuscaPedido_Tick(objBuscaPedido, Nothing)
+        End If
+
+    End Sub
+
+    Private Sub frmPedidos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         'DESENHA BORDA DO FORMULARIO
         'NAO PODE MAXIMIZAR, SENAO COBRE BARRA DE TAREFAS DO WINDOWS, POR ISSO NAO USA WINDOWSTATE
@@ -16,11 +37,11 @@
 
     End Sub
 
-    Private Sub cmdFechar_Click(sender As System.Object, e As System.EventArgs)
+    Private Sub cmdFechar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Close()
     End Sub
 
-    Private Sub lstPedidos_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles lstPedidos.MouseClick
+    Private Sub lstPedidos_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles lstPedidos.MouseClick
 
         If lstPedidos.SelectedItems.Count > 0 Then
             'frmEncerrarPedido.txtEmail.Text = lstPedidos.SelectedItems(0).SubItems(2).Text
@@ -31,7 +52,7 @@
 
     End Sub
 
-    Private Sub cmdFechar_Click_1(sender As System.Object, e As System.EventArgs) Handles cmdFechar.Click
+    Private Sub cmdFechar_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdFechar.Click
 
         Close()
 
