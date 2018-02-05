@@ -32,6 +32,7 @@ Partial Class frmEncerrarPedido
         Me.clnDescricao = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.clnQtde = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.clnValor = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.objDistanciaItens = New System.Windows.Forms.ImageList(Me.components)
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnIncluir = New System.Windows.Forms.Button()
         Me.grdItemPedido = New System.Windows.Forms.DataGridView()
@@ -82,7 +83,6 @@ Partial Class frmEncerrarPedido
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.pnlInfo = New System.Windows.Forms.Panel()
-        Me.objDistanciaItens = New System.Windows.Forms.ImageList(Me.components)
         Me.pnlTitulo.SuspendLayout()
         CType(Me.grdItemPedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -171,6 +171,12 @@ Partial Class frmEncerrarPedido
         Me.clnValor.Text = "Valor"
         Me.clnValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.clnValor.Width = 55
+        '
+        'objDistanciaItens
+        '
+        Me.objDistanciaItens.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.objDistanciaItens.ImageSize = New System.Drawing.Size(1, 50)
+        Me.objDistanciaItens.TransparentColor = System.Drawing.Color.Transparent
         '
         'Label3
         '
@@ -351,7 +357,7 @@ Partial Class frmEncerrarPedido
         Me.txtVlrPago.Location = New System.Drawing.Point(28, 107)
         Me.txtVlrPago.Name = "txtVlrPago"
         Me.txtVlrPago.Size = New System.Drawing.Size(196, 31)
-        Me.txtVlrPago.TabIndex = 17
+        Me.txtVlrPago.TabIndex = 0
         Me.txtVlrPago.Text = "0,00"
         Me.txtVlrPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -386,7 +392,7 @@ Partial Class frmEncerrarPedido
         Me.cmdLevarTotal.Location = New System.Drawing.Point(19, 404)
         Me.cmdLevarTotal.Name = "cmdLevarTotal"
         Me.cmdLevarTotal.Size = New System.Drawing.Size(205, 50)
-        Me.cmdLevarTotal.TabIndex = 31
+        Me.cmdLevarTotal.TabIndex = 1
         Me.cmdLevarTotal.Text = "Totalizar"
         Me.cmdLevarTotal.UseVisualStyleBackColor = False
         '
@@ -780,12 +786,6 @@ Partial Class frmEncerrarPedido
         Me.pnlInfo.Size = New System.Drawing.Size(1171, 94)
         Me.pnlInfo.TabIndex = 47
         Me.pnlInfo.Visible = False
-        '
-        'objDistanciaItens
-        '
-        Me.objDistanciaItens.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
-        Me.objDistanciaItens.ImageSize = New System.Drawing.Size(1, 50)
-        Me.objDistanciaItens.TransparentColor = System.Drawing.Color.Transparent
         '
         'frmEncerrarPedido
         '

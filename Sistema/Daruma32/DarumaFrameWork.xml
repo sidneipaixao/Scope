@@ -5,7 +5,7 @@
     <LogTamMaxMB>5</LogTamMaxMB>
     <ModoObserver>0</ModoObserver>
     <PathBibliotecasAuxiliares>.\</PathBibliotecasAuxiliares>
-    <Produto></Produto>
+    <Produto>DUAL</Produto>
     <ThreadAoIniciar>0</ThreadAoIniciar>
     <TipoRegistro>2</TipoRegistro>
     <TokenEncurtadorUrl>0</TokenEncurtadorUrl>
@@ -148,7 +148,7 @@
     </CHEQUE>
     <LEI12741>
       <ColunasIBPT>0;4;5;1;6;7</ColunasIBPT>
-      <LocalArquivoNCM>./IBPTAX.csv</LocalArquivoNCM>
+      <LocalArquivoNCM>C:\Users\Miner\Documents\Visual Studio 2010\Projects\Scope\Sistema\Daruma32\IBPTAX.csv</LocalArquivoNCM>
       <LocalMSG>0</LocalMSG>
       <MSG>Val Aprox Tributos | Fonte:IBPT</MSG>
       <SeparadorIBPT>;</SeparadorIBPT>

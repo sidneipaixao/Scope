@@ -160,6 +160,7 @@
     <Compile Include="mdlBanco.vb" />
     <Compile Include="mdlControle.vb" />
     <Compile Include="mdlEmail.vb" />
+    <Compile Include="mdlImpressao.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

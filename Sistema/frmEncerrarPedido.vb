@@ -253,6 +253,20 @@
             Close()
         End If
 
+        'RETIRAR - APENAS PARA FINALIDADE DE TESTES!!!!!!
+        If e.Shift And e.KeyCode = Keys.F10 Then
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework(fnImprimeResumo, 0)
+            MessageBox.Show("Impresso: RESUMO")
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework(fnImprimeComissao, 0)
+            MessageBox.Show("Impresso: COMISSAO")
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework(fnImprimeFidelidade(0), 0)
+            MessageBox.Show("Impresso: FIDELIDADE")
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework(fnImprimePedido(0, False), 0)
+            MessageBox.Show("Impresso: PEDIDO COZINHA")
+            ComunicacaoSAT.Daruma.iImprimirTexto_DUAL_DarumaFramework(fnImprimePedido(0, True), 0)
+            MessageBox.Show("Impresso: PEDIDO COMPLETO")
+        End If
+
     End Sub
 
     Private Sub frmPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
