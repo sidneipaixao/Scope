@@ -52,3 +52,75 @@
 04/02/2018-17:03:27:820:		>> fnXML_START_PathLocalArquivos(.\)
 04/02/2018-17:03:27:827:			>> fnXML_START_PathPadrao(.\)
 04/02/2018-17:03:27:835:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+05/02/2018-21:23:11:770:		>> fnXML_START_PathLocalArquivos(.\)
+05/02/2018-21:23:11:778:			>> fnXML_START_PathPadrao(.\)
+05/02/2018-21:23:11:787:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+05/02/2018-21:36:43:213:		>> fnXML_START_PathLocalArquivos(.\)
+05/02/2018-21:36:43:222:			>> fnXML_START_PathPadrao(.\)
+05/02/2018-21:36:43:232:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+05/02/2018-21:39:24:393:		>> fnXML_START_PathLocalArquivos(.\)
+05/02/2018-21:39:24:404:			>> fnXML_START_PathPadrao(.\)
+05/02/2018-21:39:24:415:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+05/02/2018-21:41:40:456:		>> fnXML_START_PathLocalArquivos(.\)
+05/02/2018-21:41:40:467:			>> fnXML_START_PathPadrao(.\)
+05/02/2018-21:41:40:477:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+05/02/2018-21:46:23:343:		>> fnXML_START_PathLocalArquivos(.\)
+05/02/2018-21:46:23:351:			>> fnXML_START_PathPadrao(.\)
+05/02/2018-21:46:23:359:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+05/02/2018-21:52:02:546:		>> fnXML_START_PathLocalArquivos(.\)
+05/02/2018-21:52:02:557:			>> fnXML_START_PathPadrao(.\)
+05/02/2018-21:52:02:567:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+05/02/2018-22:03:32:468:		>> fnXML_START_PathLocalArquivos(.\)
+05/02/2018-22:03:32:476:			>> fnXML_START_PathPadrao(.\)
+05/02/2018-22:03:32:486:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+06/02/2018-10:55:49:585:		>> fnXML_START_PathLocalArquivos(.\)
+06/02/2018-10:55:49:601:			>> fnXML_START_PathPadrao(.\)
+06/02/2018-10:55:49:601:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+06/02/2018-11:33:08:819:		>> fnXML_START_PathLocalArquivos(.\)
+06/02/2018-11:33:08:834:			>> fnXML_START_PathPadrao(.\)
+06/02/2018-11:33:08:850:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+06/02/2018-11:45:58:135:		>> fnXML_START_PathLocalArquivos(.\)
+06/02/2018-11:45:58:154:			>> fnXML_START_PathPadrao(.\)
+06/02/2018-11:45:58:164:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+06/02/2018-11:53:19:617:			>> fnXML_START_PathLocalArquivos(.\)
+06/02/2018-11:53:19:639:				>> fnXML_START_PathPadrao(.\)
+06/02/2018-11:53:19:647:				<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+06/02/2018-11:54:47:912:			>> fnXML_START_PathLocalArquivos(.\)
+06/02/2018-11:54:47:920:				>> fnXML_START_PathPadrao(.\)
+06/02/2018-11:54:47:928:				<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+06/02/2018-11:56:45:163:			>> fnXML_START_PathLocalArquivos(.\)
+06/02/2018-11:56:45:171:				>> fnXML_START_PathPadrao(.\)
+06/02/2018-11:56:45:179:				<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+06/02/2018-12:02:44:264:			>> fnXML_START_PathLocalArquivos(.\)
+06/02/2018-12:02:44:271:				>> fnXML_START_PathPadrao(.\)
+06/02/2018-12:02:44:279:				<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+06/02/2018-12:03:35:845:			>> fnXML_START_PathLocalArquivos(.\)
+06/02/2018-12:03:35:854:				>> fnXML_START_PathPadrao(.\)
+06/02/2018-12:03:35:863:				<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+06/02/2018-21:21:18:984:			>> fnXML_START_PathLocalArquivos(.\)
+06/02/2018-21:21:18:992:				>> fnXML_START_PathPadrao(.\)
+06/02/2018-21:21:19:001:				<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+06/02/2018-21:24:46:876:		>> fnXML_START_PathLocalArquivos(.\)
+06/02/2018-21:24:46:899:			>> fnXML_START_PathPadrao(.\)
+06/02/2018-21:24:46:908:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+06/02/2018-21:37:38:398:		>> fnXML_START_PathLocalArquivos(.\)
+06/02/2018-21:37:38:408:			>> fnXML_START_PathPadrao(.\)
+06/02/2018-21:37:38:418:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+06/02/2018-22:01:09:717:		>> fnXML_START_PathLocalArquivos(.\)
+06/02/2018-22:01:09:726:			>> fnXML_START_PathPadrao(.\)
+06/02/2018-22:01:09:734:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+09/02/2018-00:03:55:824:		>> fnXML_START_PathLocalArquivos(.\)
+09/02/2018-00:03:55:831:			>> fnXML_START_PathPadrao(.\)
+09/02/2018-00:03:55:841:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+09/02/2018-00:42:47:629:		>> fnXML_START_PathLocalArquivos(.\)
+09/02/2018-00:42:47:637:			>> fnXML_START_PathPadrao(.\)
+09/02/2018-00:42:47:645:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+09/02/2018-00:54:42:398:		>> fnXML_START_PathLocalArquivos(.\)
+09/02/2018-00:54:42:405:			>> fnXML_START_PathPadrao(.\)
+09/02/2018-00:54:42:414:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+09/02/2018-00:58:56:031:		>> fnXML_START_PathLocalArquivos(.\)
+09/02/2018-00:58:56:063:			>> fnXML_START_PathPadrao(.\)
+09/02/2018-00:58:56:074:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1
+09/02/2018-06:54:33:242:		>> fnXML_START_PathLocalArquivos(.\)
+09/02/2018-06:54:33:274:			>> fnXML_START_PathPadrao(.\)
+09/02/2018-06:54:33:285:			<< fnXML_START_PathPadrao - RETORNO NUMERO: 1

@@ -25,7 +25,7 @@ Partial Class frmAbrirTurno
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAbrirTurno))
         Me.cmdEntrar = New System.Windows.Forms.Button()
         Me.pnlTitulo = New System.Windows.Forms.Panel()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lblTitulo = New System.Windows.Forms.Label()
         Me.cmdFechar = New System.Windows.Forms.Button()
         Me.txtValorIni = New System.Windows.Forms.NumericUpDown()
         Me.txtUsuario = New System.Windows.Forms.TextBox()
@@ -61,7 +61,7 @@ Partial Class frmAbrirTurno
         'pnlTitulo
         '
         Me.pnlTitulo.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.pnlTitulo.Controls.Add(Me.Label6)
+        Me.pnlTitulo.Controls.Add(Me.lblTitulo)
         Me.pnlTitulo.Controls.Add(Me.cmdFechar)
         Me.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlTitulo.Location = New System.Drawing.Point(0, 0)
@@ -70,16 +70,16 @@ Partial Class frmAbrirTurno
         Me.pnlTitulo.Size = New System.Drawing.Size(457, 35)
         Me.pnlTitulo.TabIndex = 1
         '
-        'Label6
+        'lblTitulo
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(1, 7)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(103, 23)
-        Me.Label6.TabIndex = 15
-        Me.Label6.Text = "Abrir Turno"
+        Me.lblTitulo.AutoSize = True
+        Me.lblTitulo.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitulo.ForeColor = System.Drawing.Color.White
+        Me.lblTitulo.Location = New System.Drawing.Point(1, 7)
+        Me.lblTitulo.Name = "lblTitulo"
+        Me.lblTitulo.Size = New System.Drawing.Size(103, 23)
+        Me.lblTitulo.TabIndex = 15
+        Me.lblTitulo.Text = "Abrir Turno"
         '
         'cmdFechar
         '
@@ -231,17 +231,17 @@ Partial Class frmAbrirTurno
         Me.PerformLayout()
 
     End Sub
-  Friend WithEvents cmdEntrar As System.Windows.Forms.Button
-  Friend WithEvents pnlTitulo As System.Windows.Forms.Panel
+    Friend WithEvents cmdEntrar As System.Windows.Forms.Button
+    Friend WithEvents pnlTitulo As System.Windows.Forms.Panel
     Friend WithEvents txtValorIni As System.Windows.Forms.NumericUpDown
-  Friend WithEvents txtUsuario As System.Windows.Forms.TextBox
-  Friend WithEvents txtSenha As System.Windows.Forms.TextBox
-  Friend WithEvents Label1 As System.Windows.Forms.Label
-  Friend WithEvents Label2 As System.Windows.Forms.Label
-  Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents txtUsuario As System.Windows.Forms.TextBox
+    Friend WithEvents txtSenha As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents txtValorFim As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents lblTitulo As System.Windows.Forms.Label
     Friend WithEvents cmdFechar As System.Windows.Forms.Button
     Friend WithEvents imgNome As System.Windows.Forms.PictureBox
 End Class

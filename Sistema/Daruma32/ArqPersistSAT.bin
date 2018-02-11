@@ -1,5 +1,5 @@
 01|<dest><CPF>11111111111</CPF><xNome>SIDNEI</xNome></dest>
-02|001|<prod><cProd>213</cProd><xProd>Penne</xProd><NCM>01012100</NCM><CFOP>0001</CFOP><uCom>UND</uCom><qCom>1.0000</qCom><vUnCom>14.89</vUnCom><indRegra>T</indRegra></prod><imposto><ICMS><ICMS00><Orig>0</Orig><CST>00</CST><pICMS>12.00</pICMS></ICMS00></ICMS><PIS><PISAliq><CST>01</CST><vBC>14.89</vBC><pPIS>1.0000</pPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>14.89</vBC><pCOFINS>1.0000</pCOFINS></COFINSAliq></COFINS></imposto>
-02|002|<prod><cProd>1878</cProd><xProd>Molho 4 Queijos</xProd><NCM>01012100</NCM><CFOP>0001</CFOP><uCom>UND</uCom><qCom>1.0000</qCom><vUnCom>0.01</vUnCom><indRegra>T</indRegra></prod><imposto><ICMS><ICMS00><Orig>0</Orig><CST>00</CST><pICMS>12.00</pICMS></ICMS00></ICMS><PIS><PISAliq><CST>01</CST><vBC>0.01</vBC><pPIS>1.0000</pPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>0.01</vBC><pCOFINS>1.0000</pCOFINS></COFINSAliq></COFINS></imposto>
+02|001|<prod><cProd>9911</cProd><xProd>Chiclets</xProd><NCM>01012100</NCM><CFOP>5102</CFOP><uCom>UND</uCom><qCom>1.0000</qCom><vUnCom>0.50</vUnCom><indRegra>T</indRegra></prod><imposto><ICMS><ICMS00><Orig>0</Orig><CST>00</CST><pICMS>12.00</pICMS></ICMS00></ICMS><PIS><PISAliq><CST>01</CST><vBC>0.50</vBC><pPIS>1.0000</pPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>0.50</vBC><pCOFINS>1.0000</pCOFINS></COFINSAliq></COFINS></imposto>
 03|<total><vCFeLei12741>0.00</vCFeLei12741></total>
-04|001|<MP><cMP>01</cMP><vMP>14.90</vMP></MP>
+04|001|<MP><cMP>01</cMP><vMP>0.50</vMP></MP>
+05|<infAdic><infCpl>COMANDA:100</infCpl></infAdic>

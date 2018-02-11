@@ -13,15 +13,27 @@
     Top = 0
     Left = 0
     Width = Screen.GetWorkingArea(Me).Width
-    Height = Screen.GetWorkingArea(Me).Height
+        Height = Screen.GetWorkingArea(Me).Height
 
-  End Sub
+    End Sub
 
   Private Sub cmdAbrir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdAbrir.Click
 
-    frmAbrirTurno.Show()
+        If rCaixa.Situacao Then
 
-  End Sub
+            If MessageBox.Show("Já existe um turno aberto!" & vbNewLine & "Deseja encerrar este turno agora?", "Turno aberto!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
+
+                frmAbrirTurno.ShowDialog()
+
+            End If
+
+        Else
+
+            frmAbrirTurno.ShowDialog()
+
+        End If
+
+    End Sub
 
   Private Sub cmdPedidos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdPedidos.Click
 
@@ -38,6 +50,34 @@
 
     Private Sub cmdFuncoes_Click(sender As System.Object, e As System.EventArgs) Handles cmdFuncoes.Click
         frmMoeda.ShowDialog()
+    End Sub
+
+    Private Sub cmdEncerrar_Click(sender As System.Object, e As System.EventArgs) Handles cmdEncerrar.Click
+
+        If Not rCaixa.Situacao Then
+
+            If MessageBox.Show("Não existe um turno aberto neste momento para ser fechado." & vbNewLine & "Deseja realizar a abertura de um turno agora?", "Turno fechado!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
+
+                frmAbrirTurno.ShowDialog()
+
+            End If
+
+        Else
+
+            frmAbrirTurno.ShowDialog()
+
+        End If
+
+    End Sub
+
+    Private Sub frmPrincipal_Activated(sender As System.Object, e As System.EventArgs) Handles MyBase.Activated
+
+        If rCaixa.Situacao Then
+            objMensagens.Text = "Caixa Aberto | Sistema Pronto"
+        Else
+            objMensagens.Text = "Caixa Fechado | Sistema Pronto"
+        End If
+
     End Sub
 
 End Class

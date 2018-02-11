@@ -24,6 +24,62 @@ WS_Framework - Biblioteca utilizada para comunicação com WebService da NFCe e en
 
 DarumaFramework.dll
 
+Data de liberação: 24/01/2018
+
+Versão Arquivo: 11.17.11
+ECF 12.55, DUAL 5.68, MODEM 3.67, TA2000 4.05, GENERICO 1.05, DSP 1.05, NFCe 5.05, NFe 1.01, SAT 3.16, TEF 1.15
+MD-5: 1DD63CFE08D65958CE0C1CDDB467AF20
+----- Geral
+Nova Implementação - eVersoesBibliotecas_Daruma - Criado método que retorna versão das principais bibliotecas em uso (Frameworks Daruma).
+
+----- ECF
+Implementação - iRGImprimirTexto_ECF_Daruma - Revisão da rotina que verifica as tags de formatação para enviar o comando correto quando usada a configuração condensado.
+Implementação - iCCDAbrirSimplificado_ECF_Daruma - Adicionado retorno de parametro inválido para quando a descrição do pagamento recebida for maior que o tamanho especificado.
+
+Nova Implementação - eCarregarQrCode_ECF_Daruma - criado método para carregar bitmap promocional no ECF.
+
+----- DUAL
+Implementação - Rotas IP (DUAL\AtivaRota=1) - Revisão da rotina que configura a porta para que a alteração de uma rota para outra ocorra corretamente.
+
+----- NFCe
+Implementação - métodos de venda _NFCe - Revisadas as rotinas de gravação e leitura das informações de venda, melhorando desempenho dos métodos.
+Implementação - Configuração de PIS e COFINS - sempre que houver a informação da tag pPis ou pCOFINS, foram ajustadas as rotinas que utilizam o valor para verificar quando menor que '1,0' indica que já está sendo informado o percentual então o cálculo para achar o percentual não é feito.
+Implementação - rLeituraX_NFCe_Daruma - Ajustes na rotina para geração da leitura no path correto indicado no xml. Foi revisada também a gravação do arquivo xml, quando a chave CONFIGURACAO\HistoricoXML está ativa, para não gravar a resposta do web service junto com o xml.
+Implementação - rAvisoErro_NFCe_Daruma - Revisão da rotina quando EmissaoCTG=2 retornar os erros corretamente.
+Implementação - tCFEncerrar_NFCe_Daruma - com EmissaoCTG=2 - Revisada a rotina para quando há erro de conexão no envio da contingência Online, para que não seja criada nova nota, e seja retornado a informação correta.
+Implementação - CONFIGURACAO\HistoricoXML - Para quando está ativo, foi revisada a rotina que grava o histórico do xml Completo para que o faça independente do valor da chave CONFIGURACAO\ImpressaoCompleta.
+Implementação - iCFImprimirParametrizado_NFCe_Daruma - Ajustes na rotina que monta a DANF-e para usar os valores de pagamento e frete corretamente, para pagamentos também foi ajustada a rotina que busca pelos pagamentos da venda.
+Implementação - aCFVenderCompleto_NFCe_Daruma - Ajustes na rotina que utiliza o valor informado para desconto, para que o valor informado não sofra alteração após seu tratamento. 
+Implementação -  aCFConfCofinsOutr_NFCe_Daruma/aCFConfPisOutr_NFCe_Daruma - Revisão do tratamento de parâmetros para que não retorne erro por não ter valor opcional.
+
+Nova Implementação - rInfoEstendida_NFCe_Daruma - com tradução SAT habilitada, passou a retornar algumas informações após o encerramento. Índices retornados: 2- Num CFe, 3- Chave de acesso CFe, 5- Num série SAT, 6- Data/Hora Emissão CFe.
+Nova Implementação - iCFReImprimir_NFCe_Daruma - com tradução SAT habilitada, adicionado tratamento para receber os dados de SAT nos parametros, sendo que a chave de acesso permanece com tamanho 44 (pra sat informe sem o CFe inicial).
+Nova Implementação - geração de XML venda - Ajustes realizados por todos os processos da Venda NFCe para adaptação ao layout 4.0 do XML.
+Nova Implementação - aCFVenderCompleto_NFCe_Daruma - Adicionados ao metaparâmetro forma de informar base de cálculo para usar no PIS e no COFINS de forma que atenda o RE574706/PR. [DB] Foi adicionado também tratamento para o valor de desconto informado.
+Nova Implementação - NFCE\LEIDOIMPOSTO\Habilitar - passou a aceitar o valor 5 para que calcule mas não imprima item a item o valor da Lei de Olho no Imposto.
+Nova Implementação - iCFImprimirParametrizado_NFCe_Daruma - metaparametro de FORMATACAO - passou a aceitar a tag de centralizar para os campos do cabeçalho, passou também a tratar as plavras para que a quebra de linha seja feita sem quebrar palavras.
+
+----- SAT
+Implementação - métodos de venda _SAT - Revisadas as rotinas de gravação e leitura das informações de venda, melhorando desempenho dos métodos.
+Implementação - rInfoEstentida_SAT_Daruma - Revisada rotina para que não retorne erro quando não existir o arquivo temporário para consultar a informação. Feito também ajustes para retorno correto do valor total da venda e do valor total líquido do item. Ajustada a rotina também para retornar corretamente as informações quando MarcaImpressora=7.
+Implementação - tCFeEnviar_SAT_Daruma - Revisão da rotina que lê os itens informados no parâmetro, pra que não ocorram repetições quando xml informado tem muitos itens (mais de 20).
+Implementação - Emulador Sefaz - Ajustada rotina que utiliza a dllSAT para que seja chamada de forma correta quando está usando o emulador SEFAZ.
+
+Nova Implementação - tCFEnviarPagamentoMFE_SAT_Daruma, tCFVerificarStatusValidadorMFE_SAT_Daruma, tCFEnviarStatusPagamentoMFE_SAT_Daruma, tCFRespostaFiscalMFE_SAT_Daruma - Criados novos métodos para atender o TEF com MFE.
+Nova Implementação - métodos de venda - a framework passou a permitir emissao de vendas SAT com equipamento SAT Daruma e impressora de outra marca, porém neste caso não é realizada impressão, apenas emissão do CF-e.
+Nova Implementação - rInfoEstendida_SAT_Daruma - Adicionados retornos para MFE com TEF após os métodos: tCFEnviarPagamentoMFE_SAT_Daruma ou tCFRespostaFiscalMFE_SAT_Daruma, e também para cancelamentos de SAT e MFE após os métodos: tCFeCancelar_SAT_Daruma, tCFeCancelarParametrizado_SAT_Daruma.
+Nova Implementação - aCFVenderCompleto_SAT_Daruma - Adicionados ao metaparâmetro forma de informar base de cálculo para usar no PIS e no COFINS de forma que atenda o RE574706/PR. [DB]
+Nova Implementação - EMIT\xFant - Criada chave para configuração do nome fantasia, que será incluso no xml de venda quando preenchido, e seu valor usado para impressão da DANF-e.
+
+----- TEF
+Nova Implementação - TEF\TransacaoAutomatica = 1 e TEF\TipoComprovanteCli = 1 - Acrescentada checagem da guilhotina da impressora, para que quando habilitada seja acionada automaticamente entre as vias impressas de comprovante.
+Nova Implementação - tConfirmarTransacaoPadrao_TEF_Daruma - Criado novo método que realiza a confirmação padrão da transação em anadamento.
+
+ATENÇÃO - As bibliotecas abaixo foram atualizadas: 
+GNE_Framework - versão: 02.29.04 – MD5: E6D816D41CA1F0693D8B976D8B657A12
+WS_Framework - versão: 01.08.07 - MD5: EF9E1D6003A4FB74148885BE7A7BAF2F
+
+-----------------------------------------------------------------------
 Data de liberação: 09/11/2017
 
 Versão Arquivo: 11.11.33

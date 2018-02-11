@@ -1,12 +1,12 @@
 <DARUMAFRAMEWORKSAT>
   <CONFIGURACAO>
-    <estadoCFe>4</estadoCFe>
-    <numeroSessao>100000</numeroSessao>
+    <estadoCFe>5</estadoCFe>
+    <numeroSessao>100833</numeroSessao>
     <codigoDeAtivacao>123456789</codigoDeAtivacao>
-    <ChaveConsulta></ChaveConsulta>
+    <ChaveConsulta>CFe35180211111111111111591234567890000109097726</ChaveConsulta>
     <vCFeLei12741>0.00</vCFeLei12741>
     <vCFeLei12741Porcentagem>0.00</vCFeLei12741Porcentagem>
-    <VersaoDadosEnt>xx.xx</VersaoDadosEnt>
+    <VersaoDadosEnt>0.06</VersaoDadosEnt>
     <CaracterSeparador>;</CaracterSeparador>
     <SeparadorUsoFuturo>;</SeparadorUsoFuturo>
     <Logotipo></Logotipo>
@@ -14,6 +14,15 @@
     <LayoutImpressao>0</LayoutImpressao>
     <ImprimirMsgQrCode>0</ImprimirMsgQrCode>
   </CONFIGURACAO>
+  <PGTOCARTAOMFE>
+    <ChaveAcessoValidador></ChaveAcessoValidador>
+    <ChaveRequisicao></ChaveRequisicao>
+    <CodigoMoeda>BRL</CodigoMoeda>
+    <IDEstabelecimento></IDEstabelecimento>
+    <EmitirCupomNFCe>0</EmitirCupomNFCe>
+    <IdFila></IdFila>
+    <HabilitarControleAntiFraude>0</HabilitarControleAntiFraude>
+  </PGTOCARTAOMFE>
   <LEIDOIMPOSTO>
     <MsgLeiDoImposto>Valor aproximado dos tributos deste cupom       (Lei Federal 12.741/2012)</MsgLeiDoImposto>
     <Habilitar>0</Habilitar>
@@ -22,31 +31,31 @@
     <SeparadorArquivo>;</SeparadorArquivo>
   </LEIDOIMPOSTO>
   <IDENTIFICACAO_CFE>
-    <CNPJ>22222222222222</CNPJ>
-    <signAC>11111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111</signAC>
+    <CNPJ>11111111111111</CNPJ>
+    <signAC>11111111111111222222222222221111111111111122222222222222111111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111111112222222222222211111111111111222222222222221111111111111122222222222222111111111111112222222222222211111111</signAC>
     <numeroCaixa>001</numeroCaixa>
-    <nNF></nNF>
-    <UrlQrcode></UrlQrcode>
-    <nSerie></nSerie>
-    <DataHoraEmissao></DataHoraEmissao>
-    <vTotalCfe></vTotalCfe>
+    <nNF>000010</nNF>
+    <UrlQrcode>CFe35180211111111111111591234567890000109097726|20180209070004|0.50|11111111111|SlM38aXi9xQ6/2nCALaCmPSwQ0gZLqcQpuzxBy8n/AweIHCBWYnFfsE2uARBSmTRJ9+mPZsA7M9RyVqH6QKmLynsxiKBRu2rq9414+IddTveO0RFTK/LAND4SjIbc7yDDjxFks4LVJa3edeLS6zsDbTyGzR38VGDsi5vy5CQ8L0KTtsTJ4Vm1Jw9/tQenbHCSYo8RJzu+Lk4vpISFx+fYKetzeqWgY2TzkqMftCmt20nf5zlNu7zsntJn2t4nOPK/g/rcN1L76Zx4KDnwttQ/PEIwadQMtEZSZJwMlEM+HquQPSgbLR062bOAMdvh7rU40EUwboWygETr0j3C1OvOA==</UrlQrcode>
+    <nSerie>123456789</nSerie>
+    <DataHoraEmissao>20180209070004</DataHoraEmissao>
+    <vTotalCfe>0.50</vTotalCfe>
     <obsFisco></obsFisco>
   </IDENTIFICACAO_CFE>
   <DEST>
     <CNPJ> </CNPJ>
-    <CPF> </CPF>
-    <xNome> </xNome>
+    <CPF>11111111111</CPF>
+    <xNome>SIDNEI</xNome>
   </DEST>
   <EMIT>
     <CNPJ>11111111111111</CNPJ>
     <IE>111111111111</IE>
-    <IM></IM>
+    <IM> </IM>
     <UF> </UF>
     <cRegTribISSQN>1</cRegTribISSQN>
     <indRatISSQN>N</indRatISSQN>
   </EMIT>
   <PROD>
-    <CFOP>0001</CFOP>
+    <CFOP>5102</CFOP>
     <indRegra>T</indRegra>
     <NCM>01012100</NCM>
   </PROD>

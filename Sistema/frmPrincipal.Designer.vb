@@ -143,7 +143,7 @@ Partial Class frmPrincipal
         '
         Me.cmdAbrir.FlatAppearance.BorderSize = 0
         Me.cmdAbrir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdAbrir.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdAbrir.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdAbrir.ForeColor = System.Drawing.Color.White
         Me.cmdAbrir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmdAbrir.ImageIndex = 0
@@ -176,7 +176,7 @@ Partial Class frmPrincipal
         '
         Me.cmdPedidos.FlatAppearance.BorderSize = 0
         Me.cmdPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdPedidos.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdPedidos.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdPedidos.ForeColor = System.Drawing.Color.White
         Me.cmdPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmdPedidos.ImageIndex = 1
@@ -195,7 +195,7 @@ Partial Class frmPrincipal
         '
         Me.cmdRecibos.FlatAppearance.BorderSize = 0
         Me.cmdRecibos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdRecibos.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdRecibos.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdRecibos.ForeColor = System.Drawing.Color.White
         Me.cmdRecibos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmdRecibos.ImageIndex = 2
@@ -214,7 +214,7 @@ Partial Class frmPrincipal
         '
         Me.cmdFuncoes.FlatAppearance.BorderSize = 0
         Me.cmdFuncoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdFuncoes.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdFuncoes.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdFuncoes.ForeColor = System.Drawing.Color.White
         Me.cmdFuncoes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmdFuncoes.ImageIndex = 3
@@ -233,7 +233,7 @@ Partial Class frmPrincipal
         '
         Me.cmdSincronizar.FlatAppearance.BorderSize = 0
         Me.cmdSincronizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdSincronizar.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdSincronizar.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdSincronizar.ForeColor = System.Drawing.Color.White
         Me.cmdSincronizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmdSincronizar.ImageIndex = 4
@@ -252,7 +252,7 @@ Partial Class frmPrincipal
         '
         Me.cmdReiniciar.FlatAppearance.BorderSize = 0
         Me.cmdReiniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdReiniciar.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdReiniciar.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdReiniciar.ForeColor = System.Drawing.Color.White
         Me.cmdReiniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmdReiniciar.ImageIndex = 5
@@ -271,7 +271,7 @@ Partial Class frmPrincipal
         '
         Me.cmdComissoes.FlatAppearance.BorderSize = 0
         Me.cmdComissoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdComissoes.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdComissoes.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdComissoes.ForeColor = System.Drawing.Color.White
         Me.cmdComissoes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmdComissoes.ImageIndex = 6
@@ -290,7 +290,7 @@ Partial Class frmPrincipal
         '
         Me.cmdRelatorios.FlatAppearance.BorderSize = 0
         Me.cmdRelatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdRelatorios.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdRelatorios.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdRelatorios.ForeColor = System.Drawing.Color.White
         Me.cmdRelatorios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmdRelatorios.ImageIndex = 7
@@ -309,7 +309,7 @@ Partial Class frmPrincipal
         '
         Me.cmdEncerrar.FlatAppearance.BorderSize = 0
         Me.cmdEncerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdEncerrar.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdEncerrar.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdEncerrar.ForeColor = System.Drawing.Color.White
         Me.cmdEncerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.cmdEncerrar.ImageIndex = 8

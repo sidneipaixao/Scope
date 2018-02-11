@@ -59,7 +59,7 @@ Module mdlControle
             If MessageBox.Show("A abertura de turno ainda não foi realizada." & vbNewLine & "Deseja efetuar a abertura agora?", "Turno não iniciado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 With frmAbrirTurno
                     '.MdiParent = frmPrincipal
-                    .Show()
+                    .ShowDialog()
                     lAguardar = True
                     While lAguardar
                         lAguardar = False

@@ -26,7 +26,7 @@
     <LinhasGuilhotina>0</LinhasGuilhotina>
     <Margem>00;00</Margem>
     <ModoGaveta>0</ModoGaveta>
-    <PortaComunicacao>COM1</PortaComunicacao>
+    <PortaComunicacao>COM3</PortaComunicacao>
     <Rota1>COM1>000.000.000.000:0000</Rota1>
     <Rota2>COM2>000.000.000.000:0000</Rota2>
     <Rota3>COM3>000.000.000.000:0000</Rota3>
@@ -314,14 +314,14 @@
       <Host>localhost</Host>
       <Porta>8080</Porta>
       <Usuario>usuario</Usuario>
-      <Senha>senha</Senha>
+      <Senha>6w==001CDF1DD4CACC501F0CB60DD4361DD51230891C</Senha>
     </PROXY>
     <TimeOutWS>10</TimeOutWS>
     <IMPRESSORA>
       <ComunicacaoUSB>0</ComunicacaoUSB>
       <ControleAutomatico>0</ControleAutomatico>
       <MarcaImpressora>0</MarcaImpressora>
-      <PortaComunicacao>COM1</PortaComunicacao>
+      <PortaComunicacao>COM3</PortaComunicacao>
       <TamanhoBobina>48</TamanhoBobina>
       <TempoEsperaLeitura>30</TempoEsperaLeitura>
       <Velocidade>9600</Velocidade>
@@ -350,7 +350,7 @@
       <ComunicacaoUSB>0</ComunicacaoUSB>
       <ControleAutomatico>0</ControleAutomatico>
       <MarcaImpressora>0</MarcaImpressora>
-      <PortaComunicacao>COM1</PortaComunicacao>
+      <PortaComunicacao>COM3</PortaComunicacao>
       <TamanhoBobina>48</TamanhoBobina>
       <Velocidade>9600</Velocidade>
       <ConfAnterior>0</ConfAnterior>

@@ -249,7 +249,7 @@
             'A LINHA ABAIXO DEVE SER COMENTADA AO RETIRAR O COMENTARIO DA LINHA ACIMA
             'ESTOU UTILIZANDO APENAS PARA PERMITIR A CONTINUIDADE DOS TESTES NA APLICACAO,
             'POIS SE O CUPOM FICAR ABERTO, NAO E' POSSIVEL GERAR NOVOS CUPONS
-            nResult = ComunicacaoSAT.Daruma.tCFeCancelar_SAT_Daruma()
+            'nResult = ComunicacaoSAT.Daruma.tCFeCancelar_SAT_Daruma()
             If nResult <> 1 Then Error 2
 
             Return True
