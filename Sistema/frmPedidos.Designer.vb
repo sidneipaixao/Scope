@@ -37,12 +37,9 @@ Partial Class frmPedidos
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.pnlInfo = New System.Windows.Forms.Panel()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.objBuscaPedido = New System.Windows.Forms.Timer(Me.components)
+        Me.cmdEntrar = New System.Windows.Forms.Button()
         Me.pnlTitulo.SuspendLayout()
-        Me.pnlInfo.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlTitulo
@@ -84,8 +81,8 @@ Partial Class frmPedidos
         'lstPedidos
         '
         Me.lstPedidos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstPedidos.AutoArrange = False
         Me.lstPedidos.BackColor = System.Drawing.Color.White
         Me.lstPedidos.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.colNome, Me.colContrato, Me.colEmail})
@@ -98,7 +95,7 @@ Partial Class frmPedidos
         Me.lstPedidos.Margin = New System.Windows.Forms.Padding(12)
         Me.lstPedidos.MultiSelect = False
         Me.lstPedidos.Name = "lstPedidos"
-        Me.lstPedidos.Size = New System.Drawing.Size(985, 301)
+        Me.lstPedidos.Size = New System.Drawing.Size(985, 342)
         Me.lstPedidos.TabIndex = 3
         Me.lstPedidos.TileSize = New System.Drawing.Size(320, 100)
         Me.lstPedidos.UseCompatibleStateImageBehavior = False
@@ -136,7 +133,7 @@ Partial Class frmPedidos
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.SystemColors.Control
         Me.Label2.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(5, 382)
+        Me.Label2.Location = New System.Drawing.Point(5, 423)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(218, 19)
         Me.Label2.TabIndex = 38
@@ -145,7 +142,7 @@ Partial Class frmPedidos
         'lstRecentes
         '
         Me.lstRecentes.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstRecentes.BackColor = System.Drawing.Color.Silver
         Me.lstRecentes.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
         Me.lstRecentes.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -153,11 +150,11 @@ Partial Class frmPedidos
         Me.lstRecentes.FullRowSelect = True
         Me.lstRecentes.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.lstRecentes.HoverSelection = True
-        Me.lstRecentes.Location = New System.Drawing.Point(9, 404)
+        Me.lstRecentes.Location = New System.Drawing.Point(9, 445)
         Me.lstRecentes.Margin = New System.Windows.Forms.Padding(12)
         Me.lstRecentes.MultiSelect = False
         Me.lstRecentes.Name = "lstRecentes"
-        Me.lstRecentes.Size = New System.Drawing.Size(985, 202)
+        Me.lstRecentes.Size = New System.Drawing.Size(985, 189)
         Me.lstRecentes.TabIndex = 39
         Me.lstRecentes.TileSize = New System.Drawing.Size(320, 100)
         Me.lstRecentes.UseCompatibleStateImageBehavior = False
@@ -178,52 +175,32 @@ Partial Class frmPedidos
         Me.ColumnHeader3.Text = "E-mail do cliente"
         Me.ColumnHeader3.Width = 350
         '
-        'pnlInfo
-        '
-        Me.pnlInfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlInfo.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.pnlInfo.Controls.Add(Me.Label10)
-        Me.pnlInfo.Controls.Add(Me.Label11)
-        Me.pnlInfo.Location = New System.Drawing.Point(9, 612)
-        Me.pnlInfo.Name = "pnlInfo"
-        Me.pnlInfo.Size = New System.Drawing.Size(985, 76)
-        Me.pnlInfo.TabIndex = 48
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(14, 38)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(976, 18)
-        Me.Label10.TabIndex = 15
-        Me.Label10.Text = "- Os itens do painel inferior representam os pedidos recentemente finalizados. Ao" & _
-            " clicar em um pedido suas informações serão exibidas (somente leitura)."
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(14, 15)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(907, 18)
-        Me.Label11.TabIndex = 14
-        Me.Label11.Text = "- Os itens no painel superior representam os pedidos ainda não finalizados. Basta" & _
-            " clicar na tile do pedido desejado para exibir suas informações."
-        '
         'objBuscaPedido
         '
         Me.objBuscaPedido.Enabled = True
         Me.objBuscaPedido.Interval = 600000
         '
+        'cmdEntrar
+        '
+        Me.cmdEntrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmdEntrar.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.cmdEntrar.FlatAppearance.BorderSize = 0
+        Me.cmdEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdEntrar.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdEntrar.ForeColor = System.Drawing.Color.White
+        Me.cmdEntrar.Location = New System.Drawing.Point(788, 640)
+        Me.cmdEntrar.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.cmdEntrar.Name = "cmdEntrar"
+        Me.cmdEntrar.Size = New System.Drawing.Size(206, 48)
+        Me.cmdEntrar.TabIndex = 40
+        Me.cmdEntrar.Text = "Incluir Pedido"
+        Me.cmdEntrar.UseVisualStyleBackColor = False
+        '
         'frmPedidos
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(1000, 700)
-        Me.Controls.Add(Me.pnlInfo)
+        Me.Controls.Add(Me.cmdEntrar)
         Me.Controls.Add(Me.lstRecentes)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -238,8 +215,6 @@ Partial Class frmPedidos
         Me.Text = "Pedidos realizados"
         Me.pnlTitulo.ResumeLayout(False)
         Me.pnlTitulo.PerformLayout()
-        Me.pnlInfo.ResumeLayout(False)
-        Me.pnlInfo.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -257,8 +232,6 @@ Partial Class frmPedidos
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents pnlInfo As System.Windows.Forms.Panel
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents objBuscaPedido As System.Windows.Forms.Timer
+    Friend WithEvents cmdEntrar As System.Windows.Forms.Button
 End Class
