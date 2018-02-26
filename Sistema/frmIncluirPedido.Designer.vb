@@ -32,10 +32,6 @@ Partial Class frmIncluirPedido
         Me.colCodigo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.colDescricao = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.objDistanciaItens = New System.Windows.Forms.ImageList(Me.components)
-        Me.lstAdicionais = New System.Windows.Forms.ListView()
-        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnFinaliza = New System.Windows.Forms.Button()
         Me.btnPrato = New System.Windows.Forms.Button()
@@ -54,6 +50,14 @@ Partial Class frmIncluirPedido
         Me.txtVlrPrato = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.pnlProdutos = New System.Windows.Forms.FlowLayoutPanel()
+        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.pnlTitulo.SuspendLayout()
         Me.pnlItens.SuspendLayout()
         Me.SuspendLayout()
@@ -63,6 +67,7 @@ Partial Class frmIncluirPedido
         Me.pnlTitulo.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.pnlTitulo.Controls.Add(Me.Label3)
         Me.pnlTitulo.Controls.Add(Me.cmdFechar)
+        Me.pnlTitulo.Controls.Add(Me.lstProdutos)
         Me.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlTitulo.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pnlTitulo.Location = New System.Drawing.Point(0, 0)
@@ -119,17 +124,18 @@ Partial Class frmIncluirPedido
         Me.lstProdutos.FullRowSelect = True
         Me.lstProdutos.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.lstProdutos.HoverSelection = True
-        Me.lstProdutos.Location = New System.Drawing.Point(-1, 71)
+        Me.lstProdutos.Location = New System.Drawing.Point(486, 7)
         Me.lstProdutos.Margin = New System.Windows.Forms.Padding(12)
         Me.lstProdutos.MultiSelect = False
         Me.lstProdutos.Name = "lstProdutos"
         Me.lstProdutos.Scrollable = False
-        Me.lstProdutos.Size = New System.Drawing.Size(531, 292)
+        Me.lstProdutos.Size = New System.Drawing.Size(75, 39)
         Me.lstProdutos.SmallImageList = Me.objDistanciaItens
         Me.lstProdutos.TabIndex = 38
         Me.lstProdutos.TileSize = New System.Drawing.Size(200, 180)
         Me.lstProdutos.UseCompatibleStateImageBehavior = False
         Me.lstProdutos.View = System.Windows.Forms.View.Details
+        Me.lstProdutos.Visible = False
         '
         'colCodigo
         '
@@ -145,43 +151,6 @@ Partial Class frmIncluirPedido
         Me.objDistanciaItens.ImageSize = New System.Drawing.Size(1, 50)
         Me.objDistanciaItens.TransparentColor = System.Drawing.Color.Transparent
         '
-        'lstAdicionais
-        '
-        Me.lstAdicionais.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lstAdicionais.AutoArrange = False
-        Me.lstAdicionais.BackColor = System.Drawing.Color.White
-        Me.lstAdicionais.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
-        Me.lstAdicionais.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lstAdicionais.ForeColor = System.Drawing.Color.Black
-        Me.lstAdicionais.FullRowSelect = True
-        Me.lstAdicionais.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.lstAdicionais.HoverSelection = True
-        Me.lstAdicionais.Location = New System.Drawing.Point(9, 397)
-        Me.lstAdicionais.Margin = New System.Windows.Forms.Padding(12)
-        Me.lstAdicionais.MultiSelect = False
-        Me.lstAdicionais.Name = "lstAdicionais"
-        Me.lstAdicionais.Size = New System.Drawing.Size(521, 197)
-        Me.lstAdicionais.TabIndex = 40
-        Me.lstAdicionais.TileSize = New System.Drawing.Size(80, 80)
-        Me.lstAdicionais.UseCompatibleStateImageBehavior = False
-        Me.lstAdicionais.View = System.Windows.Forms.View.Tile
-        '
-        'ColumnHeader1
-        '
-        Me.ColumnHeader1.Text = "Nome do Cliente"
-        Me.ColumnHeader1.Width = 450
-        '
-        'ColumnHeader2
-        '
-        Me.ColumnHeader2.Text = "Contrato"
-        Me.ColumnHeader2.Width = 159
-        '
-        'ColumnHeader3
-        '
-        Me.ColumnHeader3.Text = "E-mail do cliente"
-        Me.ColumnHeader3.Width = 350
-        '
         'Label2
         '
         Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
@@ -191,9 +160,9 @@ Partial Class frmIncluirPedido
         Me.Label2.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(5, 375)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(115, 19)
+        Me.Label2.Size = New System.Drawing.Size(143, 19)
         Me.Label2.TabIndex = 41
-        Me.Label2.Text = "Itens adicionais"
+        Me.Label2.Text = "Acompanhamentos"
         '
         'btnFinaliza
         '
@@ -393,20 +362,111 @@ Partial Class frmIncluirPedido
         Me.Button2.Text = ">"
         Me.Button2.UseVisualStyleBackColor = False
         '
+        'pnlProdutos
+        '
+        Me.pnlProdutos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlProdutos.AutoScroll = True
+        Me.pnlProdutos.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.pnlProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlProdutos.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pnlProdutos.Location = New System.Drawing.Point(9, 69)
+        Me.pnlProdutos.Name = "pnlProdutos"
+        Me.pnlProdutos.Size = New System.Drawing.Size(521, 303)
+        Me.pnlProdutos.TabIndex = 54
+        '
+        'ListView1
+        '
+        Me.ListView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ListView1.AutoArrange = False
+        Me.ListView1.BackColor = System.Drawing.Color.White
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6})
+        Me.ListView1.Font = New System.Drawing.Font("Candara", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListView1.ForeColor = System.Drawing.Color.Black
+        Me.ListView1.FullRowSelect = True
+        Me.ListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.ListView1.HoverSelection = True
+        Me.ListView1.Location = New System.Drawing.Point(277, 397)
+        Me.ListView1.Margin = New System.Windows.Forms.Padding(12)
+        Me.ListView1.MultiSelect = False
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(253, 197)
+        Me.ListView1.TabIndex = 55
+        Me.ListView1.TileSize = New System.Drawing.Size(80, 80)
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.Tile
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "Nome do Cliente"
+        Me.ColumnHeader4.Width = 450
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "Contrato"
+        Me.ColumnHeader5.Width = 159
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "E-mail do cliente"
+        Me.ColumnHeader6.Width = 350
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.SystemColors.Control
+        Me.Label5.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(273, 375)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(115, 19)
+        Me.Label5.TabIndex = 56
+        Me.Label5.Text = "Itens adicionais"
+        '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.FlowLayoutPanel1.AutoScroll = True
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.FlowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.FlowLayoutPanel1.Font = New System.Drawing.Font("Candara", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(9, 397)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(262, 197)
+        Me.FlowLayoutPanel1.TabIndex = 57
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.SystemColors.Control
+        Me.Label6.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(217, 47)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(0, 19)
+        Me.Label6.TabIndex = 58
+        '
         'frmIncluirPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(984, 658)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.FlowLayoutPanel1)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.ListView1)
+        Me.Controls.Add(Me.pnlProdutos)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.pnlItens)
         Me.Controls.Add(Me.btnPrato)
         Me.Controls.Add(Me.btnFinaliza)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.lstAdicionais)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.lstProdutos)
         Me.Controls.Add(Me.pnlTitulo)
         Me.Font = New System.Drawing.Font("Candara", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -426,10 +486,6 @@ Partial Class frmIncluirPedido
     Friend WithEvents cmdFechar As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents lstProdutos As System.Windows.Forms.ListView
-    Friend WithEvents lstAdicionais As System.Windows.Forms.ListView
-    Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnFinaliza As System.Windows.Forms.Button
     Friend WithEvents btnPrato As System.Windows.Forms.Button
@@ -451,4 +507,12 @@ Partial Class frmIncluirPedido
     Friend WithEvents colDescricao As System.Windows.Forms.ColumnHeader
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents pnlProdutos As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents ListView1 As System.Windows.Forms.ListView
+    Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents Label6 As System.Windows.Forms.Label
 End Class
