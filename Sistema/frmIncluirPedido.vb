@@ -21,14 +21,14 @@
 
         If nGrupo > 0 Then
 
-            oDados = fnRetornaDados("SELECT PRDCODIGO, PRDNOME FROM PRODUTOS WHERE PRDSITUACAO = 1 AND PRDSUBRUPO = " & nGrupo)
+            oDados = fnRetornaDados("SELECT PRDCODIGO, PRDNOME, * FROM PRODUTOS WHERE PRDSITUACAO = 1 AND PRDSUBRUPO IN (SELECT SGRCODIGO FROM SUBGRUPOS WHERE SGRGRUPO = " & nGrupo & ")")
 
             'CASO ESTEJA NO NIVEL SECUNDÁRIO, EXIBE BOTÃO RETORNAR 
             Dim oRetorno As New Button
 
             oRetorno.Text = "< RETORNAR"
             oRetorno.Size = New Size(170, 60)
-            oRetorno.Font = New Font(btnPrato.Font, FontStyle.Bold)
+            oRetorno.Font = New Font(btnRemover.Font, FontStyle.Regular)
             oRetorno.Tag = -1
             oRetorno.ForeColor = Color.White
             oRetorno.BackColor = Color.LightSeaGreen
@@ -46,7 +46,7 @@
                 oProdutos.Tag = oDados("PRDCODIGO")
                 oProdutos.Size = New Size(170, 60)
                 oProdutos.BackColor = btnPrato.BackColor
-                oProdutos.Font = New Font(btnPrato.Font, FontStyle.Bold)
+                oProdutos.Font = New Font(btnRemover.Font, FontStyle.Regular)
                 'oProdutos.FlatStyle = FlatStyle.Flat
                 AddHandler oProdutos.Click, AddressOf fnSubgrupo
 
@@ -67,7 +67,7 @@
                 oProdutos.Tag = oDados("GRPCODIGO")
                 oProdutos.Size = New Size(170, 60)
                 oProdutos.BackColor = btnPrato.BackColor
-                oProdutos.Font = New Font(btnPrato.Font, FontStyle.Bold)
+                oProdutos.Font = New Font(btnRemover.Font, FontStyle.Regular)
                 oProdutos.FlatStyle = FlatStyle.Flat
                 AddHandler oProdutos.Click, AddressOf fnSubgrupo
 
