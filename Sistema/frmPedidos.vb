@@ -82,4 +82,9 @@
 
     End Sub
 
+    Private Sub cmdEntrar_Click(sender As System.Object, e As System.EventArgs) Handles cmdEntrar.Click
+
+        frmIncluirPedido.Show()
+
+    End Sub
 End Class
