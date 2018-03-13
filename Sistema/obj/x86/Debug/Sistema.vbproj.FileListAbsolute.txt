@@ -113,3 +113,4 @@ C:\Users\Miner\Documents\Visual Studio 2010\Projects\Scope\Sistema\obj\x86\Debug
 C:\Users\Miner\Documents\Visual Studio 2010\Projects\Scope\Sistema\obj\x86\Debug\Scope.exe
 C:\Users\Miner\Documents\Visual Studio 2010\Projects\Scope\Sistema\obj\x86\Debug\Scope.pdb
 C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\obj\x86\Debug\Scope.frmIncluirPedido.resources
+C:\Users\ico-felipebenassi\Documents\Projeto\Sistema\Scope\Sistema\obj\x86\Debug\Scope.frmDesconto.resources

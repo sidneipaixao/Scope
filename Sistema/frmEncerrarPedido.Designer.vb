@@ -131,8 +131,8 @@ Partial Class frmEncerrarPedido
         '
         Me.lstItens.AllowColumnReorder = True
         Me.lstItens.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstItens.BackColor = System.Drawing.Color.White
         Me.lstItens.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lstItens.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.clnCodigo, Me.clnDescricao, Me.clnQtde, Me.clnValor})
@@ -181,8 +181,8 @@ Partial Class frmEncerrarPedido
         'Label3
         '
         Me.Label3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Candara", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Black
@@ -261,7 +261,7 @@ Partial Class frmEncerrarPedido
         'Panel2
         '
         Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.cmdAlteraEmail)
@@ -673,7 +673,7 @@ Partial Class frmEncerrarPedido
         'pnlMoedas
         '
         Me.pnlMoedas.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlMoedas.AutoScroll = True
         Me.pnlMoedas.BackColor = System.Drawing.Color.WhiteSmoke
         Me.pnlMoedas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -686,8 +686,8 @@ Partial Class frmEncerrarPedido
         'pnlItens
         '
         Me.pnlItens.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlItens.BackColor = System.Drawing.Color.Silver
         Me.pnlItens.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlItens.Controls.Add(Me.lblQtde)
@@ -748,7 +748,7 @@ Partial Class frmEncerrarPedido
         Me.Label11.Size = New System.Drawing.Size(661, 18)
         Me.Label11.TabIndex = 14
         Me.Label11.Text = "- Para excluir itens basta clicar sobre o item desejado na lista (esta ação reque" & _
-            "r senha de administrador)."
+    "r senha de administrador)."
         '
         'Label10
         '
@@ -771,12 +771,12 @@ Partial Class frmEncerrarPedido
         Me.Label9.Size = New System.Drawing.Size(604, 18)
         Me.Label9.TabIndex = 18
         Me.Label9.Text = "- A moeda 'Fidelidade' só ficará disponível quando o cliente possuir o direito ao" & _
-            " uso do prêmio.."
+    " uso do prêmio.."
         '
         'pnlInfo
         '
         Me.pnlInfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlInfo.BackColor = System.Drawing.Color.LightSeaGreen
         Me.pnlInfo.Controls.Add(Me.Label9)
         Me.pnlInfo.Controls.Add(Me.Label10)
