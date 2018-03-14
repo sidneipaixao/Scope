@@ -702,4 +702,9 @@
 
     End Sub
 
+    Private Sub pnlItens_DoubleClick(sender As Object, e As System.EventArgs) Handles pnlItens.DoubleClick
+
+        frmDesconto.Show()
+
+    End Sub
 End Class
